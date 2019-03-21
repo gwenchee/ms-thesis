@@ -1,7 +1,78 @@
 \chapter[Introduction]{Introduction}
 
 \section{Background and motivation}
+\subsection{Why is Nuclear Waste Disposal research important?}
+Implementation of a nuclear waste disposal plan and minimizing the 
+cost of the nuclear fuel cycle are crucial to the future use of 
+nuclear power 
+\cite{massachusetts_institute_of_technology_future_2003}. 
+If the U.S. nuclear industry does not find an effective and safe 
+plan to manage the waste, the nuclear industry will continue facing 
+political and social opposition. 
+
+[**More]
+
+\subsection{Possible Methods of Waste disposal}
+Currently, all of the commercial nuclear waste in the \gls{US} are 
+scattered across the country at each reactor site [** Reference]. 
+There has been much debate on what to do with the nuclear waste in 
+the long term. 
+There has been much debate between an open fuel cycle and a closed 
+fuel cycle. 
+
+[**Describe Open Fuel Cycle]
+
+[**Describe Closed Fuel Cycle, why does France use it?]
+
+[**Compare them -- advantages and disadvantages of each]
+
+[**Describe why an open fuel cycle is more feasible in the US]
+It was determined in the large multi-disciplinary study of the 
+future of nuclear power that a once-through fuel cycle is more 
+economic and proliferation-resistant than a closed fuel cycle that
+makes use of reprocessing technology
+\cite{massachusetts_institute_of_technology_future_2003}.
+
+[**Waste Repository is necessary no matter what because every 
+fuel cycle will have non-reprocessable waste]
+
+In this work, the expectation is that the chosen fuel cycle is a 
+once through fuel cycle and the method of long term disposal of 
+spent nuclear fuel (SNF) will be a deep geologic repository. 
+
+\subsection{Previous Work towards repository modeling}
+Previous work towards the wicked problem of getting spent nuclear fuel from reactor 
+sites to a final waste repository focuses on how different waste acceptance strategies 
+impact economic expenditure \cite{nesbit_proposed_2015}, pre-emplacement 
+surface storage time, waste package size, and repository 
+footprint \cite{greenberg_application_2012}. 
+There has also been efforts to holistically evaluate the entire system to consolidate 
+how each factor impact the cost and safety of moving SNF from 
+reactor sites to the final waste repository \cite{nutt_waste_2015}.
+Previous work in studying repository loading have used spent fuel assemblies 
+that have an average burn up composition \cite{johnson_optimizing_2016} 
+to evaluate the heat load in the repository \cite{greenberg_application_2012}. 
 
 \section{Objectives}
+The objective of this thesis is to: 
+\begin{itemize}
+    \item Create a \Cyclus spent fuel conditioning model that
+    packages spent fuel bundles into packages which have
+    user-defined properties.
+    \item Create a \Cyclus interim storage facility that gives 
+    waste canisters to the repository facility to emplace in the 
+    order of a specific waste acceptance strategy. 
+    \item Create a \Cyclus medium-fidelity repository model that
+    accepts and emplaces canisters that results in the repository 
+    remaining below the thermal limit of the host geologic media.
+    It should also give accurate time and spatial dependent 
+    temperature values in the repository. 
+    \item Use U.S. historical SNF inventory data 
+    \cite{peterson_unf-st&dards_2017} in various simulations
+    that model different loading strategies for moving 
+    \gls{SNF} from reactor sites to a final waste repository.
+\end{itemize}
+
 
 \section{Methods}
+Explain \Cyclus, \Cycamore, \Cyder etc.  
