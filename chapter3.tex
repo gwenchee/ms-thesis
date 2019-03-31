@@ -20,8 +20,8 @@ remaining below the thermal limit of the host geologic media.
 Table \ref{tab:temp_limit} shows the temperature limits, thermal 
 conductivity and thermal diffusivity for the host geology included 
 in the model. 
-It provides the user with a spatial and time dependent temperature 
-distribution in the repository. 
+The repository model will provide the user with a spatial and time 
+dependent temperature distribution in the repository. 
 
 \begin{table}[h]
     \centering
@@ -44,7 +44,20 @@ In the waste repository model, the user can define the variables:
 		\item Distance between waste packages
 		\item Distance between drifts 
 		\item Repository host geology 
-    \end{itemize}
+	\end{itemize}
+	
+\subsection{Output Tables}
+The waste repository model will output the spatial and time 
+dependent temperature distribution in the repository in a sqlite 
+table. An example of an output table is shown in figure 
+\ref{fig:outputtable}. 
+
+\begin{figure}[h]
+	\includegraphics[width=0.9\linewidth]{outputtable}
+	\caption{Sqlite Table output by \Cyclus showing the spatial and 
+	time dependent temperature distribution in the repository}
+    \label{fig:outputtable}
+\end{figure}
 
 \subsection{Thermal Model}
 After the addition of new waste packages at each time step, the 
@@ -115,3 +128,6 @@ The neighboring drifts are represented by infinite line sources.
 	\frac{q_L(t')}{t-t'} e^{\frac{-(x^2+z^2)}{4\alpha (t-t')}} dt'
 \end{align}
 
+\subsection{Implementation in \Cyclus}
+These equations were implemented in \Cyclus using the boost 
+integration libraries to numerically solve the integration.  
