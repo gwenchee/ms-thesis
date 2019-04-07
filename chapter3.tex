@@ -31,9 +31,9 @@ dependent temperature distribution in the repository.
 	\begin{tabular}{|l|l|l|l|}
 	\hline
 	Rock Type & $T_{limit}$ [$^\circ$C] & k [$\frac{W}{mK}$] &  $\alpha$ [$\frac{m^2}{s}$]  \\ \hline
-	Granite   & 100 & 2.5  & 1.13\\ \hline
-	Clay      & 100 & 1.75 & 6.45\\ \hline
-	Salt      & 200 & 4.2  & 2.07\\ \hline
+	Granite   & 100 & 2.5  & $1.13*10^{-6}$\\ \hline
+	Clay      & 100 & 1.75 & $6.45*10^{-7}$\\ \hline
+	Salt      & 200 & 4.2  & $2.07*10^{-6}$\\ \hline
 	\end{tabular}
 \end{table}
 
@@ -41,9 +41,10 @@ dependent temperature distribution in the repository.
 
 In the waste repository model, the user can define the variables: 
 	\begin{itemize}
-		\item Distance between waste packages
-		\item Distance between drifts 
+		\item Distance between waste packages [m]
+		\item Distance between drifts [m]
 		\item Repository host geology 
+		\item Length of each drift [m]
 	\end{itemize}
 	
 \subsection{Output Tables}
