@@ -1,8 +1,61 @@
 \chapter{Method}
 
 \section{Spent Fuel Conditioning Model}
+\subsection{Capabilities}
+The spent fuel conditioning model accepts spent fuel bundles and 
+packages them into a cylindrical waste packages with user-defined
+parameters. 
+Each waste package will have a notion of when it was packaged. 
+
+\subsection{Input Variables}
+In the spent fuel conditioning model, the user can define the 
+variables: 
+For each layer, 
+\begin{itemize}
+	\item thickness
+	\item thermal conductivity 
+	\item thermal diffusivity
+\end{itemize}
+
+For each package,
+\begin{itemize}
+	\item Number of spent fuel bundles
+	\item Radius and height
+\end{itemize}
+
+For the facility,  
+\begin{itemize}
+	\item Throughput 
+\end{itemize}
 
 \section{Interim Storage Facility Model}
+\subsection{Capabilities}
+The interim storage facility accepts waste packages from
+spent fuel conditioning facilities. 
+It acts as a storage facility and will send waste packages to 
+the repository facility based on a loading strategy. 
+Various loading strategy logics are included in the interim 
+storage facility model. 
+
+\subsection{Loading Strategies}
+The loading strategies included in the interim storage facility 
+model are: 
+\begin{itemize}
+\item First Out First In 
+\item Last Out First In 
+\item Temperature Grouping
+\end{itemize}
+
+[** Loading Strategy Literature Review]
+
+\subsection{Input Variables}
+In the interim storage facility model, the user can define the 
+variables: 
+\begin{itemize}
+	\item Loading strategy 
+	\item Throughput 
+	\item Storage time 
+\end{itemize} 
 
 \section{Repository Model}
 
