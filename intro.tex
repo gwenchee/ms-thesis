@@ -1,7 +1,57 @@
 \chapter[Introduction]{Introduction}
 
 \section{Background and motivation}
+[Why we want to transition]
+The current fleet of \glspl{PWR} are old. 
+
+An evaluation and screening study of a comprehensive set of nuclear 
+\gls{FCO} \cite{wigeland_nuclear_2014} was conducted to assess 
+for performance improvements compared the existing once-through 
+fuel cycle (EG01) in the \gls{US} across a wide range of criteria. 
+It was found that fuel cycles that consistently scored high 
+overall performance involved continuous recycling
+of co-extracted U/Pu or U/TRU in fast spectrum critical reactors. 
+The evaluation and screening study assumed that 
+the nuclear energy system was at an equilibrium to understand 
+the end-state benefits of each evaluation group (EG). 
+Based on the results from the study, the next step is 
+to understand and evaluate the transition from the initial EG01
+state to these promising future end-states 
+\cite{feng_standardized_2016}. 
+
+This propelled research towards nuclear fuel cycle transition 
+scenario analysis. 
+To successfully conduct analysis of the time-dependent transition
+analyses, it is necessary to develop \gls{NFCSim} tools to  
+automate setting up of transition scenarios. 
+Many fuel cycle simulator tools were improved to have 
+the capabilities conduct these analyses, such as 
+Dymond, Cyclus, ORION... 
+[add citations and list]  
+The main issues faced by these tools for conducting these transition 
+scenario analyses stem from the large sample space of input 
+parameters for nuclear fuel cycle scenarios.
+Since many of these input parameters are interdependent, it ends
+up being a tedious process for the user to manually find a balance 
+between various input parameters to set up a successful transition 
+scenario. 
+
+Furthermore, since \gls{NFC} simulations are complex systems with 
+many input and output variables. 
+It is insufficient to just set up one transition scenario to model 
+the future projections of nuclear power. 
+In reality, despite having an idea of how this one transition 
+scenario fares, the real transition process will diverge from it. 
+Therefore, it is important to conduct \gls{SA} and optimization 
+to understand the effects of variation in input parameters on 
+important output parameters. 
 
 \section{Objectives}
-
-\section{Methods}
+Knowing the difficulties faced by \gls{NFCSim}s to model 
+transition scenarios and conduct sensitivity analysis, 
+the objectives of this thesis are to: 
+(1) Develop a capability in \Cyclus to ease setting up of transition 
+scenarios, 
+(2) Compare \Cyclus and Dymond's capabilities in setting up 
+transition scenarios, and 
+(3) Compare \Cyclus and Dymond's capabilities in conducting \gls{SA}. 
