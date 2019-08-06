@@ -222,7 +222,7 @@
 %%%        {\lc@selectfont \@thesisname}\\[12pt]
         \@thesisname\\[12pt] % [12pt] added back 3.08
         Submitted in partial fulfillment of the requirements\\
-        \hspace*{-0.18in}for the degree of \@degree\ in \@dept\\
+        for the degree of \@degree\ in \@dept\\
         in the \@college\ of the\\
         University of Illinois at Urbana-Champaign, \@degreeyear}%\vfil}%
      \vskip-0.60in %% ECE: edit to adjust title page spacing (SR)
@@ -231,15 +231,15 @@
      \vskip 0.17in %% ECE: edit to adjust title page spacing (SR)
         \vbox to 2.1in{
       \if@doctoral
-        \hspace*{0.1in}Doctoral Committee:\\[12pt] %default is 0.2in
-        \hspace*{0.53in}\begin{tabular}{l}\@committee\end{tabular}%\vfil} %default is 0.6in
+        \hspace*{-0.5in}Doctoral Committee:\\[12pt] 
+        \begin{tabular}{l}\@committee\end{tabular}%\vfil} 
       \else
         \if@c@mmitt@@
-          \hspace*{0.1in}Master's Committee:\\[12pt] %default is 0.2in
-         \hspace*{0.53in}\begin{tabular}{l}\@committee\end{tabular}%\vfil} %default is 0.6in
+          \hspace*{-0.5in}Master's Committee:\\[12pt] 
+         \begin{tabular}{l}\@committee\end{tabular}%\vfil} 
         \else
-        \hspace*{0.1in}Adviser:\\[12pt] %default is 0.2in
-         \hspace*{0.53in}\@advisor%\vfil} %default is 0.6in
+        \hspace*{-0.5in}Adviser:\\[12pt] 
+         \@advisor%\vfil} 
         \fi
       \fi}
     \newpage
@@ -269,7 +269,7 @@
       \hskip -\leftskip
       #1\nobreak
       \leaders\hbox{$\m@th\mkern\@dotsep mu\hbox{.}\mkern\@dotsep mu$}
-      \hfil \nobreak\hbox to\@pnumwidth{\hss #2}\par
+      \hfil \nobreak#2\par
       \penalty\@highpenalty
     \endgroup
   \fi}
@@ -625,7 +625,7 @@
   \global\@topnum\z@
   \@afterindentfalse
   \secdef\@chapter\@schapter}
-\renewcommand\chaptername{}
+\renewcommand\chaptername{\if@mixc@sech@p Chapter\else CHAPTER\fi}
 \renewcommand\appendixname{\if@mixc@sech@p Appendix\else APPENDIX\fi}
 \newcommand\aubioname{Author's Biography} %% instead of Vita for ECE
 \newcommand\aubio{

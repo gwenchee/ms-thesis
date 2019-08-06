@@ -1,34 +1,76 @@
 \chapter[Introduction]{Introduction}
 
-\section{Background and motivation}
-[Why we want to transition]
-The current fleet of \glspl{PWR} are old. 
+\section{Motivation}
+%[Climate Change, carbon free energy, need nuclear]
 
-An evaluation and screening study of a comprehensive set of nuclear 
-\gls{FCO} \cite{wigeland_nuclear_2014} was conducted to assess 
-for performance improvements compared the existing once-through 
-fuel cycle (EG01) in the \gls{US} across a wide range of criteria. 
-It was found that fuel cycles that consistently scored high 
-overall performance involved continuous recycling
-of co-extracted U/Pu or U/TRU in fast spectrum critical reactors. 
+The impact of climate change on natural and human systems have 
+become increasingly apparent.
+This manifests in the increase of global average surface 
+temperature, sea levels, and changes in climates extremes.
+These are consequences of elevated \gls{GHG} concentrations. 
+Two-thirds of total \gls{GHG} emissions are from the production 
+and use of energy \cite{noauthor_climate_2018}. 
+With the increasing human population and urbanizing of less 
+developed countries, global energy demand is forecasted to 
+increase. 
+The impact of the growing demand for energy will depend on the 
+types of power generation technologies used. 
+Large scale deployment of nuclear power plants has significant 
+potential to reduce \gls{GHG} production due to its low 
+carbon emissions \cite{noauthor_climate_2018}.  
+
+%[Challenges facing large-scale nuclear power deployment]
+
+There are four major problems facing the nuclear power industry
+that challenge the large scale deployment of nuclear power 
+plants: cost, safety, proliferation, and waste 
+\cite{massachusetts_institute_of_technology_future_2003}. 
+Nuclear power has high overall lifetime costs and use of it comes 
+with the risk of nuclear proliferation. 
+It also has perceived adverse safety, environmental, and health 
+effects, and an unresolved long-term nuclear waste management 
+strategy \cite{massachusetts_institute_of_technology_future_2003}. 
+The nuclear power industry must overcome these four challenges 
+to ensure continued global use of nuclear energy technology. 
+
+% Evaluation Screening Study 
+Currently, the \gls{NFC} in the \gls{US} is a once-through cycle 
+in which fabricated nuclear fuel is only used once and not recycled. 
+The challenges described above are associated with this 
+once-through fuel cycle. 
+Therefore, to overcome and mitigate these challenges, the 
+\gls{DOE} chartered an evaluation and screening study 
+of a comprehensive set of nuclear \gls{FCO} 
+to identify \glspl{FCO} with potential 
+to provide substantial improvements compared to the current 
+\gls{NFC} in the \gls{US} \cite{wigeland_nuclear_2014}. 
+
+It was found that fuel cycles that involved continuous recycling
+of co-extracted U/Pu or U/TRU in fast spectrum critical reactors
+consistently scored high overall performance . 
 The evaluation and screening study assumed that 
 the nuclear energy system was at an equilibrium to understand 
 the end-state benefits of each evaluation group (EG). 
-Based on the results from the study, the next step is 
-to understand and evaluate the transition from the initial EG01
-state to these promising future end-states 
-\cite{feng_standardized_2016}. 
-
+Therefore, based on the results from this study, the next step is 
+to understand and evaluate the transition from the current 
+once-through fuel cycle to these promising 
+future end-states \cite{feng_standardized_2016}. 
 This propelled research towards nuclear fuel cycle transition 
 scenario analysis. 
+
+\subsection{Transition Scenarios}
 To successfully conduct analysis of the time-dependent transition
 analyses, it is necessary to develop \gls{NFCSim} tools to  
 automate setting up of transition scenarios. 
-Many fuel cycle simulator tools were improved to have 
-the capabilities conduct these analyses, such as 
-Dymond, Cyclus, ORION... 
-[add citations and list]  
-The main issues faced by these tools for conducting these transition 
+Many existing fuel cycle simulator tools are used to conduct 
+these analyses, such as 
+\Cyclus \cite{huff_fundamental_2016},
+DYMOND \cite{yacout_modeling_2005},
+VISION \cite{jacobson_vision:_2006},
+ORION \cite{gregg_analysis_2012}, 
+COSI \cite{coquelet-pascal_cosi6:_2015}, 
+and CLASS \cite{mouginot_class_2012}. 
+The main challenges faced by these tools for conducting transition 
 scenario analyses stem from the large sample space of input 
 parameters for nuclear fuel cycle scenarios.
 Since many of these input parameters are interdependent, it ends
@@ -41,9 +83,10 @@ many input and output variables.
 It is insufficient to just set up one transition scenario to model 
 the future projections of nuclear power. 
 In reality, despite having an idea of how this one transition 
-scenario fares, the real transition process will diverge from it. 
-Therefore, it is important to conduct \gls{SA} and optimization 
-to understand the effects of variation in input parameters on 
+scenario fares, the real transition process will 
+inevitably diverge from it. 
+Therefore, it is important to conduct \gls{SA} to understand 
+the effects of variation in input parameters on 
 important output parameters. 
 
 \section{Objectives}
