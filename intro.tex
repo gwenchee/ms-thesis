@@ -1,4 +1,5 @@
 \chapter[Introduction]{Introduction}
+\label{chap:1}
 
 \section{Motivation}
 %[Climate Change, carbon free energy, need nuclear]
@@ -13,7 +14,8 @@ and use of energy \cite{noauthor_climate_2018}.
 With the increasing human population and urbanizing of less 
 developed countries, global energy demand is forecasted to 
 increase. 
-The impact of the growing demand for energy will depend on the 
+The impact of the growing demand for energy on climate change 
+will depend on the 
 types of power generation technologies used. 
 Large scale deployment of nuclear power plants has significant 
 potential to reduce \gls{GHG} production due to its low 
@@ -21,9 +23,10 @@ carbon emissions \cite{noauthor_climate_2018}.
 
 %[Challenges facing large-scale nuclear power deployment]
 
-There are four major problems facing the nuclear power industry
+However, there are four major problems facing the nuclear power 
+industry
 that challenge the large scale deployment of nuclear power 
-plants: cost, safety, proliferation, and waste 
+: cost, safety, proliferation, and waste 
 \cite{massachusetts_institute_of_technology_future_2003}. 
 Nuclear power has high overall lifetime costs and use of it comes 
 with the risk of nuclear proliferation. 
@@ -31,10 +34,11 @@ It also has perceived adverse safety, environmental, and health
 effects, and an unresolved long-term nuclear waste management 
 strategy \cite{massachusetts_institute_of_technology_future_2003}. 
 The nuclear power industry must overcome these four challenges 
-to ensure continued global use of nuclear energy technology. 
+to ensure continued global use and expansion 
+of nuclear energy technology. 
 
 % Evaluation Screening Study 
-Currently, the \gls{NFC} in the \gls{US} is a once-through cycle 
+The present \gls{NFC} in the \gls{US} is a once-through cycle 
 in which fabricated nuclear fuel is only used once and not recycled. 
 The challenges described above are associated with this 
 once-through fuel cycle. 
@@ -42,14 +46,15 @@ Therefore, to overcome and mitigate these challenges, the
 \gls{DOE} chartered an evaluation and screening study 
 of a comprehensive set of nuclear \gls{FCO} 
 to identify \glspl{FCO} with potential 
-to provide substantial improvements compared to the current 
+to provide substantial improvements in the four challenge areas
+compared to the current 
 \gls{NFC} in the \gls{US} \cite{wigeland_nuclear_2014}. 
 
-It was found that fuel cycles that involved continuous recycling
+The study found that fuel cycles that involved continuous recycling
 of co-extracted U/Pu or U/TRU in fast spectrum critical reactors
-consistently scored high overall performance . 
-The evaluation and screening study assumed that 
-the nuclear energy system was at an equilibrium to understand 
+consistently scored high overall performance. 
+The study assumed that 
+these nuclear energy systems were at an equilibrium to understand 
 the end-state benefits of each evaluation group (EG). 
 Therefore, based on the results from this study, the next step is 
 to understand and evaluate the transition from the current 
@@ -63,16 +68,9 @@ To successfully conduct analysis of the time-dependent transition
 analyses, it is necessary to develop \gls{NFCSim} tools to  
 automate setting up of transition scenarios. 
 Many existing fuel cycle simulator tools are used to conduct 
-these analyses, such as 
-\Cyclus \cite{huff_fundamental_2016},
-DYMOND \cite{yacout_modeling_2005},
-VISION \cite{jacobson_vision:_2006},
-ORION \cite{gregg_analysis_2012}, 
-COSI \cite{coquelet-pascal_cosi6:_2015}, 
-and CLASS \cite{mouginot_class_2012}. 
-The main challenges faced by these tools for conducting transition 
-scenario analyses stem from the large sample space of input 
-parameters for nuclear fuel cycle scenarios.
+these analyses and face challenges stemming from the large sample 
+space of input 
+parameters for nuclear fuel cycle transition scenarios.
 Since many of these input parameters are interdependent, it ends
 up being a tedious process for the user to manually find a balance 
 between various input parameters to set up a successful transition 
@@ -82,19 +80,27 @@ Furthermore, since \gls{NFC} simulations are complex systems with
 many input and output variables. 
 It is insufficient to just set up one transition scenario to model 
 the future projections of nuclear power. 
-In reality, despite having an idea of how this one transition 
-scenario fares, the real transition process will 
-inevitably diverge from it. 
+In reality, the real transition process will 
+inevitably diverge from the modeled transition scenario. 
 Therefore, it is important to conduct \gls{SA} to understand 
 the effects of variation in input parameters on 
 important output parameters. 
 
 \section{Objectives}
-Knowing the difficulties faced by \gls{NFCSim}s to model 
+In this thesis, two \gls{NFCSim} tools, \Cyclus and 
+Dymond will be evaluated on their capabilities of setting up 
+successful transition scenarios. 
+The \Cyclus tool will be enhanced to ease setting up of 
+transition scenarios. 
+And finally,   
+Knowing the difficulties faced by \glspl{NFCSim} to model 
 transition scenarios and conduct sensitivity analysis, 
 the objectives of this thesis are to: 
-(1) Develop a capability in \Cyclus to ease setting up of transition 
+(1) Evaluate two \gls{NFCSim} tools, \Cyclus and 
+Dymond on their capabilities of setting up 
+successful transition scenarios. 
+(2) Develop a capability in \Cyclus to ease setting up of transition 
 scenarios, 
-(2) Compare \Cyclus and Dymond's capabilities in setting up 
+(3) Compare \Cyclus and Dymond's capabilities in setting up 
 transition scenarios, and 
-(3) Compare \Cyclus and Dymond's capabilities in conducting \gls{SA}. 
+(4) Compare \Cyclus and Dymond's capabilities in conducting \gls{SA}. 
