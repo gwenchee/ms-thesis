@@ -1,5 +1,56 @@
 \chapter{Methods}
+In this section, the \glspl{NFCSim}, \Cyclus and Dymond, will 
+be described and evaluated on their capability of setting up 
+successful transition scenarios. 
 
 \section{\Cyclus}
+\Cyclus is an agent-based nuclear fuel cycle simulation framework 
+\cite{huff_fundamental_2016}. 
+In \Cyclus, each entity (i.e. Region, Institution, or Facility) in the 
+fuel cycle is an agent. 
+Region agents represent geographical or political areas that institution
+and facility agents can be grouped into. 
+Institution agents control the 
+deployment and decommission of facility agents 
+and represents legal operating organizations such as a 
+utility, government, etc. \cite{huff_fundamental_2016}. 
+Facility agents represent nuclear fuel cycle facilities. 
+\Cycamore \cite{carlsen_cycamore_2014}
+provides facility agents to represent process physics of various 
+components in the nuclear fuel cycle (e.g. mine, fuel enrichment 
+facility, reactor). 
+
+In 2016, there was a push to understand and evaluate the 
+transition from the initial EG01 state to promising future 
+end-states \cite{feng_standardized_2016}.
+Previously in \Cyclus, reactor facilities are automatically 
+deployed to meet a user-defined power demand. 
+However, it is up to the user to define a deployment scheme of 
+supporting facilities to ensure that there is no gap in the supply 
+chain that results in idle reactor capacity. 
+Therefore, previously in \Cyclus, some users choose to set 
+support facilities to have an infinite capacity to avoid this 
+issue, but this is an inaccurate representation of reality. 
+It is straightforward to manually determine a deployment scheme 
+for a once-through fuel cycle, however, it is difficult to effectively 
+implement for complex closed fuel cycle scenarios.  
+To successfully conduct analysis of the time-dependent transition
+analyses, it is necessary to develop \gls{NFCSim} tools to  
+automate setting up of transition scenarios. 
+Therefore, Demand-Driven Cycamore Archetypes project
+(NEUP-FY16-10512) was initiated to develop demand-driven deployment 
+capabilities in \Cyclus.
+
+This capability is added as a \Cyclus Institution
+agent that deploys facilities to meet the front-end and back-end 
+fuel cycle demands based on a user-defined commodity demand. 
+This demand-driven deployment capability is called 
+\deploy. 
+
+\subsection{\deploy}
+
+
+
+
 
 \section{Dymond}
