@@ -1,4 +1,4 @@
-\chapter[chapter 2]{Literature Review}
+\chapter{Literature Review}
 
 \section{History of Nuclear Fuel Cycle Simulators}
 % What is a nuclear fuel cycle
@@ -113,7 +113,7 @@ understand the end-state benefits of each evaluation group (EG).
 Knowing the most promising end state \glspl{EG}, 
 the next step is to evaluate and compare the transition process 
 from the current EG01 
-state to the these \glspl{EG} \cite{feng_standardized_2016}. 
+state to these promising \glspl{EG} \cite{feng_standardized_2016}. 
 
 \begin{table}[]
 	\centering
@@ -133,7 +133,7 @@ state to the these \glspl{EG} \cite{feng_standardized_2016}.
 
 \section{\glspl{NFCSim} Transition Scenario Capabilities}
 % what has been done for transition scenarios so far
-Both \gls{NFCSim} tools used in this thesis, \Cyclus and Dymond,
+Both \gls{NFCSim} tools used in this thesis, \Cyclus and DYMOND,
 were verified by a benchmarking effort for use of 
 \gls{NFCSim} tools to conduct transition scenario analyses
 \cite{feng_standardized_2016,bae_standardized_2019}.
@@ -147,6 +147,8 @@ are capable of simulating a simple transition scenario.
 However, it acknowledged that there needs to be more efforts 
 to model realistic transition scenarios to evaluate the
 flexibility of the \glspl{NFCSim} \cite{feng_standardized_2016}.
+In-depth descriptions about \Cyclus and DYMOND is provided in 
+chapter \ref{chap:3}.
 
 % brown paper 
 % teddy thesis for cyclus capabilties 
@@ -160,7 +162,7 @@ to be able to quantify and include all the different aspects and
 subtleties of each segment of the \gls{NFC} through system analysis 
 and sensitivity studies \cite{passerini_systematic_2014}. 
 Previous work towards \gls{SA} and \gls{UQ} of \gls{NFC} 
-simulations used them interchangeably. 
+simulations used these terms interchangeably. 
 This is because \gls{UQ} in \glspl{NFCSim} are seen as design 
 uncertainties. 
 For example, a pyrochemical reprocessing facility has never been 
@@ -188,19 +190,22 @@ and synergistic.
 
 OAT is basic \gls{SA} that focuses on estimating the lone effect 
 of one input variable. 
-This approach gives the local effect of each variable on the 
+This approach gives the local impact of each variable on the 
 output parameters of interest. 
 OECD conducted a OAT sensitivity analysis \cite{noauthor_effects_2017} 
 on key \gls{NFC} input parameters
 and quantified the impacts on the selected output parameters. 
-They varied each parameter independently and expressed the effects 
-on the output parameters in tornado plots and sensitivity tables. 
+The base scenario used has a duration of 200 years, begins 
+with a fleet of \glspl{PWR} and transitions to \glspl{SFR} while 
+maintaining constant electricity production. 
+They varied each parameter independently for three cases: 
+the base case, a high case, and a low case. 
+The results of these variations on the output parameters 
+are expressed in tornado plots and sensitivity tables. 
 Figure \ref{fig:oecd-sensitivitytable} shows the sensitivity table
 provided by the benchmark that gives an overview of their analysis. 
 Figure \ref{fig:oecd-tornado} shows an example tornado plot that represents 
 the sensitivity of separated Pu in storage to the various input parameters. 
-% explain each figure more 
-
 
 \begin{figure}[]
 	\begin{center}
@@ -249,9 +254,11 @@ Therefore, to fully consider the synergistic effects of
 simultaneous variation of the input variables, a variance 
 based approach can be used instead \cite{thiolliere_methodology_2018}.
 Thiolliere et al conducted a global sensitivity analysis of a 
-\gls{NFC} transition scenario by using Latin Hypercube sampling 
+\gls{NFC} scenario by using Latin Hypercube sampling 
 to generate Sobol' indices. 
-Sobol Indices' provides the global sensitivity effect of each input 
+The scenario was a simulation of a simplified PWR-UOX MOX fuel 
+fleet. 
+Sobol Indices' provide the global sensitivity effect of each input 
 variable by decomposing the variance of the output into fractions 
 that are attributed to inputs or sets of inputs. 
 Essentially it tells us which design parameter have the most 
@@ -267,17 +274,20 @@ optimization is economics
 versus other metrics such as environmental impact, proliferation 
 risk \cite{passerini_systematic_2014}.
 It was determined that the desired fuel cycle end states 
-were EG23, EG24, EG29 and EG30.
+were EG23, EG24, EG29,s and EG30.
 These \gls{SA} studies focused on high level input 
 parameters such as reactor and reprocessing technologies etc.
 However, limited sensitivity studies have been performed to 
 evaluate specific transition scenarios that describe the transition 
-from the current to desired end states.  
-Therefore, \gls{SA} studies focused on
+from the current to desired end states.
+The only relevant sensitivity study was conducted by OECD 
+\cite{noauthor_effects_2017}, however it was a basic OAT 
+\gls{SA}.   
+Therefore, synergistic \gls{SA} studies focused on
 lower level input parameters such as cooling time, 
 date of introduction of reprocessing/reactor 
 technologies, ratio of technology types should be conducted to 
 understand the nuances of the variation of these low-level parameters. 
-These transition scenarios can be further optimized and used to 
-inform other nuclear research areas such as reprocessing facility 
-design etc. 
+Through synergistic \gls{SA}, these transition scenarios can be 
+further optimized and used to inform other nuclear research areas 
+such as reprocessing facility design etc. 
