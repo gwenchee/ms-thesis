@@ -18,6 +18,13 @@
 \usepackage{booktabs} % nice rules (thick lines) for tables
 \usepackage{array}
 \usepackage{tabularx}
+\newcolumntype{b}{>{\hsize=1.0\hsize}X}
+\newcolumntype{s}{>{\hsize=.5\hsize}X}
+\newcolumntype{m}{>{\hsize=.75\hsize}X}
+\newcolumntype{x}{>{\hsize=.25\hsize}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\def\arraystretch{1}
 \graphicspath{{figures/}}
 %\usepackage{subfigure}  % for subfigures
 \usepackage{amsmath}  % for math spacing
@@ -49,6 +56,8 @@ text width=15em, text centered, rounded corners, minimum height=4em]
 \tikzstyle{sbblock} = [rectangle, draw, fill=illiniblue, 
 text width=13em, text centered, rounded corners, minimum height=4em]
 \tikzstyle{arrow} = [thick,->,>=stealth]
+\tikzstyle{sbblock} = [rectangle, draw, fill=illiniblue, 
+text width=7em, text centered, rounded corners, minimum height=4em]
 
 % Uncomment the appropriate one of the following four lines:
 \msthesis
@@ -116,14 +125,14 @@ dedication
 %
 % The List of Tables is not strictly necessary. Omitting the List of Tables will
 % simplify the thesis check and reduce the number of corrections.
-%\listoftables
+\listoftables
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % LIST OF FIGURES
 %
 % The List of Figures is not strictly necessary. Omitting the List of Figures will
 % simplify the thesis check and reduce the number of corrections.
-%\listoffigures
+\listoffigures
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % LIST OF ABBREVIATIONS
@@ -155,7 +164,6 @@ dedication
 \include{chapter2}
 \include{chapter3}
 \include{chapter4}
-\include{chapter5}
 \include{concl}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

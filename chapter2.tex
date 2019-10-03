@@ -114,20 +114,20 @@ Knowing the most promising end state \glspl{EG},
 the next step is to evaluate and compare the transition process 
 from the current EG01 
 state to these promising \glspl{EG} \cite{feng_standardized_2016}. 
-
 \begin{table}[]
-	\centering
-    \begin{tabular}{|l|l|}
-        \hline
-        Fuel Cycle & Description                                                                                                                                 \\ \hline
-        EG01 (current)      & \begin{tabular}[c]{@{}l@{}}Once-through using enriched-U fuel in \\ thermal critical reactors.\end{tabular}                                 \\ \hline
-        EG23       & \begin{tabular}[c]{@{}l@{}}Continuous recycle of U/Pu with new\\ natural-U fuel in fast critical reactors.\end{tabular}                     \\ \hline
-        EG24       & \begin{tabular}[c]{@{}l@{}}Continuous recycle of U/TRU with new\\ natural-U fuel in fast critical reactors.\end{tabular}                    \\ \hline
-        EG29       & \begin{tabular}[c]{@{}l@{}}Continuous recycle of U/Pu with new\\ natural-U fuel in both fast and thermal\\ critical reactors.\end{tabular}  \\ \hline
-        EG30       & \begin{tabular}[c]{@{}l@{}}Continuous recycle of U/TRU with new\\ natural-U fuel in both fast and thermal\\ critical reactors.\end{tabular} \\ \hline
-    \end{tabular}
+    \centering
     \caption{Descriptions of the current and other high performing nuclear fuel cycle evaluation groups described in the evaluation and screening study \cite{wigeland_nuclear_2014}.}
     \label{tab:eg}
+        \footnotesize
+        \begin{tabularx}{\textwidth}{l|LLL}
+            \hline
+        \textbf{Fuel Cycle}                                               & \textbf{Open or Closed} & \textbf{Fuel Type}                                                              & \textbf{Reactor Type}                                                                           \\ \hline
+        \textbf{\begin{tabular}[c]{@{}l@{}}EG01\\ (current)\end{tabular}} & Open                                                               & Enriched-U                                                                      & Thermal critical reactors                                                                       \\ 
+        \textbf{EG23}                                                     & Closed                                                             & \begin{tabular}[c]{@{}l@{}}Recycle of U/Pu \\ with natural-U fuel\end{tabular}  & Fast critical reactors                                                                          \\ 
+        \textbf{EG24}                                                     & Closed                                                             & \begin{tabular}[c]{@{}l@{}}Recycle of U/TRU \\ with natural-U fuel\end{tabular} & Fast critical reactors                                                                          \\ 
+        \textbf{EG29}                                                     & Closed                                                             & \begin{tabular}[c]{@{}l@{}}Recycle of U/Pu \\ with natural-U fuel\end{tabular}  & \begin{tabular}[c]{@{}l@{}}Fast critical reactors and \\ thermal critical reactors\end{tabular} \\ 
+        \textbf{EG30} & Closed                                                             & \begin{tabular}[c]{@{}l@{}}Recycle of U/TRU \\ with natural-U fuel\end{tabular} & \begin{tabular}[c]{@{}l@{}}Fast critical reactors and \\ thermal critical reactors\end{tabular} \\ \hline
+    \end{tabularx}
 \end{table}
 
 
@@ -192,9 +192,10 @@ Many assumptions are made when setting up the simulation scenarios,
 therefore, \gls{SA} will assist in the evaluation of
 sensitivity of the output of the scenario to each of these 
 assumptions.  
-There are two types of sensitivity analysis: one-at-a-time (OAT)
-and synergistic. 
+There are three types of sensitivity analysis: one-at-a-time (OAT), 
+synergistic and global. 
 
+\subsection{One-at-a-time Sensitivity Analysis}
 OAT is basic \gls{SA} that focuses on estimating the lone effect 
 of one input variable. 
 This approach gives the local impact of each variable on the 
@@ -232,6 +233,7 @@ the sensitivity of separated Pu in storage to the various input parameters.
 	\label{fig:oecd-tornado}
 \end{figure}
 
+\subsection{Synergistic Sensitivity Analysis}
 Synergistic \gls{SA} involves multidimensional parametric 
 input sweeps to view the impact of synergistic changes of input 
 variables on specific output variables. 
@@ -243,6 +245,9 @@ Figure \ref{fig:passerini_payoff} shows an example of this analysis.
 Thermal reprocessing and fast reactor technology introduction dates
 were varied and an objective payoff surface representing a combination 
 of multiple optimization criteria is shown. 
+This method of synergistic study informs on the local effects of 
+two input variables on the system, however, it fails to inform 
+on the global sensitivity of the system. 
 
 \begin{figure}[]
 	\begin{center}
@@ -254,10 +259,8 @@ of multiple optimization criteria is shown.
 	\label{fig:passerini_payoff}
 \end{figure} 
 
-This method of synergistic study informs on the local effects of 
-two input variables on the system, however, it fails to inform 
-on the global sensitivity of the system. 
-Therefore, to fully consider the synergistic effects of
+\subsection{Global Sensitivity Analysis}
+To fully consider the synergistic effects of
 simultaneous variation of the input variables, a variance 
 based approach can be used instead \cite{thiolliere_methodology_2018}.
 Thiolliere et al conducted a global sensitivity analysis of a 
@@ -273,6 +276,7 @@ influence on the response quantities.
 Large Sobol' indices' signifies that variation in that 
 input variable is more impactful to the output parameter. 
 
+\subsection{Main Takeaways}
 \gls{SA} studies of \glspl{NFC} have previously been used to narrow 
 down and compare a wide range of \gls{NFC} scenarios to determine 
 the ideal scenario end types. 

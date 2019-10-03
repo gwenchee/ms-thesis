@@ -465,24 +465,25 @@ unable to predict this sudden drop in demand.
         \end{subfigure}
         \caption{Transition Scenario: Sinusoidal Power Demand}
     \end{figure}
-    
+
     \begin{table}[]
         \centering
         \caption {Undersupply results for each commodity in each scenario}
         \label{tab:transition-scenario-results}
-        \begin{tabular}{|l|l|p{4cm}|}
-        \hline
-        \textbf{Basic Transition Scenario}    & \textbf{Commodity}    & \textbf{No. of timesteps with undersupply} \\ \hline
-        \multirow{2}{*}{\textbf{Constant Power}} & Fuel & 1 \\ \cline{2-3}
-                                                 & Power & 0 \\ \cline{2-3}
-                                                 & Spent Fuel & 0 \\ \hline
-        \multirow{2}{*}{\textbf{Linearly Increasing Power}} & Fuel & 1 \\ \cline{2-3}
-                                                 & Power & 0 \\ \cline{2-3}
-                                                 & Spent Fuel & 0 \\ \hline
-        \multirow{2}{*}{\textbf{Sinusoidal Power}} & Fuel & 1 \\ \cline{2-3}
-                                                 & Power & 1 \\ \cline{2-3}
-                                                 & Spent Fuel & 0 \\ \hline
-        \end{tabular}
+            \footnotesize
+            \begin{tabularx}{\textwidth}{l|LL}	
+                \hline
+                \textbf{Basic Transition Scenario}    & \textbf{Commodity}    & \textbf{No. of timesteps with undersupply} \\ \hline
+                \multirow{2}{*}{\textbf{Constant Power}} & Fuel & 1 \\ 
+                                                         & Power & 0 \\ 
+                                                         & Spent Fuel & 0 \\ \hline
+                \multirow{2}{*}{\textbf{Linearly Increasing Power}} & Fuel & 1 \\ 
+                                                         & Power & 0 \\ 
+                                                         & Spent Fuel & 0 \\ \hline
+                \multirow{2}{*}{\textbf{Sinusoidal Power}} & Fuel & 1 \\ 
+                                                         & Power & 1 \\ 
+                                                         & Spent Fuel & 0 \\ \hline
+                \end{tabularx}
     \end{table}
 
 \section{DYMOND}
@@ -523,4 +524,46 @@ and DYMOND has the advantage of ease of use.
 In this work, \Cyclus and DYMOND are coupled with Dakota 
 \cite{eldred_dakota_2010} to give the \glspl{NFCSim} \gls{SA}, 
 \gls{UQ}, and optimization capabilities. 
-Dakota pro
+The reason for wrapping \Cyclus and DYMOND with Dakota instead of 
+using other sensitivity analysis tools (Python packages etc.)
+is because Dakota is a well supported \gls{SA}, \gls{UQ}, 
+and optimization tool that provides a flexible interface between 
+analysis codes and iterative system analysis methods 
+\cite{turner_virtual_nodate}. 
+It has also previously been coupled with other nuclear engineering 
+softwares \cite{zhang_uncertainty_nodate,turner_virtual_nodate}. 
+
+The process of coupling with Dakota are similar 
+for both \glspl{NFCSim}. 
+The coupling is depicted in Figure \ref{fig:dakota-NFC-flow} in which 
+Dakota is applied as a wrapper around each of the \glspl{NFCSim}. 
+In this work, a Python interface between Dakota and the \gls{NFCSim}
+is developed. 
+The Python interface has three main capabilities: 
+(1) it edit the \gls{NFCSim}'s input file with Dakota's input values, 
+(2) runs the simulation with the newly edited \gls{NFCSim} input file, and 
+(3) reads the \gls{NFCSim}'s output file and returns values of interest 
+to the Dakota output file. 
+
+\begin{figure}[]
+    \centering
+    \begin{tikzpicture}[node distance=4.5cm]
+        \tikzstyle{every node}=[font=\large]
+        \node (one) [sbblock,text width=4cm]{\small Dakota input file};
+    \node (two) [bblock, right of=one, xshift = 1cm, text width=5cm]{\scriptsize Python Script\begin{itemize}
+        \item Edit NFC code input file with Dakota's inputs 
+        \item Run NFC code with new input file 
+        \item Read NFC code database for selected output variable
+    \end{itemize}};
+    \node  (three) [sbblock, xshift = 1cm, right of=two,text width=4cm]{\small Dakota output file};
+        
+        \draw [arrow] (one) -- (two);
+        \draw [arrow] (two) -- (three);
+        \draw [arrow] (three) |-([shift={(0cm,-1.5cm)}]three.south west)-- ([shift={(0cm,-1.5cm)}]one.south east)-|(one);
+    \end{tikzpicture}
+    \caption{Depiction of coupling of Dakota and NFC code}
+    \label{fig:dakota-NFC-flow}
+\end{figure}
+
+The parameters for the \gls{SA}, \gls{UQ}, or optimization study is defined 
+in the Dakota input file. 
