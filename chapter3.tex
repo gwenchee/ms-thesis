@@ -1,10 +1,12 @@
 \chapter{Methods}
 \label{chap:3}
-In this chapter, the \glspl{NFCSim}, \Cyclus and DYMOND, will 
-be described. 
-A new capability in \Cyclus to ease setting up 
-of transition scenarios that was developed for this work 
-will also be described. 
+In this chapter, the \glspl{NFCSim} used in this work 
+, \Cyclus and DYMOND, and the new capabilities developed for 
+\glspl{NFCSim} are described. 
+The new capabilities are: 
+(1) demand-driven deployment capabilities in \Cyclus, 
+(2) sensitivity analysis capabilities for DYMOND, and
+(3) sensitivity analysis capabilities for \Cyclus. 
 
 \section{\Cyclus}
 \Cyclus is an agent-based nuclear fuel cycle simulation framework 
@@ -38,7 +40,45 @@ and capabilities.
 Agent interchangeability facilitates setting up of custom fuel 
 cycles and direct comparisons of alternative modeling methodologies 
 and facility concepts \cite{huff_fundamental_2016}. 
+\Cyclus' input file has an XML file format and the output file is 
+a SQL database. 
 
+\section{DYMOND}
+DYMOND \cite{yacout_modeling_2005} is a \gls{NFCSim} developed 
+at \gls{ANL}. 
+It is built using the AnyLogic simulation software with 
+Microsoft Excel templates for data input and output. 
+The major inputs to this code are reactor and fuel cycle 
+characteristics, and time-dependent power demand 
+\cite{feng_standardized_2016}.   
+The code calls ORIGEN \cite{bell_origen_1973} during the simulation 
+to conduct reactor depletion calculations. 
+The mass flows and inventories are recorded at a system-level
+and individual isotopes are tracked. 
+DYMOND's main design objective is ease of understanding its 
+behavior and variables. 
+
+In DYMOND, reactor facilities are automatically deployed to 
+meet a user-defined power demand and the user can define 
+the targeted shares of energy for up to five reactor types. 
+The user also defines the fuel loading model used to calculate 
+reactor spent fuel compositions, the type of reprocessing 
+technology that is used for each reactor type, and the length 
+of used fuel cooling time etc. 
+In DYMOND, the user must define the deployment schedule for 
+the reprocessing plants and the cooling pools and storage pools 
+are all assumed to have infinite capacities. 
+DYMOND does not have demand-driven deployment capabilities for 
+supporting fuel cycle facilities. 
+
+The difference between \Cyclus and DYMOND is that \Cyclus uses 
+agent-based modeling for all facilities and mass flows, 
+whereas DYMOND uses fleet-based modeling for all facilities and 
+mass flows with exception of reactor facilities. 
+\Cyclus has the advantage of flexibility and customization, 
+and DYMOND has the advantage of ease of use. 
+
+\section{Demand driven deployment capability in \Cyclus (\deploy)}
 In 2016, there was a push to understand and evaluate the 
 transition from the initial EG01 state to promising future 
 end-states \cite{feng_standardized_2016}.
@@ -68,7 +108,7 @@ fuel cycle demands based on a user-defined commodity demand.
 This demand-driven deployment capability is called 
 \deploy. 
 
-\subsection{\deploy's Capabilities}
+\subsection{\deploy framework}
 \label{sec:d3ploy}
 In a \Cyclus simulation, at every timestep, \deploy 
 predicts supply and demand of each commodity for the next time 
@@ -120,7 +160,7 @@ sufficient installed reactor capacity to meet the power
 demand, there is insufficient supply of fabricated/reprocessed 
 fuel at certain timesteps, resulting in idle capacity.  
 
-\subsubsection{\textbf{Structure}}
+\subsection{\textbf{Structure}}
 %Description of front end and back end of fuel cycle 
 %Demand Driven vs. Supply Driven 
 In \deploy, two different institutions were implemented for 
@@ -142,7 +182,7 @@ For back end facilities, the reactor generates spent fuel and
 waste storage facilities to create capacity meeting the supply 
 of spent fuel to prevent under capacity. 
 
-\subsubsection{\textbf{Input Variables}}
+\subsection{\textbf{Input Variables}}
 Table \ref{tab:inputs} lists and gives examples of the input 
 variables \deploy accepts. 
 Essentially, the user must define the facilities controlled by 
@@ -177,7 +217,7 @@ methods, preferences, and buffers are provided in the subsequent sections.
 	\label{tab:inputs}
     \end{table}
 
-    \subsubsection{\textbf{Deployment Driving Method}}
+    \subsection{\textbf{Deployment Driving Method}}
     The user has the choice of deploying facilities based on the difference 
     between predicted supply and demand, or predicted demand and 
     installed capacity. 
@@ -202,7 +242,7 @@ methods, preferences, and buffers are provided in the subsequent sections.
     to constrain \gls{SFR} deployment until a sizable inventory of Pu 
     is accumulated in the simulation. 
     
-    \subsubsection{\textbf{Supply/Capacity Buffer}}
+    \subsection{\textbf{Supply/Capacity Buffer}}
     In \texttt{DemandDrivenDeploymentInst}, the user has the option 
     to provide a supply buffer for each commodity so that 
     \deploy will deploy facilities to meet predicted demand and the
@@ -238,7 +278,7 @@ methods, preferences, and buffers are provided in the subsequent sections.
     commodity without having excessive over supply. 
     This is demonstrated in section \ref{sec:demo}. 
     
-    \subsubsection{\textbf{Preferences}}
+    \subsection{\textbf{Preferences}}
     % Need to explain the order of preferences for deployment 
     % Constraint, pref, minimize number of facilities and minimize 
     % over supply 
@@ -279,246 +319,8 @@ methods, preferences, and buffers are provided in the subsequent sections.
     will deploy the available facilities to minimize the number of 
     deployed facilities while minimizing oversupply of the commodity.
 
-\subsubsection{\textbf{Prediction Methods}}
+\subsection{\textbf{Prediction Methods}}
 
-\subsection{\deploy Demonstration}
-\label{sec:demo}
-
-This section will demonstrate \deploy's capability 
-to effectively conduct simple transition scenario analysis
-for constant, linearly increasing, and 
-sinusoidal power demand simulations.
-These simulations are basic transition scenarios that only include 
-three types of facilities: \texttt{source}, \texttt{reactor}, and 
-\texttt{sink}. 
-All simulations have ten initial \texttt{reactor} facilities 
-(\texttt{reactor1} to \texttt{reactor10}). 
-These reactors have staggered cycle lengths and lifetimes to prevent 
-simultaneous refueling and set up gradual decommissioning. 
-\deploy is set up to deploy \texttt{new reactor} facilities
-to meet the loss of power supply introduced from the decommissioning 
-of the initial \texttt{reactor} facilities. 
-The \deploy input parameters for each simulation is shown in Table 
-\ref{tab:demonstrations}. 
-Figure \ref{fig:powerplots} shows the user-defined power demand curves 
-that \deploy needs to deploy facilities meet for each simulation.
-
-\begin{table}[]
-    \resizebox{\textwidth}{!}{%
-    \begin{tabular}{|l|l|c|l|l|}
-    \hline
-    \multirow{2}{*}{}                         & \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Input Parameter}}} & \multicolumn{3}{c|}{\textbf{Simulation Description}}                                                                                                                                                                                                                                                       \\ \cline{3-5} 
-                                              & \multicolumn{1}{c|}{}                                          & \multicolumn{1}{l|}{\textbf{Constant Power}}                                                                 & \textbf{\begin{tabular}[c]{@{}l@{}}Linearly Increasing \\ Power\end{tabular}}                  & \textbf{Sinusoidal Power}                                                                  \\ \hline
-    \multirow{5}{*}{\textbf{Required Inputs}} & Demand driving commodity                                       & \multicolumn{3}{c|}{Power}                                                                                                                                                                                                                                                                                 \\ \cline{2-5} 
-                                              & Demand equation                                                & \multicolumn{1}{l|}{10000 MW}                                                                                & \begin{tabular}[c]{@{}l@{}}t\textless 40: 10000 MW\\ t\textgreater{}=40: 250*t MW\end{tabular} & 1000*$\sin(\pi*t/3)$+10000                                                                 \\ \cline{2-5} 
-                                              & Facilities it controls                                         & \multicolumn{3}{c|}{Source, reactor, sink}                                                                                                                                                                                                                                                                 \\ \cline{2-5} 
-                                              & Prediction method                                              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Power: FFT\\ Fuel: MA\\ Spent fuel: MA\end{tabular}}          & \begin{tabular}[c]{@{}l@{}}Power: FFT\\ Fuel: MA\\ Spent fuel: FFT\end{tabular}                & \begin{tabular}[c]{@{}l@{}}Power: HW\\ Fuel: MA\\ Spent fuel: FFT\end{tabular}             \\ \cline{2-5} 
-                                              & Deployment Driving Method                                      & \multicolumn{3}{c|}{Installed Capacity}                                                                                                                                                                                                                                                                    \\ \hline
-    \multirow{2}{*}{\textbf{Optional Inputs}} & Buffer type                                                    & \multicolumn{3}{c|}{Absolute}                                                                                                                                                                                                                                                                              \\ \cline{2-5} 
-                                              & Buffer size                                                    & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Power: 3000 MW\\ Fuel: 0 kg \\ Spent fuel: 0 kg\end{tabular}} & \begin{tabular}[c]{@{}l@{}}Power: 2000 MW\\ Fuel: 1000 kg \\ Spent fuel: 0 kg\end{tabular}     & \begin{tabular}[c]{@{}l@{}}Power: 2000 MW\\ Fuel: 1000 kg \\ Spent fuel: 0 kg\end{tabular} \\ \hline
-    \end{tabular}%
-    }
-    \caption{\deploy's input parameters for the basic transition scenarios.}
-    \label{tab:demonstrations}
-    \end{table}
-
-    \begin{figure}[]
-        \begin{center}
-            \includegraphics[scale=0.37]{./figures/powerplots.png}
-        \end{center}
-            \caption{Power demand curves for basic transition scenarios.}
-        \label{fig:powerplots}
-    \end{figure}
-
-\subsubsection{\textbf{Basic Transition Scenario Simulation: Constant Demand}}
-Figures \ref{fig:constanttransition-power}, \ref{fig:constanttransition-fuel}
-and \ref{fig:constanttransition-spentfuel} demonstrate \deploy's capability 
-to deploy reactor and supporting facilities to meet the user 
-determined constant power demand and subsequently demanded 
-secondary commodities with minimal undersupply. 
-Table \ref{tab:transition-scenario-results} shows the number of 
-undersupplied timesteps. 
-Figure \ref{fig:constanttransition-power} demonstrates that
-the main objective of \deploy (section \ref{sec:d3ploy}) 
-was met since there are no timesteps
-in which the supply of power falls under demand.
-By using a combination of the fast fourier transform method for 
-predicting demand and setting the supply buffer to 3000MW 
-(the capacity of 3 reactors), the user minimizes the number of 
-undersupplied timesteps for every commodity.
-
-In figure \ref{fig:constanttransition-fuel},
-a facility with a large fuel throughput is initially
-deployed to meet the large initial fuel demand for the starting
-up of ten reactors. 
-\deploy is prevented from deploying many supporting
-facilities that end up being redundant at the later parts of 
-the simulation, by having an initial facility with a large throughput
-exist for the first few timesteps in the simulation.
-This is a reflection of reality in which reactor manufacturers will 
-accumulate an appropriate amount of fuel inventory before starting 
-up reactors. 
-There is one timestep where there is an undersupply after the 
-decommissioning of the large initial facility.  
-This is unavoidable since the prediction methods in \deploy are 
-unable to predict this sudden drop in demand. 
-
-    \begin{figure}[]
-        \centering
-        \begin{subfigure}[t]{\textwidth}
-        \centering
-            \includegraphics[width=0.7\linewidth]{figures/constanttransition-power.png} 
-            \caption{The power demand is a user-defined equation and power is supplied by the reactors.}
-            \label{fig:constanttransition-power}
-        \end{subfigure}
-        \begin{subfigure}[t]{0.6\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{figures/constanttransition-fuel.png} 
-            \caption{Fuel is demanded by reactors and supplied by source facilities.}
-            \label{fig:constanttransition-fuel}
-        \end{subfigure}
-        \begin{subfigure}[t]{0.6\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{figures/constanttransition-spentfuel.png} 
-            \caption{Spent Fuel is supplied by reactors and the capacity is provided by sink facilities.}
-            \label{fig:constanttransition-spentfuel}
-        \end{subfigure}
-        \caption{Transition Scenario: Constant Power Demand of 10000MW}
-    \end{figure}
-
-    \subsubsection{\textbf{Basic Transition Scenario Simulation: Linearly Increasing Demand}}
-
-    Figures \ref{fig:growingtransition-power}, \ref{fig:growingtransition-fuel}
-    and \ref{fig:growingtransition-spentfuel} demonstrate the capability 
-    of \deploy to deploy reactor and supporting facilities to meet the
-    power demand and subsequently demanded secondary commodities 
-    for a linearly increasing power demand. 
-    A smaller supply buffer could be used while still minimizing under supply.
-    Table \ref{tab:transition-scenario-results} shows the number of 
-    undersupplied timesteps. 
-    Figure \ref{fig:growingtransition-power} demonstrates that
-    the main objective of \deploy (section \ref{sec:d3ploy}) 
-    was met since there are no timesteps
-    in which the supply of power falls under demand.
-    
-    \begin{figure}[]
-        \centering
-        \begin{subfigure}[t]{\textwidth}
-        \centering
-            \includegraphics[width=0.7\linewidth]{figures/growingtransition-power.png} 
-            \caption{The power demand is a user-defined equation and power is supplied by the reactors.}
-            \label{fig:growingtransition-power}
-        \end{subfigure}
-        \begin{subfigure}[t]{0.6\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{figures/growingtransition-fuel.png} 
-            \caption{Fuel is demanded by reactors and supplied by source facilities.}
-            \label{fig:growingtransition-fuel}
-        \end{subfigure}
-        \begin{subfigure}[t]{0.6\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{figures/growingtransition-spentfuel.png} 
-            \caption{Spent Fuel is supplied by reactors and the capacity is provided by sink facilities.}
-            \label{fig:growingtransition-spentfuel}
-        \end{subfigure}
-        \caption{Transition Scenario: Linearly increasing power demand.}
-    \end{figure}
-    
-    \subsubsection{\textbf{Basic Transition Scenario Simulation: Sinusoidal Demand}}
-    A sinusoidal power demand is the reflection of power demand in 
-    the real world where power usage is higher in the winter and summer
-    and lower in the spring and fall. 
-    Figures \ref{fig:sinetransition-power}, \ref{fig:sinetransition-fuel}
-    and \ref{fig:sinetransition-spentfuel} demonstrate the capability 
-    of \deploy to deploy reactor and supporting facilities to meet the
-    power demand and subsequently demanded secondary commodities 
-    for a sinusoidal power demand. 
-    Table \ref{tab:transition-scenario-results} shows the number of 
-    undersupplied timesteps.
-    
-    For a sinusoidal power demand, the use of the triple exponential method
-    for predicting demand is more effective than the 
-    fast fourier transform method which was used for the constant 
-    and linearly increasing power demand transition scenarios. 
-    This is because the triple exponential smoothing method excels in
-    forecasting data points for repetitive seasonal series of data. 
-    
-    \begin{figure}[]
-        \centering
-        \begin{subfigure}[t]{\textwidth}
-        \centering
-            \includegraphics[width=0.7\linewidth]{figures/sinetransition-power.png} 
-            \caption{The power demand is a user-defined equation and power is supplied by the reactors.}
-            \label{fig:sinetransition-power}
-        \end{subfigure}
-        \begin{subfigure}[t]{0.6\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{figures/sinetransition-fuel.png} 
-            \caption{Fuel is demanded by reactors and supplied by source facilities.}
-            \label{fig:sinetransition-fuel}
-        \end{subfigure}
-        \begin{subfigure}[t]{0.6\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{figures/sinetransition-spentfuel.png} 
-            \caption{Spent Fuel is supplied by reactors and the capacity is provided by sink facilities.}
-            \label{fig:sinetransition-spentfuel}
-        \end{subfigure}
-        \caption{Transition Scenario: Sinusoidal Power Demand}
-    \end{figure}
-
-    \begin{table}[]
-        \centering
-        \caption {Undersupply results for each commodity in each scenario}
-        \label{tab:transition-scenario-results}
-            \footnotesize
-            \begin{tabularx}{\textwidth}{l|LL}	
-                \hline
-                \textbf{Basic Transition Scenario}    & \textbf{Commodity}    & \textbf{No. of timesteps with undersupply} \\ \hline
-                \multirow{2}{*}{\textbf{Constant Power}} & Fuel & 1 \\ 
-                                                         & Power & 0 \\ 
-                                                         & Spent Fuel & 0 \\ \hline
-                \multirow{2}{*}{\textbf{Linearly Increasing Power}} & Fuel & 1 \\ 
-                                                         & Power & 0 \\ 
-                                                         & Spent Fuel & 0 \\ \hline
-                \multirow{2}{*}{\textbf{Sinusoidal Power}} & Fuel & 1 \\ 
-                                                         & Power & 1 \\ 
-                                                         & Spent Fuel & 0 \\ \hline
-                \end{tabularx}
-    \end{table}
-
-\section{DYMOND}
-DYMOND \cite{yacout_modeling_2005} is a \gls{NFCSim} run within 
-the AnyLogic software with Microsoft Excel templates for 
-data input and output. 
-The major inputs to this code are reactor and fuel cycle 
-characteristics, and time-dependent power demand 
-\cite{feng_standardized_2016}.   
-The code calls ORIGEN \cite{bell_origen_1973} during the simulation 
-to conduct reactor depletion calculations. 
-The mass flows and inventories are recorded at a system-level
-and individual isotopes are tracked. 
-DYMOND's main design objective is ease of understanding it's 
-behavior and variables. 
-
-In DYMOND, reactor facilities are automatically deployed to 
-meet a user-defined power demand and the user can define 
-the targeted shares of energy for up to five reactor types. 
-The user also defines the fuel loading model used to calculate 
-reactor spent fuel compositions, the type of reprocessing 
-technology that is used for each reactor type, and the length 
-of used fuel cooling time etc. 
-In DYMOND, the user must define the deployment schedule for 
-the reprocessing plants and the cooling pools and storage pools 
-are all assumed to have infinite capacities. 
-DYMOND does not have demand-driven deployment capabilities for 
-supporting fuel cycle facilities. 
-
-The difference between \Cyclus and DYMOND is that \Cyclus uses 
-agent-based modeling for all facilities and mass flows, 
-whereas DYMOND uses fleet-based modeling for all facilities and 
-mass flows with exception of reactor facilities. 
-\Cyclus has the advantage of flexibility and customization, 
-and DYMOND has the advantage of ease of use. 
 
 \section{Sensitivity Analysis Capabilities}
 In this work, \Cyclus and DYMOND are coupled with Dakota 
@@ -531,19 +333,23 @@ and optimization tool that provides a flexible interface between
 analysis codes and iterative system analysis methods 
 \cite{turner_virtual_nodate}. 
 It has also previously been coupled with other nuclear engineering 
-softwares \cite{zhang_uncertainty_nodate,turner_virtual_nodate}. 
+softwares \cite{turner_virtual_nodate,zhang_uncertainty_nodate}. 
+The parameters for the \gls{SA}, \gls{UQ}, or optimization study is defined 
+in the Dakota input file. 
 
 The process of coupling with Dakota are similar 
 for both \glspl{NFCSim}. 
 The coupling is depicted in Figure \ref{fig:dakota-NFC-flow} in which 
 Dakota is applied as a wrapper around each of the \glspl{NFCSim}. 
-In this work, a Python interface between Dakota and the \gls{NFCSim}
-is developed. 
+In this work, a Python interface between Dakota and the \glspl{NFCSim}
+are developed. 
 The Python interface has three main capabilities: 
 (1) it edit the \gls{NFCSim}'s input file with Dakota's input values, 
 (2) runs the simulation with the newly edited \gls{NFCSim} input file, and 
 (3) reads the \gls{NFCSim}'s output file and returns values of interest 
 to the Dakota output file. 
+The differences in coupling lies in the python interface to each 
+\gls{NFCSim}. 
 
 \begin{figure}[]
     \centering
@@ -565,5 +371,34 @@ to the Dakota output file.
     \label{fig:dakota-NFC-flow}
 \end{figure}
 
-The parameters for the \gls{SA}, \gls{UQ}, or optimization study is defined 
-in the Dakota input file. 
+\subsection{Dymond-Dakota Coupling}
+% python scripts to parse the excel input and output templates 
+In the interface between Dymond and Dakota, Python is used 
+to parse the excel input file to edit the relevant 
+excel cells accordingly. 
+Python is also used to parse the excel output database and take 
+values of interest and format them to evaluate the results 
+or return to the dakota output file.
+The scripts coupling Dymond and Dakota are demonstrated in the 
+\texttt{ddwrapper} github repository \cite{ddwrapper_doi_2019}.
+
+\subsection{\Cyclus-Dakota Coupling}
+% python scripts + jinja2 for input 
+% python scripts + cymetric for output 
+In the interface between \Cyclus and Dakota, 
+the Jinja2 \cite{ronacher_welcome_2018} package is used 
+with Python to edit the relevant parts of \Cyclus' xml input file. 
+Jinja2 is a modern and designer-friendly templating 
+language for Python. 
+The \textsc{Cymetric} \cite{scopatz_cymetric_2015} package is used with Python 
+to analyze the \Cyclus output database. 
+\textsc{Cymetric} is a general analysis library and tool that was 
+created in 2015 to more easily interact with \Cyclus' SQL 
+database. 
+The scripts coupling \Cyclus and Dakota are demonstrated in the 
+\texttt{dcwrapper} github repository \cite{ddwrapper_doi_2019}.
+
+
+% Add github doi 
+
+
