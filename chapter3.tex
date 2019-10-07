@@ -440,15 +440,13 @@ In this work, \Cyclus and DYMOND are coupled with Dakota
 \cite{eldred_dakota_2010} to give the \glspl{NFCSim} \gls{SA}, 
 \gls{UQ}, and optimization capabilities. 
 The reason for wrapping \Cyclus and DYMOND with Dakota instead of 
-using other sensitivity analysis tools (Python packages etc.)
+other sensitivity analysis tools (Python packages etc.)
 is because Dakota is a well supported \gls{SA}, \gls{UQ}, 
 and optimization tool that provides a flexible interface between 
 analysis codes and iterative system analysis methods 
 \cite{turner_virtual_nodate}. 
 It has also previously been coupled with other nuclear engineering 
 softwares \cite{turner_virtual_nodate,zhang_uncertainty_nodate}. 
-The parameters for the \gls{SA}, \gls{UQ}, or optimization study is defined 
-in the Dakota input file. 
 
 The process of coupling with Dakota are similar 
 for both \glspl{NFCSim}. 
@@ -456,13 +454,16 @@ The coupling is depicted in Figure \ref{fig:dakota-NFC-flow} in which
 Dakota is applied as a wrapper around each of the \glspl{NFCSim}. 
 In this work, a Python interface between Dakota and the \glspl{NFCSim}
 are developed. 
-The Python interface has three main capabilities: 
-(1) it edit the \gls{NFCSim}'s input file with Dakota's input values, 
-(2) runs the simulation with the newly edited \gls{NFCSim} input file, and 
-(3) reads the \gls{NFCSim}'s output file and returns values of interest 
+The Python interface has three functions: 
+(1) edit the \gls{NFCSim}'s input file based on Dakota's input values, 
+(2) run the simulation with the newly edited \gls{NFCSim} input file, and 
+(3) read the \gls{NFCSim}'s output file and returns values of interest 
 to the Dakota output file. 
-The differences in coupling lies in the python interface to each 
-\gls{NFCSim}. 
+The parameters for the \gls{SA}, \gls{UQ}, or optimization study 
+is defined in the Dakota input file. 
+The differences in the Python interface between Dakota and each 
+\gls{NFCSim} lies in the writing to and reading of 
+each of their input and output files. 
 
 \begin{figure}[]
     \centering
@@ -486,12 +487,16 @@ The differences in coupling lies in the python interface to each
 
 \subsection{Dymond-Dakota Coupling}
 % python scripts to parse the excel input and output templates 
-In the interface between Dymond and Dakota, Python is used 
-to parse the excel input file to edit the relevant 
-excel cells accordingly. 
-Python is also used to parse the excel output database and take 
-values of interest and format them to evaluate the results 
-or return to the dakota output file.
+In the interface between Dymond and Dakota, the Pywin32 
+\cite{hammond_python_2000}
+Python package is used to parse the excel input file to 
+write to the relevant excel cells according. 
+Pywin32 is a thin Python wrapper that enables interaction 
+with COM objects \cite{hammond_python_2000}. 
+The Pandas \cite{mckinney_pandas:_2011} Python
+package is used to analyze the excel output database 
+by taking the values of interest and formatting them 
+to return to the dakota output file.
 The scripts coupling Dymond and Dakota are demonstrated in the 
 \texttt{ddwrapper} github repository \cite{ddwrapper_doi_2019}.
 
@@ -499,18 +504,17 @@ The scripts coupling Dymond and Dakota are demonstrated in the
 % python scripts + jinja2 for input 
 % python scripts + cymetric for output 
 In the interface between \Cyclus and Dakota, 
-the Jinja2 \cite{ronacher_welcome_2018} package is used 
-with Python to edit the relevant parts of \Cyclus' xml input file. 
+the Jinja2 \cite{ronacher_welcome_2018} Python package is used 
+to edit the relevant parts of a \Cyclus' xml input file. 
 Jinja2 is a modern and designer-friendly templating 
 language for Python. 
-The \textsc{Cymetric} \cite{scopatz_cymetric_2015} package is used with Python 
-to analyze the \Cyclus output database. 
+The \textsc{Cymetric} \cite{scopatz_cymetric_2015} package is used 
+with Python to analyze the \Cyclus output database. 
 \textsc{Cymetric} is a general analysis library and tool that was 
 created in 2015 to more easily interact with \Cyclus' SQL 
 database. 
 The scripts coupling \Cyclus and Dakota are demonstrated in the 
 \texttt{dcwrapper} github repository \cite{ddwrapper_doi_2019}.
-
 
 % Add github doi 
 
