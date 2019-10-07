@@ -212,14 +212,14 @@ facility preferences, and prediction methods.
             & \textbf{Input Parameter}                                                           & \textbf{Examples}                                                                                                          \\ \hline
             \multirow{5}{*}{\textbf{Required}} & Demand driving commodity                                                           & Power, Fuel, Plutonium, etc.                                                                                                                      \\ \cline{2-3} 
                                                       & Demand equation                                                                    & P(t) = 10000, sin(t), 10000*t                                                                                                                 \\ \cline{2-3} 
-                                                      & Facilities it controls                                                             & Fuel Fab, LWR reactor, SFR reactor, Waste repository, etc.                                                                                                      \\ \cline{2-3} 
+                                                      & Facilities it controls                                                             & Fuel Fab, LWR, SFR, Waste repository, etc.                                                                                                      \\ \cline{2-3} 
                                                       & Capacities of the facilities                                                       & 3000 kg, 1000 MW, 50000 kg                                                                                                     \\ \cline{2-3} 
                                                       & Prediction method                                                                  & \begin{tabular}[c]{@{}l@{}}Power: fast fourier transform\\ Fuel: moving average\\ Spent fuel: moving average\end{tabular} \\ \cline{2-3} 
                                                       & Deployment driven by & Installed Capacity/Supply                                                                                                                    \\ \hline
             \multirow{4}{*}{\textbf{Optional}} & Supply/Capacity Buffer type                                                                        & Absolute                                                                                                                  \\ \cline{2-3} 
                                                       & Supply/Capacity Buffer size                                                                        & \begin{tabular}[c]{@{}l@{}}Power: 3000 MW\\ Fuel: 0 kg \\ Spent fuel: 0 kg\end{tabular}                                   \\ \cline{2-3} 
-                                                      & Facility preferences                                                               & \begin{tabular}[c]{@{}l@{}}LWR reactor = 100-t\\ SFR reactor = t-100 \end{tabular}          \\ \cline{2-3} 
-                                                      & Facility constraint                                                              & SFR reactor constraint = 5000kg of Pu            \\ \hline	
+                                                      & Facility preferences                                                               & \begin{tabular}[c]{@{}l@{}}LWR = 100-t\\ SFR = t-100 \end{tabular}          \\ \cline{2-3} 
+                                                      & Facility shares                                                             & \begin{tabular}[c]{@{}l@{}}MOX LWR = 85\%\\ SFR = 15\% \end{tabular}          \\ \hline	
                     \end{tabularx}
 \end{table}
 
@@ -285,7 +285,7 @@ facility preferences, and prediction methods.
     commodity while avoiding excessive oversupply. 
     This is demonstrated in section \ref{sec:demo}. 
     
-    \subsubsection{\textbf{Facility Preference and Constraint}}
+    \subsubsection{\textbf{Facility Preference and Share}}
     The user can elect to specify time-dependent preference equations 
     for each facility; if more than one facility can supply the same 
     commodity, \deploy uses these equations to determine which facility 
@@ -296,29 +296,22 @@ facility preferences, and prediction methods.
     Thus, the simulation will have a preference to deploy 
     \glspl{LWR} before time step 100 and \glspl{SFR} afterwards. 
     
-    The user also has the option to provide each facility with a 
-    commodity constraint. 
+    The user also has the option to specify percentage-share for facilities 
+    that provide the same commodity.   
     In table \ref{tab:inputs}, 
-    the \gls{SFR} has a commodity constraint of 5000kg of Pu. 
-    This constrains \gls{SFR} deployment to the size of the Pu inventory 
-    in the simulation. 
-    \glspl{SFR} are deployed only after the 5000kg minimum Pu inventory 
-    is satisfied. 
-    
-    In many scenarios, advanced reactors are forced to idle after 
-    depleting the initial Pu inventory. 
-    In these situations, the facility preferences and constraint capabilities 
-    are beneficial to the user. 
-    An ideal transition year is selected using the facility 
-    preferences, however the transition will only begin when there 
-    is sufficient Pu inventory (set by facility constraint) 
-    to avoid shortages. 
-    
+    the \gls{MOX} \gls{LWR} has a share of 85\%, while 
+    the \gls{SFR} has a share of 15\%. 
+    This constrains \gls{SFR} deployment to 85\% of total power demand 
+    and \gls{MOX} \gls{LWR} deployment to 15\% of total power demand.  
+
+    The transition year is selected using the facility 
+    preferences, and the sharing capability determines the percentage 
+    share of each type of reactor to transition to. 
     Therefore, when \deploy predicts an undersupply of a commodity, 
     it deploys facilities in order of preference, starting at 
-    the highest and moving down if the facility in question does 
-    not meet its constraint criteria.
-    If the facilities do not have preferences or constraints, \deploy 
+    the highest and moving down if the facility percentage share 
+    is already met. 
+    If the facilities do not have preferences, \deploy 
     will deploy the available facilities to minimize the number of 
     deployed facilities while minimizing oversupply of the commodity.
 
