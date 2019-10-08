@@ -485,12 +485,12 @@ each of their input and output files.
     \label{fig:dakota-NFC-flow}
 \end{figure}
 
-\subsection{Dymond-Dakota Coupling}
+\subsection{Dymond-Dakota Coupling (\texttt{ddwrapper})}
 % python scripts to parse the excel input and output templates 
 In the interface between Dymond and Dakota, the Pywin32 
 \cite{hammond_python_2000}
 Python package is used to parse the excel input file to 
-write to the relevant excel cells according. 
+write to the relevant excel cells accordingly. 
 Pywin32 is a thin Python wrapper that enables interaction 
 with COM objects \cite{hammond_python_2000}. 
 The Pandas \cite{mckinney_pandas:_2011} Python
@@ -500,7 +500,7 @@ to return to the dakota output file.
 The scripts coupling Dymond and Dakota are demonstrated in the 
 \texttt{ddwrapper} github repository \cite{ddwrapper_doi_2019}.
 
-\subsection{\Cyclus-Dakota Coupling}
+\subsection{\Cyclus-Dakota Coupling (\texttt{dcwrapper})}
 % python scripts + jinja2 for input 
 % python scripts + cymetric for output 
 In the interface between \Cyclus and Dakota, 
@@ -508,8 +508,8 @@ the Jinja2 \cite{ronacher_welcome_2018} Python package is used
 to edit the relevant parts of a \Cyclus' xml input file. 
 Jinja2 is a modern and designer-friendly templating 
 language for Python. 
-The \textsc{Cymetric} \cite{scopatz_cymetric_2015} package is used 
-with Python to analyze the \Cyclus output database. 
+The \Cyclus output database is analyzed with
+the \textsc{Cymetric} Python \cite{scopatz_cymetric_2015} package. 
 \textsc{Cymetric} is a general analysis library and tool that was 
 created in 2015 to more easily interact with \Cyclus' SQL 
 database. 
