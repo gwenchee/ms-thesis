@@ -1,19 +1,10 @@
-\chapter{Results}
+\chapter{Results: \deploy Demonstration}
 In this chapter, \deploy's capabilities will be demonstrated 
-for a simple and complex case. 
-This chapter will also give results on the sensitivity of various 
-input parameters of a \gls{NFC} transition scenario. 
-Various types of \gls{SA} are conducted
-using the Dakota-\Cyclus and Dakota-Dymond coupling. 
-This chapter will be broken into seven sections: 
+for a simple and complex case.  
+This chapter will be broken into two sections: 
 \begin{enumerate}
     \item \deploy demonstration for simple transition scenarios
     \item \deploy demonstration for EG01-30 transition scenario
-    \item Transition Scenario Specification 
-    \item Sensitivity Analysis Evaluation Criteria 
-    \item One-at-a-time \gls{SA} results 
-    \item Synergistic \gls{SA} results
-    \item Global \gls{SA} results 
 \end{enumerate}
 
 \section{\deploy Demonstration of Simple Transition Scenarios}
@@ -223,14 +214,19 @@ unable to forsee this sudden drop in demand.
     \end{table}
 
 \section{\deploy Demonstration of EG01-30 Transition Scenario} 
+\label{sec:eg01-30}
 Figure \ref{fig:30flow} shows the setup of facilities and mass flows 
 for EG01-30 in \Cyclus. 
 In the EG01-30 transition scenario, the initial \gls{LWR} fleet is 
 progressively decommissioned starting at the 80 year mark,
-after which \deploy deploys \glspl{SFR} and \gls{MOX} \glspl{LWR} to meet 
-the power demand. 
+after which \deploy deploys \glspl{SFR} and \gls{MOX} \glspl{LWR} to 
+meet a linearly increasing power demand. 
 Transuranics from the spent fuel are recycled to 
 produce \gls{MOX} \gls{LWR} and \gls{SFR} fuel. 
+The power demand equation (t represents a month): 
+\begin{align}
+    P(t) = 60 + \frac{0.25t}{12}\ GW
+\end{align}
 
 \begin{figure}[]
     \centering
@@ -239,24 +235,24 @@ produce \gls{MOX} \gls{LWR} and \gls{SFR} fuel.
     \label{fig:30flow}
 \end{figure}
 
-To minimize the power undersupply in the EG01-30 \Cyclus 
+To determine the optimal \deploy parameters to minimize 
+power undersupply in the EG01-30 \Cyclus 
 transition scenario, a comparison study of prediction 
-methods and power supply buffer sizes was conducted 
-to determine optimal parameters. 
+methods and power supply buffer sizes was conducted. 
 
 \subsection{Comparison of Prediction Methods}
-To determine the most effective \deploy prediction methods, a
-comparison of each prediction method for the EG01-30 
-transition scenario is conducted for a
-linearly increasing power demand curve. 
-
+To determine the most effective \deploy prediction methods, the
+EG01-30 linearly increasing power transition scenario is run 
+for each prediction method.  
 In Figure \ref{fig:eg30under}, crosses represent the time steps in which there is undersupply 
 or under capacity of each commodity for a linearly increasing power EG01-30 
 scenario for varying prediction methods.
 The size of the crosses are proportional to the undersupply
 value, therefore, larger crosses correspond to larger undersupply.
-Figure \ref{fig:eg30under} demonstrates that the \texttt{fft} method 
-performs the best at minimizing undersupply of all commodities.
+\texttt{fft} is the best prediction method since it has 
+the least number of crosses and smallest crosses in the figure,  
+demonstrating that it performs the best at minimizing 
+undersupply of all commodities.
 
 % update these figures to actually be 30
 \begin{figure}[]
@@ -289,60 +285,125 @@ transition scenario, power buffer size is varied.
 Figure \ref{fig:eg30-bufplot} and Table \ref{tab:buff_size} 
 show that with an increasing buffer size, the number of 
 power undersupply time steps decreases. 
+The cumulative undersupply is smallest for a buffer 
+size of 8000MW.  
+As seen from Figure \ref{fig:eg30-dotplot}, these undersupply time 
+steps occur at the beginning of the simulation and for one 
+time step when the transition begins. 
+This is expected since without time series data 
+at the beginning of the simulation, \deploy takes a few 
+time steps to collect time series data about power demand 
+to predict and start deploying reactor and supporting 
+fuel cycle facilities. 
+Therefore, a buffer of 8000MW minimizes 
+the power undersupply for the EG01-EG30 transition scenario.
 
-\section{Sensitivity Analysis Evaluation Criteria}
-Table \ref{tab:category-output-DD} shows which output variables 
-the evaluation criteria are associated with. 
+\begin{figure}[]
+	\centering
+	\begin{subfigure}[t]{\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{30-sens-buffer.png} 
+		\caption{EG01-30: Power buffer size vs. cumulative undersupply}
+		\label{fig:eg30-bufplot}
+	\end{subfigure}
+	\begin{subfigure}[t]{\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{eg30-sa.png} 
+		\caption{EG01-30: Time-dependent undersupply of power for varying power buffer sizes}
+		\label{fig:eg30-dotplot}
+	\end{subfigure}
+	\hfill
+	\caption{Sensitivity Analysis of Power buffer size on cumulative 
+	undersupply of Power for the EG01-EG30 transition scenario 
+	with linearly increasing power demand using the \texttt{fft} prediction method.}
+	\label{fig:sabuffer}
+\end{figure}
 
-\begin{table}[]
-    \centering
-	\caption {Evaluation criteria and their associated output variables for Dymond-Dakota sensitivity analysis.}
-	\label{tab:category-output-DD}
-        \footnotesize
-        \begin{tabularx}{\textwidth}{l|LL}	
-            	\hline
-            \textbf{Evaluation Metrics} & \textbf{Output Variable} & \textbf{Indicators}\\
-            \hline
-            \textbf{Waste Management} & \begin{tabular}[c]{@{}l@{}}Total \gls{HLW} Inventory\\ Depleted Uranium\end{tabular} & \begin{tabular}[c]{@{}l@{}}Final \& Transition Final\\ Final \& Transition Final\end{tabular}\\
-            \hline
-            \textbf{Proliferation Risk} &  \begin{tabular}[c]{@{}l@{}}Pu in cooling pools\\ Separated Pu in storage \\ Separated Pu in HLW \\Fissile Pu in cooling pools \\ 
-            Fissile Separated Pu in storage \\ Fissile Separated Pu in HLW \\\end{tabular} & 
-            \begin{tabular}[c]{@{}l@{}} Max, Year, Quality, Slope\\ Max, Year, Quality, Slope \\ Max, Year, Quality, Slope \\ Max, Year, Slope \\ Max, Year, Slope \\ Max, Year, Slope\end{tabular} \\
-            
-            \hline
-            \textbf{Resource Utilization} & Uranium ore consumed & Sum, Transition Sum\\
-            \hline
-            \textbf{Goodness of Transition} & \begin{tabular}[c]{@{}l@{}}Total Idle Capacity\\ Date of Idle Capacity \\ Length of transition\end{tabular} & \begin{tabular}[c]{@{}l@{}}Sum \\ Final \\ -\end{tabular} \\ 
-            \hline
-            \end{tabularx}
+\begin{table}[h]
+	\centering
+	\caption{Dependency of the undersupply of Power on the buffer size 
+	for EG01-EG30 transition scenarios with linearly 
+	increasing power demand using the fft prediction method.}
+	\label{tab:buff_size}
+	\footnotesize
+		\begin{tabularx}{\textwidth}{LLL}
+                \hline
+                \textbf{Buffer [MW]}     & \textbf{Undersupply}               & \textbf{EG01-30} \\
+		\hline
+		0             & Time steps $[\#]$  & 9\\  
+                      & Energy $[GW\cdot mo]$    & 152517 \\ \hline
+        2000          & Undersupplied $[\#]$ & 6 \\  
+        	      & Energy $[GW\cdot mo]$   & 147166 \\ \hline
+        4000          & Time steps $[\#]$ & 6 \\  
+				  & Energy $[GW\cdot mo]$     & 143166 \\ \hline
+		6000          & Time steps $[\#]$  & 5 \\  
+		& Cumulative $[GW]$     & 139083 \\ \hline
+        8000          & Time steps $[\#]$  & 5  \\  
+	              & Energy $[GW\cdot mo]$  & 135083 \\ \hline
+	\end{tabularx}
 \end{table}
 
-To quantify the impact of the variation of an input parameter 
-on an output parameter, it is necessary to define output indicators 
-to measure this impact \cite{noauthor_effects_2017}. 
-Output indicators are introduced because the output variables
-are a time series resulting in a need for a single value that 
-is representative of the output parameter's time series.  
-Five types of output indicators are introduced 
-\cite{noauthor_effects_2017}: 
-(1) final value at end of simulation
-(2) maximum value during simulation, 
-(3) minimum value during simulation, 
-(4) cumulative sum over the whole simulation, and 
-(5) slope of the final 50 points of the simulation.
-Depending on the nature of the output parameter, a different 
-output indicator will be used. 
-The slope indicator determines if a variable is increasing or 
-decreasing at the end of the simulation. 
-Indicators with transition refer to the indicator value during the 
-transition period. 
-The transition period is defined as from the year when the first 
-transition reactor is built till the year of last idle capacity. 
+\subsection{Demonstration of Best Performance Model}
+Table \ref{tab:bestinputs} 
+shows \deploy input parameters for the 
+EG01-EG30 transition scenario
+that minimizes undersupply of power and minimizes 
+the undersupply and under capacity of the other commodities
+in the simulation. 
+The need for commodity buffers is a reflection of reality
+in which a supply buffer is usually maintained to ensure 
+continuity in the event of an unexpected failure in the supply chain.
 
-\subsection{Transition Scenario Specification}
+Figure \ref{fig:30stack} shows the
+time dependent deployment of reactor and supporting facilities 
+for the EG01-30 linearly increasing power demand 
+transition scenario.
+\deploy automatically deploys reactor and supporting facilities 
+to setup a supply chain to meet power demand
+during a transition from \glspl{LWR} to \gls{MOX} \glspl{LWR} and 
+\glspl{SFR} for EG01-30. 
 
-\subsection{One-at-a-time Sensitivity Analysis}
+\begin{table}[]
+    \caption{\deploy's input parameters for
+	EG01-EG30 transition scenario
+	that minimizes undersupply for power and minimizes 
+	the undersupply and under capacity for other facilities. }
+	\label{tab:bestinputs}
+    \footnotesize
+    \begin{tabularx}{\textwidth}{L|LL}
+    \hline
+                              & \textbf{\deploy Input Parameter}            & \textbf{EG01-30}            \\ \hline
+    \multirow{4}{*}{\textbf{Required}} & Demand driving commodity   & Power              \\
+                              & Demand equation {[}GW{]}   & 60+0.25t/12        \\
+                              & Prediction method          & fft                \\
+                              & Deployment driving method  & Installed Capacity \\ \cline{1-3}
+    \multirow{2}{*}{\textbf{Optional}} & Buffer type                & Absolute           \\
+                              & Power buffer size {[}MW{]} & 8000               \\ 
+                              & Transition Start Date [Month] & 960 (Year 80)\\ 
+                              & Fleet share ratio [\%] & \gls{MOX} \gls{PWR}: 15\%, \gls{SFR}: 85\%\\ \hline
+    \end{tabularx}%
+    \end{table}
 
-\subsection{Synergistic Sensitivity Analysis}
-
-\subsection{Global Sensitivity Analysis}
+    \begin{figure}[]
+        \centering
+        \begin{subfigure}[t]{1.2\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{eg30-stack_reactor.png} 
+            \caption{EG01-30: Reactor Deployment}
+            \label{fig:30reactor}
+        \end{subfigure}
+        \vspace{1cm}
+        \begin{subfigure}[t]{1.2\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{eg30-stack_support.png} 
+            \caption{EG01-30: Supporting Facility Deployment}
+            \label{fig:30support}
+        \end{subfigure}
+        \hfill
+        \caption{Time dependent deployment of reactor and supporting facilities in 
+        the EG01-30 linearly increasing power demand transition scenario. 
+        \deploy automatically deploys reactor and supporting facilities 
+        to setup a supply chain to meet linearly increasing power demand of $60000 + 250t/12$ MW
+        during a transition from \glspl{LWR} to MOX LWRs and \glspl{SFR}. }
+        \label{fig:30stack}
+    \end{figure}
