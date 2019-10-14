@@ -148,9 +148,9 @@ evaluation metrics.
             \hline
             \textbf{Waste Management} & \begin{tabular}[c]{@{}l@{}}Total \gls{HLW} Inventory\\ Depleted Uranium\end{tabular} & \begin{tabular}[c]{@{}l@{}}Final \\ Final \end{tabular}\\
             \hline
-            \textbf{Proliferation Risk} &  \begin{tabular}[c]{@{}l@{}}Pu in cooling pools\\ Separated Pu in storage \\ Separated Pu in HLW \\Fissile Pu in cooling pools \\ 
-            Fissile Separated Pu in storage \\ Fissile Separated Pu in HLW \\\end{tabular} & 
-            \begin{tabular}[c]{@{}l@{}} Max, Quality\\ Max, Quality \\ Max, Quality \\ Max \\ Max \\ Max\end{tabular} \\
+            \textbf{Proliferation Risk} &  \begin{tabular}[c]{@{}l@{}}Pu in cooling pools\\ Separated Pu in storage \\ Separated Pu in HLW \\ 
+            \end{tabular} & 
+        \begin{tabular}[c]{@{}l@{}} Max, Quality\\ Max, Quality \\ Max, Quality \end{tabular} \\
             
             \hline
             \textbf{Resource Utilization} & Uranium ore consumed & Sum\\
@@ -183,20 +183,20 @@ Each of these simulations are compared based on the evaluation
 metrics described in table \ref{tab:category-output-DD}.
 
 \subsubsection{\textbf{Dymond}}
-Table \ref{tab:DD-SA-results} shows the absolute values of 
+Table \ref{tab:dymond-ct} shows the absolute values of 
 output variables associated with the environmental impact, 
 resource utilization, and goodness of transition evaluation 
 metrics for each scenario. 
-Table \ref{tab:DD-SA-perc} shows each scenario's percentage 
+Table \ref{tab:dymond-ct-sa} shows each scenario's percentage 
 difference compared with the base case of `Cooling Time = 2 years'
 scenario.
 
 \begin{table}[H]
     \centering
     \caption{Dymond: Assessment of how variation of used fuel cooling times
-    impacts evaluation metrics for OECD benchmark
-	transition scenario with different used fuel cooling times.}
-	\label{tab:DD-SA-results}
+    impacts evaluation metrics (waste management, resource utilization, 
+    and goodness of transition) for OECD benchmark transition scenario.}
+	\label{tab:dymond-ct}
         \footnotesize
         \begin{tabularx}{\textwidth}{L|LL|L|LLL}	
             \hline
@@ -211,11 +211,31 @@ scenario.
 \end{table}
 
 \begin{table}[H]
-    \caption{Dymond: Sensitivity Analysis Results for OECD benchmark
-    transition scenario with different used fuel cooling times.
+    \centering
+    \caption{Dymond: Assessment of how variation of used fuel cooling times
+    impacts evaluation metrics (proliferation risk) for OECD benchmark
+	transition scenario.}
+	\label{tab:dymond-ct}
+        \footnotesize
+        \begin{tabularx}{\textwidth}{L|LLLLLL}	
+            \hline
+            \textbf{} & \multicolumn{6}{c}{\textbf{Proliferation Risk}}  \\ \hline
+\textbf{Scenario: Used Fuel Cooling Time} & \textbf{Max Pu in cooling pools [kg] } & \textbf{Pu Quality at max Pu in cooling pools [kg]} &  \textbf{Max Pu in HLW [kg]}  & \textbf{Pu Quality at max Pu in HLW [kg]} & \textbf{Max Pu in Rpr facilities [kg]} & \textbf{Pu Quality at max Pu in Rpr facilities [kg]} \\ \hline
+ 0  &           1103.2 &                             916933.4 &                       16188.8 &                                    30148.8 &                      301 &                     227 \\ 
+ 1  &           1101.6 &                             916618.2 &                       16188.8 &                                    30148.8 &                      301 &                     227 \\ 
+ 2  &           1105.7 &                             916237.60 &                       16188.8 &                                    30148.8 &                      301 &                     227 \\ 
+ 3  &           1108.3 &                             916268.7 &                       16188.8 &                                   256588.8 &                      301 &                     227 \\ 
+ 4  &           1099.8 &                             916962.4 &                       16188.8 &                                 1338604.8 &                      301 &                     227 \\ \hline
+\end{tabularx}%
+\end{table}
+
+\begin{table}[H]
+    \caption{Dymond: Sensitivity analysis of how variation of used fuel 
+    cooling times impacts evaluation metrics (waste management, resource utilization, 
+    and goodness of transition)for OECD benchmark transition scenario.
     The numbers in the table represent by how many \% an output variable 
     from each scenario differs from the base case.}
-    \label{tab:DD-SA-perc}
+    \label{tab:dymond-ct-sa}
     \footnotesize
     \begin{tabularx}{\textwidth}{L|LL|L|LLL}	
 		\hline
@@ -235,6 +255,32 @@ scenario.
         \textcolor{red}{$\blacksquare$} & $sensitivity \geq 10\%$
         \end{tabular}}}
     \end{table}
+
+    \begin{table}[H]
+        \caption{Dymond: Sensitivity analysis of how variation of used fuel 
+        cooling times impacts evaluation metrics (proliferation risk)for OECD benchmark transition scenario.
+        The numbers in the table represent by how many \% an output variable 
+        from each scenario differs from the base case.}
+        \label{tab:dymond-ct-sa}
+        \footnotesize
+        \begin{tabularx}{\textwidth}{L|LLLLLL}	
+            \hline
+            \textbf{} & \multicolumn{6}{c}{\textbf{Proliferation Risk}}  \\ \hline
+\textbf{Scenario: Used Fuel Cooling Time} & \textbf{Max Pu in cooling pools [kg] } & \textbf{Pu Quality at max Pu in cooling pools [kg]} &  \textbf{Max Pu in HLW [kg]}  & \textbf{Pu Quality at max Pu in HLW [kg]} & \textbf{Max Pu in Rpr facilities [kg]} & \textbf{Pu Quality at max Pu in Rpr facilities [kg]} \\ \hline
+             0  &             \cellcolor[HTML]{67FD9A}-0.221736 &                                   \cellcolor[HTML]{67FD9A}0.075939 &                                                            \cellcolor[HTML]{67FD9A}0.0 &                 \cellcolor[HTML]{67FD9A}0.000000 &                                           \cellcolor[HTML]{67FD9A}0.0 & \cellcolor[HTML]{67FD9A}0.0 \\
+             1  &             \cellcolor[HTML]{67FD9A}-0.363540 &                                    \cellcolor[HTML]{67FD9A}0.041532 &                                                           \cellcolor[HTML]{67FD9A}0.0 &                 \cellcolor[HTML]{67FD9A}0.000000 &                                          \cellcolor[HTML]{67FD9A}0.0 & \cellcolor[HTML]{67FD9A}0.0 \\ 
+             2  &              \cellcolor[HTML]{000000}0.000000 &                                     \cellcolor[HTML]{000000}0.000000 &                                                              \cellcolor[HTML]{000000}0.0 &                 \cellcolor[HTML]{000000}0.000000 &                                         \cellcolor[HTML]{000000}0.0 & \cellcolor[HTML]{000000}0.0 \\ 
+             3  &              \cellcolor[HTML]{67FD9A}0.234524 &                                    \cellcolor[HTML]{67FD9A}0.003389 &                                                              \cellcolor[HTML]{67FD9A}0.0 &               \cellcolor[HTML]{FD6864}751.074670 &                                         \cellcolor[HTML]{67FD9A}0.0 & \cellcolor[HTML]{67FD9A}0.0 \\ 
+             4  &             \cellcolor[HTML]{67FD9A}-0.529033 &                                   \cellcolor[HTML]{67FD9A}0.079102 &                                                        \cellcolor[HTML]{67FD9A}0.0 &              \cellcolor[HTML]{FD6864}4339.993632 &                                        \cellcolor[HTML]{67FD9A}0.0 & \cellcolor[HTML]{67FD9A}0.0 \\ \hline
+        \end{tabularx}%
+        
+        \resizebox{0.3\textwidth}{!}{
+        \fbox{\begin{tabular}{ll}
+            \textcolor{green}{$\blacksquare$} & $sensitivity \leq 1\%$ \\
+            \textcolor{orange}{$\blacksquare$} & $1\% < sensitivity < 10\%$ \\
+            \textcolor{red}{$\blacksquare$} & $sensitivity \geq 10\%$
+            \end{tabular}}}
+        \end{table}
 
     
 \subsubsection{\textbf{\Cyclus}}
