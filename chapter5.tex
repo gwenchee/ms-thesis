@@ -196,7 +196,7 @@ scenario.
     \caption{Dymond: Assessment of how variation of used fuel cooling times
     impacts evaluation metrics (waste management, resource utilization, 
     and goodness of transition) for OECD benchmark transition scenario.}
-	\label{tab:dymond-ct}
+	\label{tab:dymond-ct-1}
         \footnotesize
         \begin{tabularx}{\textwidth}{L|LL|L|LLL}	
             \hline
@@ -215,7 +215,7 @@ scenario.
     \caption{Dymond: Assessment of how variation of used fuel cooling times
     impacts evaluation metrics (proliferation risk) for OECD benchmark
 	transition scenario.}
-	\label{tab:dymond-ct}
+	\label{tab:dymond-ct-2}
         \footnotesize
         \begin{tabularx}{\textwidth}{L|LLLLLL}	
             \hline
@@ -235,7 +235,7 @@ scenario.
     and goodness of transition)for OECD benchmark transition scenario.
     The numbers in the table represent by how many \% an output variable 
     from each scenario differs from the base case.}
-    \label{tab:dymond-ct-sa}
+    \label{tab:dymond-ct-sa-1}
     \footnotesize
     \begin{tabularx}{\textwidth}{L|LL|L|LLL}	
 		\hline
@@ -261,7 +261,7 @@ scenario.
         cooling times impacts evaluation metrics (proliferation risk)for OECD benchmark transition scenario.
         The numbers in the table represent by how many \% an output variable 
         from each scenario differs from the base case.}
-        \label{tab:dymond-ct-sa}
+        \label{tab:dymond-ct-sa-2}
         \footnotesize
         \begin{tabularx}{\textwidth}{L|LLLLLL}	
             \hline
@@ -289,7 +289,7 @@ scenario.
     \caption{\Cyclus: Assessment of how variation of used fuel cooling times
     impacts evaluation metrics for EG01-30 
 	transition scenario.}
-	\label{tab:ct}
+	\label{tab:cyclus-ct-1}
         \footnotesize
         \begin{tabularx}{\textwidth}{L|LL|L|LLL}
             \hline	
@@ -309,7 +309,7 @@ scenario.
     \caption{\Cyclus: Assessment of how variation of used fuel cooling times
     impacts evaluation metrics (proliferation risk) for OECD benchmark
 	transition scenario.}
-	\label{tab:dymond-ct}
+	\label{tab:cyclus-ct-2}
         \footnotesize
         \begin{tabularx}{\textwidth}{L|LLLLLL}	
             \hline
@@ -329,7 +329,7 @@ scenario.
     transition scenario for different used fuel cooling times.
     The numbers in the table represent by how many \% an output variable 
     from each scenario differs from the base case.}
-    \label{tab:ct-sa}
+    \label{tab:cyclus-ct-sa-1}
     \footnotesize
     \begin{tabularx}{\textwidth}{L|LL|L|LLL}	
 		\hline
@@ -355,7 +355,7 @@ scenario.
         cooling times impacts evaluation metrics (proliferation risk)for OECD benchmark transition scenario.
         The numbers in the table represent by how many \% an output variable 
         from each scenario differs from the base case.}
-        \label{tab:dymond-ct-sa}
+        \label{tab:cyclus-ct-sa-2}
         \footnotesize
         \begin{tabularx}{\textwidth}{L|LLLLLL}	
             \hline
@@ -383,7 +383,7 @@ scenario.
     \caption{\Cyclus: Assessment of how variation of fleet share ratio
     of PWR MOX and SFR reactors
     impacts evaluation metrics for EG01-30 transition scenario.}
-	\label{tab:fs}
+	\label{tab:cyclus-fs-1}
         \footnotesize
         \begin{tabularx}{\textwidth}{L|LL|L|LLL}
             \hline	
@@ -403,7 +403,7 @@ scenario.
     transition scenario for different fleet share ratios.
     The numbers in the table represent by how many \% an output variable 
     from each scenario differs from the base case.}
-    \label{tab:fs-sa}
+    \label{tab:cyclus-fs-sa-1}
     \footnotesize
     \begin{tabularx}{\textwidth}{L|LL|L|LLL}	
 		\hline
@@ -475,5 +475,77 @@ scenario.
     \end{table}
 
 \section{Synergistic Sensitivity Analysis}
+\subsection{
+Fleet Share Ratio and Introduction date of advanced 
+reactor technology}
+The fleet share ratio between PWR MOX and SFR 
+reactors and introduction date of advanced reactor 
+technology was synergistically varied for 
+the EG01-30 transition scenario. 
+
+\subsubsection{\textbf{Dymond}}
+9 scenarios were evaluated for a combination of fleet share ratio 
+of 2\%, 5\%, 8\% PWR MOX and transition start date of year 162, 163, 
+and 164.
+Each of these simulations are compared based on the evaluation
+metrics described in table \ref{tab:category-output-DD}.
+Tables similar to \ref{tab:dymond-ct-1}, \ref{tab:dymond-ct-2}, 
+\ref{tab:dymond-ct-sa-1}, and \ref{tab:dymond-ct-sa-2} were also generated
+and can be viewed in \texttt{ddwrapper} github repository 
+\cite{ddwrapper_doi_2019}. 
+Each scenario's performance for each evaluation metric is shown in each table. 
+
+Figures \ref{fig:3d_sfc}, \ref{fig:3d_pf}, and \ref{fig:3d_hlw}
+visualize the maximum amount of Pu in the spent fuel cooling, 
+primary feed, and \gls{HLW} in storage inventories for varying 
+fleet share and transition start year values. 
+Pu in the spent fuel cooling inventory is minimized for PWR MOX
+fleet share ratio of 2\% for all transition years. 
+and for PWR MOX fleet share ratio of 8\% for 
+transition start year of 162 and 163.  
+Pu in the primary feed inventory is minimized PWR MOX
+fleet share ratio of 5\% for all transition years and for PWR MOX 
+fleet share ratio of 8\% for 
+transition start year of 163 and 164.                       
+Pu in HLW in storage inventory is minimized for PWR MOX
+fleet share ratio of 2\% for all transition years. 
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{\textwidth}
+    \centering
+        \includegraphics[width=0.4\linewidth]{figures/3d_sfc} 
+        \caption{Inventory: Spent fuel cooling}
+        \label{fig:3d_sfc}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/3d_pf} 
+        \caption{Inventory: Primary feed}
+	    \label{fig:3d_pf}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/3d_hlw} 
+        \caption{Inventory: HLW in storage}
+        \label{fig:3d_hlw}
+    \end{subfigure}
+    \caption{Maximum amount of Pu [kg] in each inventory during each simulation for varying fleet share and transition start date.}
+\end{figure}
+
+Figures \ref{fig:3d_sfc}, \ref{fig:3d_pf}, and \ref{fig:3d_hlw}
+communicate how fleet share ratio and introduction date of advanced 
+reactor technology 
+synergistically impact maximum Pu in various inventories in the 
+\gls{NFC}. 
+To better utilize this information for decision making, 
+similar synergistic studies can be conducted for the output 
+variables in all the evaluation metrics. 
+The results from each study can be normalized, weighted, and 
+combined to create an optimization surface similar 
+to \ref{fig:passerini_payoff} to determine the ideal fleet share 
+ratio and transition year combination. 
+
+\subsubsection{\textbf{Cyclus}}
 
 \section{Global Sensitivity Analysis}
