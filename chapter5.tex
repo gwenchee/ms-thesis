@@ -547,5 +547,44 @@ to \ref{fig:passerini_payoff} to determine the ideal fleet share
 ratio and transition year combination. 
 
 \subsubsection{\textbf{Cyclus}}
+25 scenarios were evaluated for a combination of fleet share ratio 
+of 0\%, 5\%, 10\%, 15\%, 20\% PWR MOX and advanced reactor introduction 
+date of year 80 to 84 years.
+Figures \ref{fig:cyclus_3d_hlw}, \ref{fig:cyclus_3d_depu}, and \ref{fig:cyclus_3d_ic}
+visualize the final amount of HLW, final amount of depleted uranium, and
+total amount of idle capacity in the scenario for varying 
+fleet share and advanced reactor introduction date values. 
+
+Figure \ref{fig:cyclus_3d_ic} shows that idle capacity is minimized 
+for a later advanced reactor introduction date. 
+Having a later introduction date of advanced reactor technology ensures 
+that a sufficiently large inventory of transuranic elements is amassed
+to produce fuel for the \gls{MOX} \glspl{PWR} and \glspl{SFR}.  
+This ensures that there is no gap in the supply chain that results 
+in idle advanced reactor capacity.
+
+% replace
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.7\linewidth]{cyclus_3d_hlw} 
+    \caption{Final amount of HLW [kg] in the scenario during each simulation for varying fleet share and transition start date.}
+    \label{fig:cyclus_3d_hlw}
+\end{figure}
+
+% replace
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.7\linewidth]{cyclus_3d_depu} 
+    \caption{Final amount of Depleted Uranium [kg] in the scenario during each simulation for varying fleet share and transition start date.}
+    \label{fig:cyclus_3d_depu}
+\end{figure}
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=0.7\linewidth]{cyclus_3d_ic} 
+    \caption{Total amount of Idle Capacity [MW] in the scenario during each simulation for varying fleet share and transition start date.}
+    \label{fig:cyclus_3d_ic}
+\end{figure}
 
 \section{Global Sensitivity Analysis}
+
