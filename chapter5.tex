@@ -555,6 +555,16 @@ visualize the final amount of HLW, final amount of depleted uranium, and
 total amount of idle capacity in the scenario for varying 
 fleet share and advanced reactor introduction date values. 
 
+Figure \ref{fig:cyclus_3d_hlw} shows that for scenarios in which 
+there are less \gls{MOX} \glspl{PWR}, and when the transition begins 
+later in the simulation, there is less high level waste produced. 
+This is assuming that the initial \glspl{LWR} have a longer lifetime
+and thus, less reprocessing waste is produced. 
+
+Figure \ref{fig:cyclus_3d_depu} shows that as the introduction date 
+of advanced reactors is pushed back, more depleted uranium is produced 
+due to 
+
 Figure \ref{fig:cyclus_3d_ic} shows that idle capacity is minimized 
 for a later advanced reactor introduction date. 
 Having a later introduction date of advanced reactor technology ensures 
@@ -563,7 +573,7 @@ to produce fuel for the \gls{MOX} \glspl{PWR} and \glspl{SFR}.
 This ensures that there is no gap in the supply chain that results 
 in idle advanced reactor capacity.
 
-% replace
+% replace transition year 
 \begin{figure}[]
     \centering
     \includegraphics[width=0.7\linewidth]{cyclus_3d_hlw} 
@@ -571,7 +581,7 @@ in idle advanced reactor capacity.
     \label{fig:cyclus_3d_hlw}
 \end{figure}
 
-% replace
+% replace transition year 
 \begin{figure}[]
     \centering
     \includegraphics[width=0.7\linewidth]{cyclus_3d_depu} 
@@ -579,6 +589,7 @@ in idle advanced reactor capacity.
     \label{fig:cyclus_3d_depu}
 \end{figure}
 
+% replace transition year 
 \begin{figure}[]
     \centering
     \includegraphics[width=0.7\linewidth]{cyclus_3d_ic} 
@@ -587,4 +598,23 @@ in idle advanced reactor capacity.
 \end{figure}
 
 \section{Global Sensitivity Analysis}
+\texttt{dcwrapper} was used to conduct a global sensitivity 
+analysis study to generate Sobol indices' which tells us which 
+input parameters has the most influence on an output variable. 
+This type of sensitivity analysis was described in 
+section \ref{sec:sobol}. 
+It is more effective than OAT (section \ref{sec:oat}) and 
+synergistic (section \ref{sec:synergistic}) sensitivity 
+analysis, because it decomposes the variance of the 
+output of the scenario simulation into fractions which can be 
+attributed to each input, giving a better idea of the
+most impactful input parameters. 
+More than two variables could be varied in a synergistic
+sensitivity analysis, but it is difficult to visualize the 
+results. 
 
+The input variables varied are: fleet share ratio, 
+transition start year, and used fuel cooling time.
+The output variables considered are final amount of HLW, 
+final amount of depleted uranium, and total idle capacity. 
+Table \ref{tab:sobol} shows the results of the study. 
