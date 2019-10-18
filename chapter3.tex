@@ -1,6 +1,6 @@
 \chapter{Methods}
 \label{chap:3}
-In this chapter, the \glspl{NFCSim} used in this work 
+In this chapter, the \glspl{NFCSim} utilized in this work
 , \Cyclus and DYMOND, and the new capabilities developed for 
 \glspl{NFCSim} are described. 
 The new capabilities are: 
@@ -17,7 +17,7 @@ Region agents represent geographical or political areas that institution
 and facility agents can be grouped into. 
 Institution agents control the 
 deployment and decommission of facility agents 
-and represents legal operating organizations such as a 
+and represent legal operating organizations such as a 
 utility, government, etc. \cite{huff_fundamental_2016}. 
 Facility agents represent nuclear fuel cycle facilities. 
 \Cycamore \cite{carlsen_cycamore_2014}
@@ -26,7 +26,7 @@ components in the nuclear fuel cycle (e.g. mine, fuel enrichment
 facility, reactor). 
 The \Cycamore reactor model uses externally-calculated 
 recipes for fresh and spent fuel compositions. 
-The mass flows and inventories are recorded at an agent-level
+The mass flows and inventories are recorded at an agent level
 and individual isotopes are tracked. 
 
 % Describe the agent-based model and flexibility
@@ -34,39 +34,39 @@ Two of \Cyclus' main design objectives are user customization and
 extensibility. 
 These objectives are achieved through \Cyclus' modularity, 
 open architecture, and agent interchangeability. 
-The modularity and open architecture provides users with a 
+The modularity and open architecture provide users with a 
 platform to develop custom facilities with their chosen fidelity 
 and capabilities. 
-Agent interchangeability facilitates setting up of custom fuel 
+Agent interchangeability facilitates configuration of custom fuel 
 cycles and direct comparisons of alternative modeling methodologies 
 and facility concepts \cite{huff_fundamental_2016}. 
-\Cyclus' input file has an XML file format and the output file is 
+\Cyclus' input file has an XML format and the output file is 
 a SQL database. 
 
 \section{DYMOND}
 DYMOND \cite{yacout_modeling_2005} is a \gls{NFCSim} developed 
-at \gls{ANL}. 
+at Argonne National Laboratory (\gls{ANL}). 
 It is built using the AnyLogic simulation software with 
 Microsoft Excel templates for data input and output. 
-The major inputs to this code are reactor and fuel cycle 
-characteristics, and time-dependent power demand 
+The major inputs to this code are time-dependent power demand, 
+reactor and fuel cycle characteristics 
 \cite{feng_standardized_2016}.   
 The code calls ORIGEN \cite{bell_origen_1973} during the simulation 
 to conduct reactor depletion calculations. 
-The mass flows and inventories are recorded at a system-level
+The mass flows and inventories are recorded at a system level
 and individual isotopes are tracked. 
-DYMOND's main design objective is ease of understanding its 
-behavior and variables. 
+DYMOND's main design objective is ease of understanding the  
+simulator's behavior and variables. 
 
 In DYMOND, reactor facilities are automatically deployed to 
 meet a user-defined power demand and the user can define 
-the targeted shares of energy for up to five reactor types. 
+the percentage share of energy for up to five reactor types. 
 The user also defines the fuel loading model used to calculate 
 reactor spent fuel compositions, the type of reprocessing 
 technology that is used for each reactor type, and the length 
-of used fuel cooling time etc. 
+of used fuel cooling time. 
 In DYMOND, the user must define the deployment schedule for 
-the reprocessing plants and the cooling pools and storage pools 
+the reprocessing plants; the cooling pools and storage pools 
 are all assumed to have infinite capacities. 
 DYMOND does not have demand-driven deployment capabilities for 
 supporting fuel cycle facilities. 
@@ -75,35 +75,34 @@ The difference between \Cyclus and DYMOND is that \Cyclus uses
 agent-based modeling for all facilities and mass flows, 
 whereas DYMOND uses fleet-based modeling for all facilities and 
 mass flows with exception of reactor facilities. 
-\Cyclus has the advantage of flexibility and customization, 
-and DYMOND has the advantage of ease of use. 
+Compared to \Cyclus, DYMOND is easier to use but less flexible. 
 
 \section{Demand driven deployment capability in \Cyclus (\deploy)}
-In 2016, there was a push to understand and evaluate the 
+In 2016, there was a push from the DOE to understand and evaluate the 
 transition from the initial EG01 state to promising future 
 end-states \cite{feng_standardized_2016}.
-Previously in \Cyclus, reactor facilities are automatically 
+Previously in \Cyclus, reactor facilities were automatically 
 deployed to meet a user-defined power demand. 
-However, it is up to the user to define a deployment scheme of 
-supporting facilities to ensure that there is no gap in the supply 
-chain that results in idle reactor capacity. 
+However, the user was required to define a deployment scheme of 
+supporting facilities to ensure that there would be no supply chain 
+gap resulting in idle reactor capacity. 
 To avoid this issue, users 
 have to set infinite capacities for the support facilities, 
 but this is an inaccurate representation of reality. 
 Another option is to manually calculate a suitable deployment 
 schedule. 
 It is straightforward to manually determine a deployment scheme 
-for a once-through fuel cycle, however, it is difficult to effectively 
+for a once-through fuel cycle, however it is difficult to effectively 
 implement for complex closed fuel cycle scenarios.  
-Therefore, to successfully conduct analysis of the time-dependent 
+Hence, to successfully conduct analysis of the time-dependent 
 closed fuel cycle transition
 analyses, it is necessary to develop \gls{NFCSim} tools to  
-automate setting up of transition scenarios. 
+automate configuration of transition scenarios.  
 Therefore, Demand-Driven Cycamore Archetypes project
 (NEUP-FY16-10512) was initiated to develop demand-driven deployment 
 capabilities in \Cyclus.
 This capability is added as a \Cyclus Institution
-agent that deploys facilities to meet the front-end and back-end 
+agent that deploys facilities to meet 
 fuel cycle demands based on a user-defined commodity demand. 
 This demand-driven deployment capability is called 
 \deploy. 
@@ -114,9 +113,9 @@ In \Cyclus, developers have the option to design
 agents using C++ or Python. 
 The \deploy \texttt{Institution} agent was 
 implemented in Python to enable the use of 
-well developed time series forecasting Python packages. 
+well-developed time series forecasting Python packages. 
 
-In a \Cyclus simulation, at every timestep, \deploy 
+In a \Cyclus simulation, at every timestep \deploy 
 predicts supply and demand of each commodity for the next time 
 step. 
 If there is an undersupply of any commodity based 
@@ -151,20 +150,19 @@ at every timestep.
     \end{tikzpicture}
 \end{figure}
 
-\deploy's main objective is to minimize
-undersupply of power. 
+\deploy's main objective is to minimize power undersupply. 
 The sub-objectives are : (1) to minimize the number of time 
 steps of undersupply or under capacity of any 
-commodity, (2) to minimize excessive oversupply of all commodities.
-This is a reflection of reality in which it is important to 
-never have an undersupply of power on the grid by ensuring power 
-plants are never short of fuel, while not 
-having excessive oversupply resulting in a burden to store unused 
-supplies. 
+commodity, and (2) to minimize excessive oversupply of all commodities.
+This is a reflection of reality in which it is imperative to meet 
+power demand at all times by ensuring power 
+plants are never short of fuel. 
+Liekwise, it is important to minimize oversupply that would otherwise 
+result in costly storage fees. 
 \glspl{NFCSim} often face power undersupplies at certain time steps 
 due to lack of viable fuel, despite having sufficient installed 
 reactor capacity.  
-Therefore, using \deploy to automatically deploy supporting facilities 
+Using \deploy to automatically deploy supporting facilities 
 will prevent this from occurring.  
 
 \subsubsection{\textbf{Structure}}
@@ -176,19 +174,19 @@ front-end and back-end fuel cycle facilities:
 \texttt{SupplyDrivenDeploymentInst}, respectively. 
 This distinction was made because front-end facilities 
 are deployed to meet demand for commodities they produce, 
-whereas, back-end facilities are deployed to meet supply for the 
+whereas, back-end facilities are deployed to meet supply of 
 commodities they provide capacity for. 
 For example, for front-end facilities, a reactor facility 
 demands fuel and \texttt{DemandDrivenDeploymentInst} 
 triggers deployment of fuel fabrication facilities to create 
-supply, and thus, meeting demand for fuel to prevent undersupply. 
+supply, thus meeting fuel demand and preventing power undersupply. 
 For back-end facilities, the reactor generates spent fuel and 
 \texttt{SupplyDrivenDeploymentInst} triggers deployment of 
-waste storage facilities to create capacity meeting the supply 
-of spent fuel to prevent under capacity. 
+waste storage facilities to store the supply 
+of spent fuel and preventing under capacity. 
 
 \subsubsection{\textbf{Input Variables}}
-Table \ref{tab:inputs} lists and gives examples of the input 
+Table \ref{tab:inputs} provides examples of the input 
 variables \deploy accepts. 
 Essentially, the user must do the following: 
 define the facilities controlled by \deploy and their respective 
@@ -215,11 +213,11 @@ facility preferences, and prediction methods.
                                                       & Facilities it controls                                                             & Fuel Fab, LWR, SFR, Waste repository, etc.                                                                                                      \\ \cline{2-3} 
                                                       & Capacities of the facilities                                                       & 3000 kg, 1000 MW, 50000 kg                                                                                                     \\ \cline{2-3} 
                                                       & Prediction method                                                                  & \begin{tabular}[c]{@{}l@{}}Power: fast fourier transform\\ Fuel: moving average\\ Spent fuel: moving average\end{tabular} \\ \cline{2-3} 
-                                                      & Deployment driven by & Installed Capacity/Supply                                                                                                                    \\ \hline
+                                                      & Deployment driven by & Installed capacity/supply                                                                                                                    \\ \hline
             \multirow{4}{*}{\textbf{Optional}} & Supply/Capacity Buffer type                                                                        & Absolute                                                                                                                  \\ \cline{2-3} 
-                                                      & Supply/Capacity Buffer size                                                                        & \begin{tabular}[c]{@{}l@{}}Power: 3000 MW\\ Fuel: 0 kg \\ Spent fuel: 0 kg\end{tabular}                                   \\ \cline{2-3} 
+                                                      & Supply/Capacity buffer size                                                                        & \begin{tabular}[c]{@{}l@{}}Power: 3000 MW\\ Fuel: 0 kg \\ Spent fuel: 0 kg\end{tabular}                                   \\ \cline{2-3} 
                                                       & Facility preferences                                                               & \begin{tabular}[c]{@{}l@{}}LWR = 100-t\\ SFR = t-100 \end{tabular}          \\ \cline{2-3} 
-                                                      & Facility shares                                                             & \begin{tabular}[c]{@{}l@{}}MOX LWR = 85\%\\ SFR = 15\% \end{tabular}          \\ \hline	
+                                                      & Fleet share percentage                                                            & \begin{tabular}[c]{@{}l@{}}MOX LWR = 85\%\\ SFR = 15\% \end{tabular}          \\ \hline	
                     \end{tabularx}
 \end{table}
 
@@ -242,11 +240,7 @@ facility preferences, and prediction methods.
     Pu after the existing inventory is depleted 
     and all Pu-generating \glspl{LWR} have already been decommissioned. 
     This will result in \deploy deploying infinite reprocessing 
-    facilities in a futile attempt to produce \gls{SFR} fuel, given the lack of Pu.
-    This can also be avoided by using \deploy's facility constraint capability 
-    (section \ref{sec:constrain})
-    to withhold \gls{SFR} deployment until a sizable inventory of Pu 
-    is accumulated in the simulation. 
+    facilities in a futile attempt to produce \gls{SFR} fuel, despite the lack of Pu.
     
     \subsubsection{\textbf{Supply/Capacity Buffer}}
     In \texttt{DemandDrivenDeploymentInst}, the user has the option 
@@ -261,7 +255,7 @@ facility preferences, and prediction methods.
     For example, the user could set the power commodity's supply buffer 
     to be 2000 MW. 
     If predicted demand is 10000 MW, \deploy will deploy reactor 
-    facilities to meet the predicted demand and supply buffer, resulting 
+    facilities to meet the predicted demand plus the supply buffer, resulting 
     in a power supply of 12000 MW.  
     The buffer can be defined as a percentage (equation \ref{eq:perc}) 
     or absolute value (equation \ref{eq:abs}). 
@@ -283,9 +277,9 @@ facility preferences, and prediction methods.
     installed capacity deployment driving method in a transition 
     scenario simulation effectively minimizes undersupply of a 
     commodity while avoiding excessive oversupply. 
-    This is demonstrated in section \ref{sec:demo}. 
+    This is demonstrated in Section \ref{sec:demo}. 
     
-    \subsubsection{\textbf{Facility Preference and Share}}
+    \subsubsection{\textbf{Facility Preference and Fleet Share}}
     The user can elect to specify time-dependent preference equations 
     for each facility; if more than one facility can supply the same 
     commodity, \deploy uses these equations to determine which facility 
@@ -304,10 +298,11 @@ facility preferences, and prediction methods.
     This constrains \gls{SFR} deployment to 85\% of total power demand 
     and \gls{MOX} \gls{LWR} deployment to 15\% of total power demand.  
 
-    The transition year is selected using the facility 
-    preferences, and the sharing capability determines the percentage 
+    The year the transition begins is selected by customizing facility 
+    preferences to begin preference for advanced reactors at a certain year,
+    and the sharing capability determines the percentage 
     share of each type of reactor to transition to. 
-    Therefore, when \deploy predicts an undersupply of a commodity, 
+    Therefore, when \deploy predicts an undersupply of a commodity 
     it deploys facilities in order of preference, starting at 
     the highest and moving down if the facility percentage share 
     is already met. 
@@ -414,7 +409,7 @@ of time series data with weights decaying exponentially
 for older time series values \cite{hyndman_forecasting:_2018}
 to create a model to determine future demand and supply values. 
 The \texttt{exp-smoothing} method excels in 
-modeling univariate time series data without trend or seasonality, 
+modeling steady-state time series data without trend or seasonality, 
 whereas the \texttt{holt-winters} method applies exponential 
 smoothing three times resulting in higher accuracy when 
 modeling seasonal time series data. 
@@ -437,23 +432,23 @@ between consecutive values.
 
 \section{Sensitivity Analysis Capabilities}
 In this work, \Cyclus and DYMOND are coupled with Dakota 
-\cite{eldred_dakota_2010} to give the \glspl{NFCSim} \gls{SA}, 
-\gls{UQ}, and optimization capabilities. 
-The reason for wrapping \Cyclus and DYMOND with Dakota instead of 
-other sensitivity analysis tools (Python packages etc.)
-is because Dakota is a well supported \gls{SA}, \gls{UQ}, 
+\cite{eldred_dakota_2010} to give the \glspl{NFCSim} 
+Sensitivity Analysis (\gls{SA}), 
+Uncertainty Quantification (\gls{UQ}), and optimization capabilities. 
+Dakota is used in conjunction with \Cyclus and DYMOND because it 
+is a well supported \gls{SA}, \gls{UQ}, 
 and optimization tool that provides a flexible interface between 
 analysis codes and iterative system analysis methods 
 \cite{turner_virtual_nodate}. 
 It has also previously been coupled with other nuclear engineering 
-softwares \cite{turner_virtual_nodate,zhang_uncertainty_nodate}. 
+software \cite{turner_virtual_nodate,zhang_uncertainty_nodate}. 
 
-The process of coupling with Dakota are similar 
+The process of coupling with Dakota is similar 
 for both \glspl{NFCSim}. 
-The coupling is depicted in Figure \ref{fig:dakota-NFC-flow} in which 
+The coupling is depicted in Figure \ref{fig:dakota-NFC-flow}; 
 Dakota is applied as a wrapper around each of the \glspl{NFCSim}. 
 In this work, a Python interface between Dakota and the \glspl{NFCSim}
-are developed. 
+is developed. 
 The Python interface has three functions: 
 (1) edit the \gls{NFCSim}'s input file based on Dakota's input values, 
 (2) run the simulation with the newly edited \gls{NFCSim} input file, and 
@@ -485,27 +480,27 @@ each of their input and output files.
     \label{fig:dakota-NFC-flow}
 \end{figure}
 
-\subsection{Dymond-Dakota Coupling (\texttt{ddwrapper})}
+\subsection{DYMOND-Dakota Coupling (\texttt{ddwrapper})}
 % python scripts to parse the excel input and output templates 
-In the interface between Dymond and Dakota, the Pywin32 
+In the interface between DYMOND and Dakota, the Pywin32 
 \cite{hammond_python_2000}
-Python package is used to parse the excel input file to 
-write to the relevant excel cells accordingly. 
+Python package is used to parse the Excel input file to 
+write to the relevant Excel cells accordingly. 
 Pywin32 is a thin Python wrapper that enables interaction 
 with COM objects \cite{hammond_python_2000}. 
 The Pandas \cite{mckinney_pandas:_2011} Python
 package is used to analyze the excel output database 
 by taking the values of interest and formatting them 
 to return to the dakota output file.
-The scripts coupling Dymond and Dakota are demonstrated in the 
-\texttt{ddwrapper} github repository \cite{ddwrapper_doi_2019}.
+The scripts coupling DYMOND and Dakota are demonstrated in the 
+\texttt{ddwrapper} github repository \cite{chee_gwenchee/ddwrapper_2019}.
 
 \subsection{\Cyclus-Dakota Coupling (\texttt{dcwrapper})}
 % python scripts + jinja2 for input 
 % python scripts + cymetric for output 
 In the interface between \Cyclus and Dakota, 
 the Jinja2 \cite{ronacher_welcome_2018} Python package is used 
-to edit the relevant parts of a \Cyclus' xml input file. 
+to edit the relevant parts of a \Cyclus XML input file. 
 Jinja2 is a modern and designer-friendly templating 
 language for Python. 
 The \Cyclus output database is analyzed with
@@ -514,7 +509,7 @@ the \textsc{Cymetric} Python \cite{scopatz_cymetric_2015} package.
 created in 2015 to more easily interact with \Cyclus' SQL 
 database. 
 The scripts coupling \Cyclus and Dakota are demonstrated in the 
-\texttt{dcwrapper} github repository \cite{ddwrapper_doi_2019}.
+\texttt{dcwrapper} github repository \cite{chee_arfc/dcwrapper_2019}.
 
 % Add github doi 
 
