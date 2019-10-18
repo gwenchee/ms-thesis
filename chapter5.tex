@@ -11,6 +11,7 @@ This chapter will be broken into five sections:
     \item One-at-a-time \gls{SA} results 
     \item Synergistic \gls{SA} results
     \item Global \gls{SA} results 
+    \item Main Takeaways 
 \end{enumerate}
 
 \section{Transition Scenario Specification}
@@ -550,21 +551,24 @@ ratio and transition year combination.
 25 scenarios were evaluated for a combination of fleet share ratio 
 of 0\%, 5\%, 10\%, 15\%, 20\% PWR MOX and advanced reactor introduction 
 date of year 80 to 84 years.
-Figures \ref{fig:cyclus_3d_hlw}, \ref{fig:cyclus_3d_depu}, and \ref{fig:cyclus_3d_ic}
+Figures \ref{fig:cyclus_3d_hlw}, \ref{fig:cyclus_3d_depu}, and 
+\ref{fig:cyclus_3d_ic}
 visualize the final amount of HLW, final amount of depleted uranium, and
 total amount of idle capacity in the scenario for varying 
 fleet share and advanced reactor introduction date values. 
 
 Figure \ref{fig:cyclus_3d_hlw} shows that for scenarios in which 
-there are less \gls{MOX} \glspl{PWR}, and when the transition begins 
+there is a smaller fleet share of \gls{MOX} \glspl{PWR}, and when the 
+transition begins 
 later in the simulation, there is less high level waste produced. 
 This is assuming that the initial \glspl{LWR} have a longer lifetime
-and thus, less reprocessing waste is produced. 
-
+and thus, advanced reactors exist in the simulation for a shorter 
+amount of time, resulting in less reprocessing waste is produced. 
+Also, \gls{MOX} \glspl{PWR} produce more \gls{HLW} than \glspl{SFR}. 
 Figure \ref{fig:cyclus_3d_depu} shows that as the introduction date 
 of advanced reactors is pushed back, more depleted uranium is produced 
-due to 
-
+due to extended lifetime of the \glspl{LWR} that utilize enriched 
+natural uranium fuel that generates depleted uranium. 
 Figure \ref{fig:cyclus_3d_ic} shows that idle capacity is minimized 
 for a later advanced reactor introduction date. 
 Having a later introduction date of advanced reactor technology ensures 
@@ -617,4 +621,46 @@ The input variables varied are: fleet share ratio,
 transition start year, and used fuel cooling time.
 The output variables considered are final amount of HLW, 
 final amount of depleted uranium, and total idle capacity. 
-Table \ref{tab:sobol} shows the results of the study. 
+Table \ref{tab:sobol} provides the sobol indices that depicts 
+the impact of variance of each input variable on each output 
+variable. 
+It provides a summary of the most influential input parameters 
+are for each output parameter. 
+Fleet share has the largest impact on 
+final HLW value while transition start year has the largest 
+impact on final depleted uranium value and the total idle 
+capacity value in the simulation. 
+Transition start year and cooling time have some influence on 
+the final value of HLW. 
+Fleet share and cooling time have no influence on the final 
+depleted uranium value. 
+    
+    \begin{table}[H]
+        \centering
+        \caption{Sobol Indices for a global sensitivity analysis study of the impact of 
+        fleet share \% of PWR MOX reactors, transition start year and cooling time on various output
+        variables: final amount of HLW, final amout of depleted uranium, and total 
+        idle capacity in the simulation}
+        \label{tab:sobol}
+            \footnotesize
+            \begin{tabularx}{\textwidth}{L|LLL}
+                \hline	
+                \textbf{Input Variables}                      & \multicolumn{3}{c}{\textbf{Sobol Indices for Output Variables}}   \\ \hline
+                & \textbf{Final HLW} & \textbf{Final depleted uranium} & \textbf{Total idle capacity} \\ \hline
+                \textbf{Fleet Share} & 0.828     & 0                      & 0.00509             \\
+                \textbf{Transition Start Year}                & 0.381     & 0.971                  & 1.505               \\
+                \textbf{Cooling Time}                         & 0.126     & 0                      & 0                   \\ \hline
+
+            \end{tabularx}
+    \end{table}
+
+\section{Main Takeaways}
+The OAT, synergistic, and global sensitivity analysis methods 
+are all important for analyzing \gls{NFC} transition scenarios. 
+Their use is in different forms. 
+Global sensitivity analysis should be the first analysis conducted to 
+determine which input variables are key to influencing the output 
+variables of interest. 
+OAT and synergistic sensitivity analysis can then be used together to 
+do further analysis to determine the trends and quantitative impacts 
+of specific input variables on specific output variables. 
