@@ -4,7 +4,7 @@ for a simple and complex case.
 This chapter will be broken into two sections: 
 \begin{enumerate}
     \item \deploy demonstration for simple transition scenarios
-    \item \deploy demonstration for EG01-30 transition scenario
+    \item \deploy demonstration for the EG01-30 transition scenario
 \end{enumerate}
 
 \section{\deploy Demonstration of Simple Transition Scenarios}
@@ -20,7 +20,7 @@ three types of facilities: \texttt{source}, \texttt{reactor}, and
 All simulations have ten initial \texttt{reactor} facilities 
 (\texttt{reactor1} to \texttt{reactor10}). 
 These reactors have staggered cycle lengths and lifetimes to prevent 
-simultaneous refueling and setup gradual decommissioning. 
+simultaneous refueling and promote gradual decommissioning. 
 \deploy is configured to deploy \texttt{new reactor} facilities
 to meet the loss of power supply created by the decommissioning 
 of the initial \texttt{reactor} facilities. 
@@ -38,7 +38,7 @@ for the three simulations that \deploy deploys facilities to meet.
     \multirow{5}{*}{\textbf{Required Inputs}} & Demand driving commodity                                       & \multicolumn{3}{c}{Power}                                                                                                                                                                                                                                                                                 \\ \cline{2-5} 
                                               & Demand equation                                                & \multicolumn{1}{l|}{10000 MW}                                                                                & \begin{tabular}[c]{@{}l@{}}t\textless 40: 10000 MW\\ t\textgreater{}=40: 250*t MW\end{tabular} & 1000*$\sin(\pi*t/3)$+10000                                                                 \\ \cline{2-5} 
                                               & Facilities it controls                                         & \multicolumn{3}{c}{Source, reactor, sink}                                                                                                                                                                                                                                                                 \\ \cline{2-5} 
-                                              & Prediction method                                              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Power: FFT\\ Fuel: MA\\ Spent fuel: MA\end{tabular}}          & \begin{tabular}[c]{@{}l@{}}Power: FFT\\ Fuel: MA\\ Spent fuel: FFT\end{tabular}                & \begin{tabular}[c]{@{}l@{}}Power: HW\\ Fuel: MA\\ Spent fuel: FFT\end{tabular}             \\ \cline{2-5} 
+                                              & Prediction method                                              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Power: \texttt{FFT}\\ Fuel: \texttt{MA}\\ Spent fuel: \texttt{MA}\end{tabular}}          & \begin{tabular}[c]{@{}l@{}}Power: FFT\\ Fuel: MA\\ Spent fuel: FFT\end{tabular}                & \begin{tabular}[c]{@{}l@{}}Power: HW\\ Fuel: MA\\ Spent fuel: FFT\end{tabular}             \\ \cline{2-5} 
                                               & Deployment Driving Method                                      & \multicolumn{3}{c}{Installed Capacity}                                                                                                                                                                                                                                                                    \\ \hline
     \multirow{2}{*}{\textbf{Optional Inputs}} & Buffer type                                                    & \multicolumn{3}{c}{Absolute}                                                                                                                                                                                                                                                                              \\ \cline{2-5} 
                                               & Buffer size                                                    & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Power: 3000 MW\\ Fuel: 0 kg \\ Spent fuel: 0 kg\end{tabular}} & \begin{tabular}[c]{@{}l@{}}Power: 2000 MW\\ Fuel: 1000 kg \\ Spent fuel: 0 kg\end{tabular}     & \begin{tabular}[c]{@{}l@{}}Power: 2000 MW\\ Fuel: 1000 kg \\ Spent fuel: 0 kg\end{tabular} \\ \hline
@@ -50,7 +50,7 @@ for the three simulations that \deploy deploys facilities to meet.
 
     \begin{figure}[]
         \begin{center}
-            \includegraphics[scale=0.37]{./figures/powerplots.png}
+            \includegraphics[scale=0.5]{./figures/powerplots.png}
         \end{center}
             \caption{Power demand curves for basic transition scenarios.}
         \label{fig:powerplots}
@@ -66,29 +66,28 @@ Table \ref{tab:transition-scenario-results} shows the number of
 undersupplied timesteps. 
 Figure \ref{fig:constanttransition-power} demonstrates that
 the main objective of \deploy (section \ref{sec:d3ploy}) 
-was met since there are no timesteps
+was met as there are no timesteps
 in which the supply of power falls under demand.
-By using a combination of the fast fourier transform method for 
+By using a combination of the \texttt{FFT} method for 
 predicting demand and setting the supply buffer to 3000MW 
 (the capacity of 3 reactors), the user minimizes the number of 
 undersupplied timesteps for every commodity.
 
 In figure \ref{fig:constanttransition-fuel},
 a source facility with a large fuel throughput is initially
-deployed to meet the large initial fuel demand for the starting
-up of ten reactors. 
-By having an initial facility with a large throughput exist for the 
-first few time steps, 
-\deploy is prevented from deploying supporting
-facilities that end up being redundant at the later times in  
-the simulation.
-This is a reflection of reality in which reactor manufacturers will 
+deployed to meet the large fuel demand imposed by loading ten 
+new reactors. 
+Without this large initial facility, \deploy will deploy 
+a large number of fuel fabrication facilities to meet 
+the initial demand that will later become redundant in 
+the simulation. 
+This is a reflection of reality in which reactor operators will 
 accumulate an appropriate amount of fuel inventory before starting 
 up reactors. 
 There is one time step in which a power undersupply exists after the 
 decommissioning of the large initial facility; 
 this is unavoidable as the prediction methods in \deploy are 
-unable to forsee this sudden drop in demand. 
+unable to foresee this sudden drop in demand. 
 
     \begin{figure}[]
         \centering
@@ -125,7 +124,7 @@ unable to forsee this sudden drop in demand.
     undersupplied timesteps. 
     Figure \ref{fig:growingtransition-power} demonstrates that
     the main objective of \deploy (section \ref{sec:d3ploy}) 
-    was met since there are no timesteps
+    was met as there are no timesteps
     in which the supply of power falls under demand.
     
     \begin{figure}[]
@@ -163,11 +162,12 @@ unable to forsee this sudden drop in demand.
     Table \ref{tab:transition-scenario-results} shows the number of 
     undersupplied timesteps.
     
-    For a sinusoidal power demand, the use of the triple exponential method
+    For a sinusoidal power demand, the use of the 
+    \texttt{holt-winters} method
     for predicting demand is more effective than the 
-    fast fourier transform method which was used for the constant 
+    \texttt{FFT} method which was used for the constant 
     and linearly increasing power demand transition scenarios. 
-    This is because the triple exponential smoothing method excels in
+    This is because the \texttt{holt-winters} method excels in
     forecasting data points for repetitive seasonal series of data. 
     
     \begin{figure}[]
@@ -218,14 +218,14 @@ unable to forsee this sudden drop in demand.
 Figure \ref{fig:30flow} shows the setup of facilities and mass flows 
 for EG01-30 in \Cyclus. 
 In the EG01-30 transition scenario, the initial \gls{LWR} fleet is 
-progressively decommissioned starting at the 80 year mark,
+progressively decommissioned beginning at the 80 year mark,
 after which \deploy deploys \glspl{SFR} and \gls{MOX} \glspl{LWR} to 
 meet a linearly increasing power demand. 
 Transuranics from the spent fuel are recycled to 
 produce \gls{MOX} \gls{LWR} and \gls{SFR} fuel. 
 The power demand equation (t represents a month): 
 \begin{align}
-    P(t) = 60 + \frac{0.25t}{12}\ GW
+    P(t) = 60000 + \frac{250t}{12}\ MW
 \end{align}
 
 \begin{figure}[]
@@ -244,15 +244,12 @@ methods and power supply buffer sizes was conducted.
 To determine the most effective \deploy prediction methods, the
 EG01-30 linearly increasing power transition scenario is run 
 for each prediction method.  
-In Figure \ref{fig:eg30under}, crosses represent the time steps in which there is undersupply 
-or under capacity of each commodity for a linearly increasing power EG01-30 
-scenario for varying prediction methods.
-The size of the crosses are proportional to the undersupply
-value, therefore, larger crosses correspond to larger undersupply.
-\texttt{fft} is the best prediction method since it has 
-the least number of crosses and smallest crosses in the figure,  
+In Figure \ref{fig:eg30under}, the \texttt{fft} method has
+the smallest and least number of crosses, 
 demonstrating that it performs the best at minimizing 
 undersupply of all commodities.
+Thus, it is the best prediction method for this transition 
+scenario simulation. 
 
 % update these figures to actually be 30
 \begin{figure}[]
@@ -275,7 +272,8 @@ undersupply of all commodities.
 	EG01-30 Transition Scenario with Linearly Increasing Power Demand:
 	Each cross represent a time step in which there is undersupply 
 	or under capacity of each commodity for varying prediction methods. 
-	The size of each cross is proportional on the size of the undersupply.}
+    The size of each cross is proportional on the size of the undersupply.
+    Larger crosses correspond to larger undersupply.}
 	\label{fig:eg30under}
 \end{figure}
 
@@ -331,15 +329,15 @@ the power undersupply for the EG01-EG30 transition scenario.
                 \textbf{Buffer [MW]}     & \textbf{Undersupply}               & \textbf{EG01-30} \\
 		\hline
 		0             & Time steps $[\#]$  & 9\\  
-                      & Energy $[GW\cdot mo]$    & 152517 \\ \hline
+                      & Cumulative $[GW\cdot mo]$    & 152517 \\ \hline
         2000          & Undersupplied $[\#]$ & 6 \\  
-        	      & Energy $[GW\cdot mo]$   & 147166 \\ \hline
+        	      & Cumulative $[GW\cdot mo]$   & 147166 \\ \hline
         4000          & Time steps $[\#]$ & 6 \\  
-				  & Energy $[GW\cdot mo]$     & 143166 \\ \hline
+				  & Cumulative $[GW\cdot mo]$     & 143166 \\ \hline
 		6000          & Time steps $[\#]$  & 5 \\  
-		& Cumulative $[GW]$     & 139083 \\ \hline
+		& Cumulative $[GW\cdot mo]$     & 139083 \\ \hline
         8000          & Time steps $[\#]$  & 5  \\  
-	              & Energy $[GW\cdot mo]$  & 135083 \\ \hline
+	              & Cumulative $[GW\cdot mo]$  & 135083 \\ \hline
 	\end{tabularx}
 \end{table}
 
@@ -374,7 +372,7 @@ during a transition from \glspl{LWR} to \gls{MOX} \glspl{LWR} and
     \hline
                               & \textbf{\deploy Input Parameter}            & \textbf{EG01-30}            \\ \hline
     \multirow{4}{*}{\textbf{Required}} & Demand driving commodity   & Power              \\
-                              & Demand equation {[}GW{]}   & 60+0.25t/12        \\
+                              & Demand equation {[}MW{]}   & 60000+250t/12        \\
                               & Prediction method          & fft                \\
                               & Deployment driving method  & Installed Capacity \\ \cline{1-3}
     \multirow{2}{*}{\textbf{Optional}} & Buffer type                & Absolute           \\
@@ -386,14 +384,14 @@ during a transition from \glspl{LWR} to \gls{MOX} \glspl{LWR} and
 
     \begin{figure}[]
         \centering
-        \begin{subfigure}[t]{1.2\textwidth}
+        \begin{subfigure}[t]{\textwidth}
             \centering
             \includegraphics[width=\linewidth]{eg30-stack_reactor.png} 
             \caption{EG01-30: Reactor Deployment}
             \label{fig:30reactor}
         \end{subfigure}
         \vspace{1cm}
-        \begin{subfigure}[t]{1.2\textwidth}
+        \begin{subfigure}[t]{\textwidth}
             \centering
             \includegraphics[width=\linewidth]{eg30-stack_support.png} 
             \caption{EG01-30: Supporting Facility Deployment}
