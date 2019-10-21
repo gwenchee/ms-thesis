@@ -44,7 +44,7 @@ and facility concepts \cite{huff_fundamental_2016}.
 a SQL database. 
 
 \section{DYMOND}
-DYMOND \cite{yacout_modeling_2005} is a \gls{NFCSim} developed 
+DYMOND \cite{yacout_modeling_2005} is a \gls{NFC} simulator developed 
 at Argonne National Laboratory (\gls{ANL}). 
 It is built using the AnyLogic simulation software with 
 Microsoft Excel templates for data input and output. 
@@ -96,7 +96,7 @@ for a once-through fuel cycle, however it is difficult to effectively
 implement for complex closed fuel cycle scenarios.  
 Hence, to successfully conduct analysis of the time-dependent 
 closed fuel cycle transition
-analyses, it is necessary to develop \gls{NFCSim} tools to  
+analyses, it is necessary to develop \gls{NFC} simulator tools to  
 automate configuration of transition scenarios.  
 Therefore, Demand-Driven Cycamore Archetypes project
 (NEUP-FY16-10512) was initiated to develop demand-driven deployment 
@@ -450,14 +450,14 @@ Dakota is applied as a wrapper around each of the \glspl{NFCSim}.
 In this work, a Python interface between Dakota and the \glspl{NFCSim}
 is developed. 
 The Python interface has three functions: 
-(1) edit the \gls{NFCSim}'s input file based on Dakota's input values, 
-(2) run the simulation with the newly edited \gls{NFCSim} input file, and 
-(3) read the \gls{NFCSim}'s output file and returns values of interest 
+(1) edit the \gls{NFC} simulator's input file based on Dakota's input values, 
+(2) run the simulation with the newly edited \gls{NFC} simulator's input file, and 
+(3) read the \gls{NFC} simulator's output file and returns values of interest 
 to the Dakota output file. 
 The parameters for the \gls{SA}, \gls{UQ}, or optimization study 
 is defined in the Dakota input file. 
 The differences in the Python interface between Dakota and each 
-\gls{NFCSim} lies in the writing to and reading of 
+\gls{NFC} simulator lies in the writing to and reading of 
 each of their input and output files. 
 
 \begin{figure}[]
