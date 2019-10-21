@@ -6,7 +6,7 @@ using the Dakota-\Cyclus (\texttt{dcwrapper})
 and Dakota-DYMOND coupling (\texttt{ddwrapper}). 
 This chapter will be broken into five sections: 
 \begin{enumerate}
-    \item Transition Scenario Specification 
+    \item Transition Scenario Specifications 
     \item Sensitivity Analysis Evaluation Metrics 
     \item One-at-a-time \gls{SA} results 
     \item Synergistic \gls{SA} results
@@ -120,9 +120,15 @@ Three types of output indicators are introduced
 \cite{noauthor_effects_2017}: 
 (1) final value at end of simulation
 (2) maximum value during simulation,  
-(4) cumulative sum over the whole simulation, and 
+(3) cumulative sum over the whole simulation, and 
+(4) quality of Plutonium (equation \ref{eq:pu}). 
 Depending on the nature of the output parameter, a different 
 output indicator will be used. 
+
+\begin{align}
+    \label{eq:pu}
+Quality\ of\ Pu = \frac{Pu_{239}+Pu_{241}}{Pu_{238}+Pu_{240}+Pu_{242}+Pu_{243}+Pu_{244}}
+\end{align}
 
 Table \ref{tab:category-output-DD} shows the selected 
 output variables used in this work and their associated 
@@ -165,8 +171,6 @@ transition scenarios are:
 	\item Introduction date of advanced reactor technology
 \end{itemize}
 
-The sensitivity analysis was conducted for both DYMOND and \Cyclus. 
-
 \section{One-at-a-time Sensitivity Analysis}
 
 \subsection{Length of cooling time for discharged fuel}
@@ -174,15 +178,39 @@ Used fuel cooling time for all cooling pools was varied from
 0 to 8 years for the EG01-30 transition scenario. 
 Each of these simulations are compared based on the evaluation 
 metrics described in Table \ref{tab:category-output-DD}.
+This was conducted for both DYMOND and \Cyclus. 
 
 \subsubsection{\textbf{DYMOND}}
-Table \ref{tab:dymond-ct} shows the absolute values of 
+Tables \ref{tab:dymond-ct-1} and \ref{tab:dymond-ct-2} show 
+the absolute values of 
 output variables associated with the environmental impact, 
 resource utilization, and goodness of transition evaluation 
 metrics for each scenario. 
-Table \ref{tab:dymond-ct-sa} shows each scenario's percentage 
+Tables \ref{tab:dymond-ct-sa-1} and \ref{tab:dymond-ct-sa-2} 
+show each scenario's percentage 
 difference compared with the base case of `Cooling Time = 2 years'
 scenario.
+
+In Table \ref{tab:dymond-ct-1}, total idle capacity 
+in the simulation increases for used fuel cooling time of 3 years 
+onwards. 
+This is because the fuel management strategy in the 
+DYMOND OECD benchmark scenario was 
+manually edited to work best with a 2 year used fuel cooling time.
+The idle capacity in cooling time of 3 years onwards could be 
+avoided by manually changing the fuel management strategy
+in the DYMOND input file for the scenario. 
+This was not done because this is a OAT \gls{SA} study and thus, only 
+used fuel cooling time was varied. 
+
+In Table \ref{tab:dymond-ct-sa-2}, compared to the base case, 
+as cooling time increases, maximum Pu in the cooling pools increase, 
+and vice versa for a decreasing cooling time. 
+This is expected since there will be a larger inventory of used fuel 
+in the cooling pools when cooling time increases. 
+The quality of Pu in the cooling pools also increases as cooling time 
+increases. 
+% add more description?  
 
 \begin{table}[H]
     \centering
@@ -225,9 +253,9 @@ scenario.
 \begin{table}[H]
     \caption{DYMOND: Sensitivity analysis of how variation of used fuel 
     cooling times impacts evaluation metrics (waste management, resource utilization, 
-    and goodness of transition)for OECD benchmark transition scenario.
-    The numbers in the table represent by how many \% an output variable 
-    from each scenario differs from the base case.}
+    and goodness of transition) for OECD benchmark transition scenario.
+    The numbers in the table represent the \% difference between 
+    an output variable from each scenario and the base case scenario (Cooling time = 2 years).}
     \label{tab:dymond-ct-sa-1}
     \footnotesize
     \begin{tabularx}{\textwidth}{L|LL|L|LLL}	
@@ -252,8 +280,8 @@ scenario.
     \begin{table}[H]
         \caption{DYMOND: Sensitivity analysis of how variation of used fuel 
         cooling times impacts evaluation metrics (proliferation risk)for OECD benchmark transition scenario.
-        The numbers in the table represent by how many \% an output variable 
-        from each scenario differs from the base case.}
+        The numbers in the table represent the \% difference between 
+    an output variable from each scenario and the base case scenario (Cooling time = 2 years).}
         \label{tab:dymond-ct-sa-2}
         \footnotesize
         \begin{tabularx}{\textwidth}{L|LLLLLL}	
@@ -277,11 +305,29 @@ scenario.
 
     
 \subsubsection{\textbf{\Cyclus}}
+Tables \ref{tab:cyclus-ct-1} and \ref{tab:cyclus-ct-2} show 
+the absolute values of 
+output variables associated with the environmental impact, 
+resource utilization, and goodness of transition evaluation 
+metrics for each scenario. 
+Tables \ref{tab:cyclus-ct-sa-1} and \ref{tab:cyclus-ct-sa-2} 
+show each scenario's percentage 
+difference compared with the base case of `Cooling Time = 2 years'
+scenario.
+
+In Table \ref{tab:cyclus-ct-sa-1}, most evaluation metrics do not change 
+for variation in the used fuel cooling time, with exception of the final 
+HLW amount in the scenario. 
+It decreases for a longer used fuel cooling time and vice versa for a 
+shorter time. 
+In Table \ref{tab:cyclus-ct-sa-2}, 
+% add more and edit table 
+
 \begin{table}[H]
     \centering
     \caption{\Cyclus: Assessment of how variation of used fuel cooling times
-    impacts evaluation metrics for EG01-30 
-	transition scenario.}
+    impacts evaluation metrics (waste management, resource utilization, 
+    and goodness of transition) for OECD benchmark transition scenario.}
 	\label{tab:cyclus-ct-1}
         \footnotesize
         \begin{tabularx}{\textwidth}{L|LL|L|LLL}
@@ -322,8 +368,8 @@ scenario.
     cooling times impacts evaluation metrics (environmental impact, resource
     utilization, and goodness of transition) for OECD benchmark 
     transition scenario.
-    The numbers in the table represent by how many \% an output variable 
-    from each scenario differs from the base case.}
+    The numbers in the table represent the \% difference between 
+    an output variable from each scenario and the base case scenario (Cooling time = 2 years).}
     \label{tab:cyclus-ct-sa-1}
     \footnotesize
     \begin{tabularx}{\textwidth}{L|LL|L|LLL}	
@@ -333,7 +379,7 @@ scenario.
         0  & \cellcolor[HTML]{FE996B}1.15      & \cellcolor[HTML]{67FD9A}0.0              & \cellcolor[HTML]{67FD9A}0.0               & \cellcolor[HTML]{67FD9A}0.0                 & \cellcolor[HTML]{67FD9A}0.0                     & \cellcolor[HTML]{67FD9A}0.0                    \\
         2  & \cellcolor[HTML]{000000}0.0       & \cellcolor[HTML]{000000}0.0              & \cellcolor[HTML]{000000}0.0               & \cellcolor[HTML]{000000}0.0                 & \cellcolor[HTML]{000000}0.0                     & \cellcolor[HTML]{000000}0.0                    \\
         4  & \cellcolor[HTML]{FE996B}-1.28       & \cellcolor[HTML]{67FD9A}0.0              & \cellcolor[HTML]{67FD9A}0.0               & \cellcolor[HTML]{67FD9A}0.0                 & \cellcolor[HTML]{67FD9A}0.0                     & \cellcolor[HTML]{67FD9A}0.0                    \\
-        6  & \cellcolor[HTML]{67FD9A}-2.12     & \cellcolor[HTML]{67FD9A}0.0              & \cellcolor[HTML]{67FD9A}0.0               & \cellcolor[HTML]{67FD9A}0.0                 & \cellcolor[HTML]{67FD9A}0.0                     & \cellcolor[HTML]{67FD9A}0.0                    \\
+        6  & \cellcolor[HTML]{FE996B}-2.12     & \cellcolor[HTML]{67FD9A}0.0              & \cellcolor[HTML]{67FD9A}0.0               & \cellcolor[HTML]{67FD9A}0.0                 & \cellcolor[HTML]{67FD9A}0.0                     & \cellcolor[HTML]{67FD9A}0.0                    \\
         8  & \cellcolor[HTML]{FE996B}-2.65     & \cellcolor[HTML]{67FD9A}0.0              & \cellcolor[HTML]{67FD9A}0.0               & \cellcolor[HTML]{67FD9A}0.0                 & \cellcolor[HTML]{67FD9A}0.0                     & \cellcolor[HTML]{67FD9A}0.0                   \\ \hline 
                 \end{tabularx}%
     
@@ -347,9 +393,9 @@ scenario.
 
     \begin{table}[H]
         \caption{\Cyclus: Sensitivity analysis of how variation of used fuel 
-        cooling times impacts evaluation metrics (proliferation risk)for OECD benchmark transition scenario.
-        The numbers in the table represent by how many \% an output variable 
-        from each scenario differs from the base case.}
+        cooling times impacts evaluation metrics (proliferation risk) for OECD benchmark transition scenario.
+        The numbers in the table represent the \% difference between 
+        an output variable from each scenario and the base case scenario (Cooling time = 2 years).}
         \label{tab:cyclus-ct-sa-2}
         \footnotesize
         \begin{tabularx}{\textwidth}{L|LLLLLL}	
@@ -372,12 +418,46 @@ scenario.
         \end{table}
 
 \subsection{Fleet share ratio of PWR MOX and SFR reactors}
-\subsubsection{\textbf{\Cyclus}}
+
+Fleet share ratio of \gls{MOX} \glspl{PWR} and \glspl{SFR}
+was varied from 0\% to 20\% of \gls{MOX} \glspl{PWR} for the 
+EG01-30 transition scenario. 
+Each of these simulations are compared based on the evaluation 
+metrics described in Table \ref{tab:category-output-DD}.
+This was only conducted for \Cyclus. 
+
+Tables \ref{tab:cyclus-fs-1} and \ref{tab:cyclus-fs-2} show 
+the absolute values of 
+output variables associated with the environmental impact, 
+resource utilization, and goodness of transition evaluation 
+metrics for each scenario. 
+Tables \ref{tab:cyclus-fs-sa-1} and \ref{tab:cyclus-fs-sa-2} 
+show each scenario's percentage 
+difference compared with the base case of `Fleet share = 15\% 
+\gls{MOX} \glspl{PWR}' scenario. 
+
+In Table \ref{tab:cyclus-fs-sa-1}, most evaluation metrics do not change 
+for variation in fleet share ratio, with exception of the final 
+amount of HLW in the scenario. 
+The final amount of HLW is largest for 0\% fleet share of \gls{MOX} 
+\glspl{PWR}. 
+In Table \ref{tab:cyclus-fs-sa-2}, maximum Pu in cooling pools and 
+reprocessing facility 
+decrease for a smaller fleet share ratio of \gls{MOX} \glspl{PWR}, 
+however, the quality of Pu increases. 
+Maximum Pu in HLW increases for a smaller fleet share ratio
+of \gls{MOX} \glspl{PWR}, quality of Pu decreases slightly.
+Therefore, if minimizing proliferation risk is a high priority, 
+a transition scenario 
+with a smaller fleet share of \gls{MOX} \glspl{PWR} is recommended. 
+
+% correct stuff 
 \begin{table}[H]
     \centering
     \caption{\Cyclus: Assessment of how variation of fleet share ratio
     of PWR MOX and SFR reactors
-    impacts evaluation metrics for EG01-30 transition scenario.}
+    impacts evaluation metrics (environmental impact, resource
+    utilization, and goodness of transition) for EG01-30 transition scenario.}
 	\label{tab:cyclus-fs-1}
         \footnotesize
         \begin{tabularx}{\textwidth}{L|LL|L|LLL}
@@ -385,26 +465,49 @@ scenario.
             \textbf{} & \multicolumn{2}{c|}{\textbf{Environmental Impact}}                                                                                                                                                                                                                                                      & \textbf{Resource Utilization}                                                                                        & \multicolumn{3}{c}{\textbf{Goodness of Transition}}                                                                                                                                                                                 \\ \hline
 \textbf{Scenario: PWR MOX Fleet Share [\%]} & \textbf{Final HLW [kg] } & \textbf{Final Depleted U [kg]} &  \textbf{Total U Ore [kg]}  & \textbf{Total Idle Capacity[kg]} & \textbf{Year of Final Idle Capacity} & \textbf{Length of Transition [years]} \\ \hline
 
-960  & 12959554.6 & 798818620.4      & 143700000000.0    & 135.1               & 962                     & 2                      \\
-972  & 13069177.0 & 798818620.4      & 143700000000.0    & 120.9               & 972                     & 0                      \\
-984  & 13220184.0 & 803332630.7      & 143700000000.0    & 121.1               & 980                     & 0                      \\
-996  & 13360033.7 & 807846641.1      & 143700000000.0    & 121.1               & 980                     & 0                      \\
-1008 & 13337086.8 & 807846641.1      & 143700000000.0    & 121.1               & 980                     & 0                     \\ \hline
+0  & 13153061.6 & 798818620.4      & 143700000000    & 135.1               & 962                     & 2                      \\
+5  & 13056988.7 & 798818620.4      & 143700000000    & 135.1               & 962                     & 2                      \\
+10 & 13051896.3 & 798818620.4      & 143700000000    & 135.1               & 962                     & 2                      \\
+15 & 12959554.1 & 798818620.4      & 143700000000    & 135.1               & 962                     & 2                      \\
+20 & 13002120.9 & 798818620.4      & 143700000000    & 135.1               & 962                     & 2                     \\ \hline
         \end{tabularx}
 \end{table}
 
+% correct stuff 
+\begin{table}[H]
+    \centering
+    \caption{\Cyclus: Assessment of how variation of fleet share ratio
+    of PWR MOX and SFR reactors
+    impacts evaluation metrics (proliferation risk) for EG01-30 transition scenario.}
+	\label{tab:cyclus-fs-2}
+        \footnotesize
+        \begin{tabularx}{\textwidth}{L|LLLLLL}	
+            \hline
+            \textbf{} & \multicolumn{6}{c}{\textbf{Proliferation Risk}}  \\ \hline
+\textbf{Scenario: PWR MOX Fleet Share [\%]} & \textbf{Max Pu in cooling pools [kg] } & \textbf{Pu Quality at max Pu in cooling pools [kg]} &  \textbf{Max Pu in HLW [kg]}  & \textbf{Pu Quality at max Pu in HLW [kg]} & \textbf{Max Pu in Rpr facilities [kg]} & \textbf{Pu Quality at max Pu in Rpr facilities [kg]} \\ \hline
+0  & 256794.03        & 0.66                           & 45816.02      & 0.62                        & 2357604.01        & 0.55                            \\
+5  & 273733.13        & 0.62                           & 44338.72      & 0.62                        & 2461421.31        & 0.51                            \\
+10 & 279694.78        & 0.61                           & 44055.54      & 0.62                        & 2513133.76        & 0.5                             \\
+15 & 285794.85        & 0.59                           & 42905.59      & 0.62                        & 2552142.82        & 0.48                            \\
+20 & 291786.54        & 0.58                           & 43133.61      & 0.62                        & 2605589.02        & 0.47                           \\ \hline
+\end{tabularx}%
+\end{table}
+
+% correct stuff 
 \begin{table}[H]
     \caption{\Cyclus: Sensitivity analysis of how variation of fleet share 
-    ratio impacts evaluation metrics (proliferation risk) for OECD benchmark 
+    ratio impacts evaluation metrics (environmental impact, resource
+    utilization, and goodness of transition) for OECD benchmark 
     transition scenario.
-    The numbers in the table represent by how many \% an output variable 
-    from each scenario differs from the base case.}
+    The numbers in the table represent the \% difference between 
+    an output variable from each scenario and the base case scenario 
+    (PWR MOX fleet share = 15\%).}
     \label{tab:cyclus-fs-sa-1}
     \footnotesize
     \begin{tabularx}{\textwidth}{L|LL|L|LLL}	
 		\hline
         \textbf{} & \multicolumn{2}{c|}{\textbf{Environmental Impact}}                                    & \textbf{Resource Utilization}                                                                                       & \multicolumn{3}{c}{\textbf{Goodness of Transition}}                                                                                                                                                                                 \\ \hline
-        \textbf{Scenario: Used Fuel Cooling Time} & \textbf{Final HLW [kg] } & \textbf{Final Depleted U [kg]} &  \textbf{Total U Ore [kg]}  & \textbf{Total Idle Capacity[kg]} & \textbf{Year of Final Idle Capacity} & \textbf{Length of Transition [years]} \\ \hline
+        \textbf{Scenario: PWR MOX Fleet Share [\%]} & \textbf{Final HLW [kg] } & \textbf{Final Depleted U [kg]} &  \textbf{Total U Ore [kg]}  & \textbf{Total Idle Capacity[kg]} & \textbf{Year of Final Idle Capacity} & \textbf{Length of Transition [years]} \\ \hline
         0  & \cellcolor[HTML]{FE996B}1.49      & \cellcolor[HTML]{67FD9A}0.0              & \cellcolor[HTML]{67FD9A}0.0               & \cellcolor[HTML]{67FD9A}0.0                 & \cellcolor[HTML]{67FD9A}0.0                     & \cellcolor[HTML]{67FD9A}0.0                    \\
         5  & \cellcolor[HTML]{67FD9A}0.75      & \cellcolor[HTML]{67FD9A}0.0              & \cellcolor[HTML]{67FD9A}0.0               & \cellcolor[HTML]{67FD9A}0.0                 & \cellcolor[HTML]{67FD9A}0.0                     & \cellcolor[HTML]{67FD9A}0.0                    \\
         10 & \cellcolor[HTML]{67FD9A}0.71      & \cellcolor[HTML]{67FD9A}0.0              & \cellcolor[HTML]{67FD9A}0.0               & \cellcolor[HTML]{67FD9A}0.0                 & \cellcolor[HTML]{67FD9A}0.0                     & \cellcolor[HTML]{67FD9A}0.0                    \\
@@ -420,48 +523,81 @@ scenario.
         \end{tabular}}}
     \end{table}
 
+    % correct stuff 
 \begin{table}[H]
-        \caption{\Cyclus: Sensitivity analysis of how variation of fleet share 
-        ratio impacts evaluation metrics (proliferation risk) for OECD benchmark 
-        transition scenario.
-        The numbers in the table represent by how many \% an output variable 
-        from each scenario differs from the base case.}
-        \label{tab:cyclus-ct-sa-2}
-        \footnotesize
-        \begin{tabularx}{\textwidth}{L|LLLLLL}	
-            \hline
-            \textbf{} & \multicolumn{6}{c}{\textbf{Proliferation Risk}}  \\ \hline
-\textbf{Scenario: Used Fuel Cooling Time} & \textbf{Max Pu in cooling pools [kg] } & \textbf{Pu Quality at max Pu in cooling pools [kg]} &  \textbf{Max Pu in HLW [kg]}  & \textbf{Pu Quality at max Pu in HLW [kg]} & \textbf{Max Pu in Rpr facilities [kg]} & \textbf{Pu Quality at max Pu in Rpr facilities [kg]} \\ \hline
-             0  &             \cellcolor[HTML]{FD6864}-100 &                                   \cellcolor[HTML]{FD6864}-100 &                                                            \cellcolor[HTML]{67FD9A}-0.19 &                 \cellcolor[HTML]{67FD9A}-0.459 &                                           \cellcolor[HTML]{67FD9A}0.0 & \cellcolor[HTML]{67FD9A}- \\
-             1  &             \cellcolor[HTML]{FD6864}-46.5 &                                    \cellcolor[HTML]{FE996B}4.82 &                                                           \cellcolor[HTML]{67FD9A}-0.13 &                 \cellcolor[HTML]{67FD9A}-0.153 &                                          \cellcolor[HTML]{67FD9A}0.0 & \cellcolor[HTML]{67FD9A}- \\ 
-             2  &              \cellcolor[HTML]{000000}0.000000 &                                     \cellcolor[HTML]{000000}0.000000 &                                                              \cellcolor[HTML]{000000}0.0 &                 \cellcolor[HTML]{000000}0.000000 &                                         \cellcolor[HTML]{000000}0.0 & \cellcolor[HTML]{000000}0.0 \\ 
-             3  &              \cellcolor[HTML]{FD6864}34.5 &                                    \cellcolor[HTML]{FE996B}5.95 &                                                              \cellcolor[HTML]{FE996B}-1.20 &               \cellcolor[HTML]{FD6864}0.153 &                                         \cellcolor[HTML]{67FD9A}0.0 & \cellcolor[HTML]{67FD9A}- \\ 
-             4  &             \cellcolor[HTML]{FD6864}76.9 &                                   \cellcolor[HTML]{FE996B}7.88 &                                                        \cellcolor[HTML]{FE996B}-8.71 &              \cellcolor[HTML]{FD6864}0.766 &                                        \cellcolor[HTML]{67FD9A}0.0 & \cellcolor[HTML]{67FD9A}- \\ \hline
-        \end{tabularx}%
-        
-        \resizebox{0.3\textwidth}{!}{
-        \fbox{\begin{tabular}{ll}
-            \textcolor{green}{$\blacksquare$} & $sensitivity \leq 1\%$ \\
-            \textcolor{orange}{$\blacksquare$} & $1\% < sensitivity < 10\%$ \\
-            \textcolor{red}{$\blacksquare$} & $sensitivity \geq 10\%$
-            \end{tabular}}}
-        \end{table}
+    \caption{\Cyclus: Sensitivity analysis of how variation of fleet share 
+    ratio impacts evaluation metrics (proliferation risk) for OECD benchmark 
+    transition scenario.
+    The numbers in the table represent the \% difference between 
+    an output variable from each scenario and the base case scenario
+    (PWR MOX fleet share = 15\%).}
+    \label{tab:cyclus-fs-sa-2}
+    \footnotesize
+    \begin{tabularx}{\textwidth}{L|LLLLLL}	
+		\hline
+        \textbf{} & \multicolumn{6}{c}{\textbf{Proliferation Risk}}  \\ \hline
+        \textbf{Scenario: PWR MOX Fleet Share [\%]} & \textbf{Max Pu in cooling pools [kg] } & \textbf{Pu Quality at max Pu in cooling pools [kg]} &  \textbf{Max Pu in HLW [kg]}  & \textbf{Pu Quality at max Pu in HLW [kg]} & \textbf{Max Pu in Rpr facilities [kg]} & \textbf{Pu Quality at max Pu in Rpr facilities [kg]} \\ \hline
+        0  & \cellcolor[HTML]{FD6864}-10.15           & \cellcolor[HTML]{FD6864}10.63                          & \cellcolor[HTML]{FE996B}6.78          & \cellcolor[HTML]{67FD9A}-0.48                       & \cellcolor[HTML]{FE996B}-7.62             & \cellcolor[HTML]{FD6864}14.05                           \\
+        5  & \cellcolor[HTML]{FE996B}-4.22            & \cellcolor[HTML]{FE996B}4.34                           & \cellcolor[HTML]{FE996B}3.34          & \cellcolor[HTML]{67FD9A}-0.21                       & \cellcolor[HTML]{FE996B}-3.55             & \cellcolor[HTML]{FE996B}6.57                            \\
+        10 & \cellcolor[HTML]{FE996B}-2.13            & \cellcolor[HTML]{FE996B}2.15                           & \cellcolor[HTML]{FE996B}2.68          & \cellcolor[HTML]{67FD9A}-0.09                       & \cellcolor[HTML]{FE996B}-1.53             & \cellcolor[HTML]{FE996B}3.35                            \\
+        15 & \cellcolor[HTML]{000000}0.0              & \cellcolor[HTML]{000000}0.0                            & \cellcolor[HTML]{000000}0.0           & \cellcolor[HTML]{000000}0.0                         & \cellcolor[HTML]{000000}0.0               & \cellcolor[HTML]{000000}0.0                             \\
+        20 & \cellcolor[HTML]{FE996B}2.1              & \cellcolor[HTML]{FE996B}-2.02                          & \cellcolor[HTML]{67FD9A}0.53          & \cellcolor[HTML]{67FD9A}0.13                        & \cellcolor[HTML]{FE996B}2.09              & \cellcolor[HTML]{FE996B}-2.9                           \\ \hline
+                           \end{tabularx}%
+    
+    \resizebox{0.3\textwidth}{!}{
+    \fbox{\begin{tabular}{ll}
+        \textcolor{green}{$\blacksquare$} & $sensitivity \leq 1\%$ \\
+        \textcolor{orange}{$\blacksquare$} & $1\% < sensitivity < 10\%$ \\
+        \textcolor{red}{$\blacksquare$} & $sensitivity \geq 10\%$
+        \end{tabular}}}
+    \end{table}
 
 
-\subsection{Introduction date of advanced reactor technology}
+\subsection{Introduction year of advanced reactor technology}
+Introduction year of advanced reactor technology
+was varied from year 80 to 84 for the 
+EG01-30 transition scenario. 
+Each of these simulations are compared based on the evaluation 
+metrics described in Table \ref{tab:category-output-DD}.
+This was only conducted for \Cyclus. 
 
-\subsubsection{\textbf{\Cyclus}}
+Tables \ref{tab:cyclus-ty-1} and \ref{tab:cyclus-ty-2} show 
+the absolute values of 
+output variables associated with the environmental impact, 
+resource utilization, and goodness of transition evaluation 
+metrics for each scenario. 
+Tables \ref{tab:cyclus-ty-sa-1} and \ref{tab:cyclus-ty-sa-2} 
+show each scenario's percentage 
+difference compared with the base case of `Transition Year = 80'
+scenario. 
+
+In Table \ref{tab:cyclus-ty-sa-1}, total idle capacity 
+in the simulation is minimized at advanced reactor 
+introduction year of 82 onwards. 
+Final HLW and depleted uranium increases for a later 
+advanced reactor introduction year.
+In Table \ref{tab:cyclus-ty-sa-2}, maximum Pu in cooling 
+pools has a mostly constant trend after advanced reactor 
+introduction year of 80. 
+For a later advanced reactor introduction year, 
+maximum Pu in HLW increases, while maximum Pu in reprocessing facilities 
+decrease; the quality of Pu is constant. 
+To ensure minimal idle capacity, a later advanced reactor 
+introduction year should be selected. 
+
+% correct stuff
 \begin{table}[H]
     \centering
     \caption{\Cyclus: Assessment of how variation of introduction date of 
     advanced reactor technology
-    impacts evaluation metrics for EG01-30 transition scenario.}
-	\label{tab:ty}
+    impacts evaluation metrics (environmental impact, resource
+    utilization, and goodness of transition) for EG01-30 transition scenario.}
+	\label{tab:cyclus-ty-1}
         \footnotesize
         \begin{tabularx}{\textwidth}{L|LL|L|LLL}
             \hline	
             \textbf{} & \multicolumn{2}{c|}{\textbf{Environmental Impact}}                                                                                                                                                                                                                                                      & \textbf{Resource Utilization}                                                                                        & \multicolumn{3}{c}{\textbf{Goodness of Transition}}                                                                                                                                                                                 \\ \hline
-\textbf{Scenario: Intro date of advanced tech [Month]} & \textbf{Final HLW [kg] } & \textbf{Final Depleted U [kg]} &  \textbf{Total U Ore [kg]}  & \textbf{Total Idle Capacity[kg]} & \textbf{Year of Final Idle Capacity} & \textbf{Length of Transition [years]} \\ \hline
+\textbf{Scenario: Intro date of advanced tech [Year]} & \textbf{Final HLW [kg] } & \textbf{Final Depleted U [kg]} &  \textbf{Total U Ore [kg]}  & \textbf{Total Idle Capacity [kg]} & \textbf{Year of Final Idle Capacity} & \textbf{Length of Transition [years]} \\ \hline
 
 80  & 12959554.6 & 798818620.4      & 143700000000    & 135.1               & 962                     & 2                      \\
 81  & 13069177.0 & 798818620.4      & 143700000000    & 120.9               & 972                     & 0                      \\
@@ -471,17 +607,42 @@ scenario.
         \end{tabularx}
 \end{table}
 
+% correct stuff 
 \begin{table}[H]
-    \caption{\Cyclus: Sensitivity Analysis Results for EG01-30
-    transition scenario with different used fuel cooling times.
-    The numbers in the table represent by how many \% an output variable 
-    from each scenario differs from the base case.}
-    \label{tab:ty-sa}
+    \centering
+    \caption{\Cyclus: Assessment of how variation of introduction date of 
+    advanced reactor technology
+    impacts evaluation metrics (proliferation risk) 
+    for EG01-30 transition scenario.}
+	\label{tab:cyclus-ty-2}
+        \footnotesize
+        \begin{tabularx}{\textwidth}{L|LLLLLLL}
+            \hline	
+            \textbf{} & \multicolumn{6}{c}{\textbf{Proliferation Risk}}  \\ \hline
+            \textbf{Scenario: PWR MOX Fleet Share [\%]} & \textbf{Max Pu in cooling pools [kg] } & \textbf{Pu Quality at max Pu in cooling pools [kg]} &  \textbf{Max Pu in HLW [kg]}  & \textbf{Pu Quality at max Pu in HLW [kg]} & \textbf{Max Pu in Rpr facilities [kg]} & \textbf{Pu Quality at max Pu in Rpr facilities [kg]} \\ \hline
+            80  & 285794.85        & 0.59                           & 42905.59      & 0.62                        & 2552142.82        & 0.48                            \\
+81  & 269666.8         & 0.6                            & 44291.11      & 0.62                        & 2530146.38        & 0.48                            \\
+82  & 273313.41        & 0.6                            & 45673.72      & 0.62                        & 2489776.12        & 0.48                            \\
+83  & 273307.72        & 0.59                           & 46848.37      & 0.62                        & 2475855.63        & 0.48                            \\
+84 & 269414.41        & 0.6                            & 46714.21      & 0.62                        & 2455878.54        & 0.48                           \\ \hline
+        \end{tabularx}
+\end{table}
+
+% correct stuff
+\begin{table}[H]
+    \caption{\Cyclus: Sensitivity analysis of how variation of advanced reactor 
+    introduction year impacts evaluation metrics (environmental impact, resource
+    utilization, and goodness of transition) for OECD benchmark 
+    transition scenario.
+    The numbers in the table represent the \% difference between 
+    an output variable from each scenario and the base case scenario
+    (transition year = 80).}
+    \label{tab:cyclus-ty-sa-1}
     \footnotesize
     \begin{tabularx}{\textwidth}{L|LL|L|LLL}	
 		\hline
         \textbf{} & \multicolumn{2}{c|}{\textbf{Environmental Impact}}                                    & \textbf{Resource Utilization}                                                                                       & \multicolumn{3}{c}{\textbf{Goodness of Transition}}                                                                                                                                                                                 \\ \hline
-        \textbf{Scenario: Used Fuel Cooling Time} & \textbf{Final HLW [kg] } & \textbf{Final Depleted U [kg]} &  \textbf{Total U Ore [kg]}  & \textbf{Total Idle Capacity[kg]} & \textbf{Year of Final Idle Capacity} & \textbf{Length of Transition [years]} \\ \hline
+        \textbf{Scenario: Intro date of advanced tech [Year]} & \textbf{Final HLW [kg] } & \textbf{Final Depleted U [kg]} &  \textbf{Total U Ore [kg]}  & \textbf{Total Idle Capacity [kg]} & \textbf{Year of Final Idle Capacity} & \textbf{Length of Transition [years]} \\ \hline
         80  & \cellcolor[HTML]{000000}0.0       & \cellcolor[HTML]{000000}0.0              & \cellcolor[HTML]{000000}0.0               & \cellcolor[HTML]{000000}0.0                 & \cellcolor[HTML]{000000}0.0                     & \cellcolor[HTML]{000000}0.0                    \\
         81  & \cellcolor[HTML]{67FD9A}0.85      & \cellcolor[HTML]{67FD9A}0.0              & \cellcolor[HTML]{67FD9A}0.0               & \cellcolor[HTML]{FD6864}-10.51              & \cellcolor[HTML]{FE996B}1.04                    & \cellcolor[HTML]{FD6864}-100.0                 \\
         82  & \cellcolor[HTML]{FE996B}2.01      & \cellcolor[HTML]{67FD9A}0.57             & \cellcolor[HTML]{67FD9A}0.0               & \cellcolor[HTML]{FD6864}-10.36              & \cellcolor[HTML]{FE996B}1.87                    & \cellcolor[HTML]{FD6864}-100.0                 \\
@@ -497,7 +658,36 @@ scenario.
         \end{tabular}}}
     \end{table}
 
+    % correct stuff
+    \begin{table}[H]
+        \caption{\Cyclus: Sensitivity analysis of how variation of advanced reactor 
+        introduction year impacts evaluation metrics (proliferation risk) for OECD benchmark 
+        transition scenario.
+        The numbers in the table represent the \% difference between 
+    an output variable from each scenario and the base case scenario (transition year = 80).}
+        \label{tab:cyclus-ty-sa-2}
+        \footnotesize
+        \begin{tabularx}{\textwidth}{L|LLLLLL}	
+            \hline
+            \textbf{} & \multicolumn{6}{c}{\textbf{Proliferation Risk}} \\ \hline
+            \textbf{Scenario: Intro date of advanced tech [Year]} & \textbf{Max Pu in cooling pools [kg] } & \textbf{Pu Quality at max Pu in cooling pools [kg]} &  \textbf{Max Pu in HLW [kg]}  & \textbf{Pu Quality at max Pu in HLW [kg]} & \textbf{Max Pu in Rpr facilities [kg]} & \textbf{Pu Quality at max Pu in Rpr facilities [kg]} \\ \hline
+        80  & \cellcolor[HTML]{000000}0.0       & \cellcolor[HTML]{000000}0.0              & \cellcolor[HTML]{000000}0.0               & \cellcolor[HTML]{000000}0.0                 & \cellcolor[HTML]{000000}0.0                     & \cellcolor[HTML]{000000}0.0                    \\
+            81  & \cellcolor[HTML]{FE996B}-5.64            & \cellcolor[HTML]{67FD9A}0.67                           & \cellcolor[HTML]{FE996B}3.23          & \cellcolor[HTML]{67FD9A}-0.09                       & \cellcolor[HTML]{67FD9A}-0.86             & \cellcolor[HTML]{67FD9A}0.02                            \\
+            82  & \cellcolor[HTML]{FE996B}-4.37            & \cellcolor[HTML]{FE996B}1.15                           & \cellcolor[HTML]{FE996B}6.45          & \cellcolor[HTML]{67FD9A}-0.15                       & \cellcolor[HTML]{FE996B}-2.44             & \cellcolor[HTML]{67FD9A}0.09                            \\
+            83  & \cellcolor[HTML]{FE996B}-4.37            & \cellcolor[HTML]{67FD9A}0.07                           & \cellcolor[HTML]{FE996B}9.19          & \cellcolor[HTML]{67FD9A}-0.21                       & \cellcolor[HTML]{FE996B}-2.99             & \cellcolor[HTML]{67FD9A}-0.04                           \\
+            84 & \cellcolor[HTML]{FE996B}-5.73            & \cellcolor[HTML]{67FD9A}0.98                           & \cellcolor[HTML]{FE996B}8.88          & \cellcolor[HTML]{67FD9A}-0.25                       & \cellcolor[HTML]{FE996B}-3.77             & \cellcolor[HTML]{67FD9A}0.07                           \\ \hline
+           \end{tabularx}%
+        \end{table}
+
 \section{Synergistic Sensitivity Analysis}
+Basic sensitivity analysis focuses on changing one-factor-at-a-time 
+(OAT) to see the effect on the output variables. 
+However, this approach does not fully explore the input space since 
+it does not consider the synergistic effects of the simultaneous 
+variation of the input variables.
+Therefore, it does not provide a wholistic view of the sensitivity 
+space. 
+
 \subsection{
 Fleet Share Ratio and Introduction date of advanced 
 reactor technology}
@@ -677,6 +867,34 @@ depleted uranium value.
     \end{table}
 
 \section{Main Takeaways}
+\subsection{DYMOND Limitations}
+For a transition scenario simulation in DYMOND, the user must 
+manually edit the fuel management 
+strategy to define which reactor the recycled 
+part of each fuel type comes from for every year. 
+This is found in the \textit{Source management} tab of a 
+Dymond6 input file. 
+Having the 
+wrong fuel management strategy will result in idle reactor
+capacity due to lack of fuel. 
+Therefore, the user has to use trial and error to find a fuel 
+management strategy to minimize or eliminate idle reactor capacity. 
+With a 300-year simulation taking a few hours to run, it quickly 
+becomes very tedious and time consuming.  
+
+This issue impacted all sensitivity analysis analysis conducted 
+with DYMOND because the fuel management strategy was 
+optimized manually for certain scenario parameters, resulting in 
+idle reactor capacity occurring when scenario parameters differed 
+from it. 
+To avoid this issue, an AI-based method (similar to \deploy) 
+should be introduced to 
+determine where the recycled part of each fuel comes from to 
+minimize idle capacity in the simulation. 
+This will ease the setting up of transition scenarios, and enable 
+more effective and accurate sensitivity analysis studies.
+
+\subsection{Importance of Different types of Sensitivity Analysis}
 The OAT, synergistic, and global sensitivity analysis methods 
 are all important for analyzing \gls{NFC} transition scenarios. 
 Their use is in different forms. 
