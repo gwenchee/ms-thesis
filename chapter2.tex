@@ -15,17 +15,17 @@ As mentioned previously the \gls{US} runs an open
 \gls{NFC}; other countries, such as France, use a closed \gls{NFC}.
 
 % Purpose of NFCSims 
-\glspl{NFCSim} are system analysis tools used to evaluate 
+\gls{NFC} simulators are system analysis tools used to evaluate 
 quantitative measures of performance related to the dynamics of 
 a \gls{NFC} in both high and low resolution. 
-An example of a high-resolution element would be plutonium 
-concentration in a single used fuel bundle, while an example 
-of a low-resolution element would be total electricity produced. 
-The purpose of \glspl{NFCSim} is to better understand the 
+Plutonium concentration in a single used fuel bundle and 
+total electricity produced are examples of high and low 
+resolution elements respectively.  
+The purpose of \gls{NFC} simulators is to better understand the 
 dependence between various input parameters and components 
 in the \gls{NFC} and the impact of their variations on 
 the system's performance. 
-The results of \glspl{NFCSim} are being used to guide research 
+The results of \gls{NFC} simulators are being used to guide research 
 efforts, advise future design choices, and provide 
 decision makers with a transparent tool for evaluating \glspl{FCO} 
 to inform big-picture policy decisions \cite{yacout_modeling_2005}.
@@ -36,7 +36,7 @@ development and are the primary users of \gls{NFC} simulator tools.
 However, due to propriety access to these tools, universities and 
 other non-laboratory organizations have taken to creating their 
 own \gls{NFC} simulator tools. 
-Table \ref{tab:nfctools} shows a breakdown of all major \glspl{NFCSim}
+Table \ref{tab:nfctools} shows a breakdown of all major \gls{NFC} simulators
 and the organization(s) associated with them.  
 
 \begin{table}[]
@@ -59,7 +59,7 @@ and the organization(s) associated with them.
     \end{table}
 
 % what is agent, what is fleet
-\glspl{NFCSim} are broken into two main groups based on their 
+\gls{NFC} simulators are broken into two main groups based on their 
 modeling method: fleet-level and agent-level.  
 Fleet-based models do not distinguish between discrete facilities 
 or materials, instead lumping them into fleets and streams.
@@ -131,7 +131,7 @@ state to these promising \glspl{EG} \cite{feng_standardized_2016}.
 \end{table}
 
 
-\section{\glspl{NFCSim} Transition Scenario Capabilities}
+\section{\gls{NFC} simulators Transition Scenario Capabilities}
 % what has been done for transition scenarios so far
 Both \gls{NFC} simulator tools used in this thesis, \Cyclus and DYMOND,
 were verified in a transition scenario benchmarking effort
@@ -141,21 +141,21 @@ transition of one hundred 1000-MWe \glspl{LWR} to a fleet
 of 333.3-MWe \gls{SFR} fleet. 
 They were found to have excellent agreement with the 
 spreadsheet solution and other \gls{NFC} codes.  
-This benchmarking effort proved that these \glspl{NFCSim}
+This benchmarking effort proved that these \gls{NFC} simulators
 are capable of simulating a simple transition scenario. 
 However, it acknowledged that there need to be more efforts 
 made to model realistic transition scenarios to evaluate the
-flexibility of the \glspl{NFCSim} \cite{feng_standardized_2016}.
+flexibility of the \gls{NFC} simulators \cite{feng_standardized_2016}.
 In-depth descriptions about \Cyclus and DYMOND is provided in 
 Chapter \ref{chap:3}.
 
 % brown paper 
 % teddy thesis for cyclus capabilties 
 
-\section{\glspl{NFCSim} Sensitivity Analysis}
+\section{\gls{NFC} simulators Sensitivity Analysis}
 % SA for NFCs vs SA for NFC transition scenarios 
 
-To enable \glspl{NFCSim} to produce insightful and 
+To enable \gls{NFC} simulators to produce insightful and 
 flexible results to inform policy decisions, it is necessary 
 to be able to quantify and include all the 
 subtleties of each segment of the \gls{NFC} through system analysis 
@@ -169,7 +169,7 @@ progression and final state of the transition scenario.
 
 Previous work towards Sensitivity Analysis (SA) and \gls{UQ} of 
 \gls{NFC} simulations used these terms interchangeably. 
-This is because \gls{UQ} in \glspl{NFCSim} is seen as a design 
+This is because \gls{UQ} in \gls{NFC} simulators is seen as a design 
 uncertainty. 
 For example, a pyrochemical reprocessing facility has never been 
 built therefore its throughput is viewed as a design parameter 
@@ -261,6 +261,7 @@ on the global sensitivity of the system.
 \end{figure} 
 
 \subsection{Global Sensitivity Analysis}
+\label{sec:sobol}
 To fully consider the synergistic effects of
 simultaneous variation of the input variables, a variance 
 based approach can be used instead \cite{thiolliere_methodology_2018}.
