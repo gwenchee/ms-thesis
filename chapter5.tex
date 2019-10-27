@@ -1,17 +1,19 @@
 \chapter{Results: Sensitivity Analysis}
-In this chapter, sensitivity analysis studies of the 
-EG01-30 \gls{NFC} transition scenario is conducted 
-using both DYMOND and \Cyclus. 
-Various types of sensitivity analysis (SA) are conducted
-using the Dakota-\Cyclus (\texttt{dcwrapper}) 
-and Dakota-DYMOND coupling (\texttt{ddwrapper}). 
+In this chapter, DYMOND and \Cyclus are used to conduct 
+sensitivity analysis studies of the 
+EG01-30 \gls{NFC} transition scenario. 
+Dakota-\Cyclus (\texttt{dcwrapper}) 
+and Dakota-DYMOND coupling (\texttt{ddwrapper})
+are used for 
+one-at-a-time sensitivity analysis (SA), synergistic 
+SA, and global SA. 
 This chapter is broken into five sections: 
 \begin{enumerate}
     \item Transition Scenario Specifications 
     \item Sensitivity Analysis Evaluation Metrics 
-    \item One-at-a-time \gls{SA} results 
-    \item Synergistic \gls{SA} results
-    \item Global \gls{SA} results 
+    \item One-at-a-time \gls{SA}
+    \item Synergistic \gls{SA}
+    \item Global \gls{SA}
     \item Main Takeaways 
 \end{enumerate}
 
@@ -19,8 +21,7 @@ This chapter is broken into five sections:
 % improve this section 
 A EG01-30 transition scenario is used for 
 both DYMOND and \Cyclus sensitivity analysis. 
-The differences lie in the values of certain input variables but 
-it is mostly the same. 
+Slight differences lie in the values of some input variables. 
 
 \subsection{DYMOND}
 The specifications of the EG01-30 transition scenario used in DYMOND 
@@ -28,10 +29,11 @@ is described in the DYMOND OECD benchmark transition
 scenario presented at the 17th Meeting of Expert Group on Advanced 
 Fuel Cycle Scenarios in France in 2017 
 \cite{oecd_nuclear_energy_agency_wpfc_nodate}. 
-The OECD benchmark scenario is based on the EG01-30 transition scenario in which 
-the current \gls{PWR} fleet is transitioned to
+The OECD benchmark scenario is based on the EG01-30 transition scenario 
+in which a \gls{PWR} fleet is transitioned to
 a mixed fleet of \gls{MOX} \glspl{PWR} and \glspl{SFR}. 
-
+Table \ref{tab:dymondinputs} describe high-level OECD benchmark transition 
+scenario specifications. 
 
 \begin{table}[H]
     \caption{OECD Benchmark Transition Scenario
@@ -49,9 +51,9 @@ a mixed fleet of \gls{MOX} \glspl{PWR} and \glspl{SFR}.
     \end{table}
 
 \subsection{\Cyclus}
-The EG01-30 transition scenario for linearly increasing power demand 
-(described in the Section \ref{sec:eg01-30}) is used to conduct 
-\Cyclus transition scenario sensitivity analysis. 
+\Cyclus transition scenario sensitivity analysis uses 
+the linearly increasing power demand EG01-30 transition scenario 
+(described in the Section \ref{sec:eg01-30}).  
 Figure \ref{fig:30flow} shows the facility and mass flow 
 for this transition scenario in \Cyclus. 
 Tables \ref{tab:bestinputs} and \ref{tab:facinputs}
@@ -141,7 +143,7 @@ evaluation metrics.
     variables for sensitivity analysis.}
 	\label{tab:category-output-DD}
         \scriptsize
-        \begin{tabularx}{\textwidth}{l|LL}	
+        \begin{tabular}{lll}	
             	\hline
             \textbf{Evaluation Metrics} & \textbf{Output Variable} & \textbf{Indicators}\\
             \hline
@@ -156,7 +158,7 @@ evaluation metrics.
             \hline
             \textbf{Goodness of Transition} & \begin{tabular}[c]{@{}l@{}}Total Idle Capacity\\ Date of Final Idle Capacity \\ Length of transition\end{tabular} & \begin{tabular}[c]{@{}l@{}}Sum \\ Final \\ -\end{tabular} \\ 
             \hline
-            \end{tabularx}
+            \end{tabular}
 \end{table}
 
 The operational conditions for the advanced reactors and
@@ -175,11 +177,10 @@ transition scenarios are:
 \label{sec:oat}
 
 \subsection{Length of cooling time for discharged fuel}
-Used fuel cooling time for all cooling pools was varied from 
-0 to 8 years for the EG01-30 transition scenario. 
+In the DYMOND and \Cyclus EG01-30 transition scenarios, 
+used fuel cooling time was varied from 0 to 8 years. 
 Each of these simulations are compared based on the evaluation 
 metrics described in Table \ref{tab:category-output-DD}.
-This was conducted for both DYMOND and \Cyclus. 
 
 \subsubsection{\textbf{DYMOND}}
 Tables \ref{tab:dymond-ct-1} and \ref{tab:dymond-ct-2} show 
@@ -738,7 +739,7 @@ fleet share ratio of 2\% for all transition years.
         \caption{Inventory: HLW in storage}
         \label{fig:3d_hlw}
     \end{subfigure}
-    \caption{Maximum amount of Pu [kg] in each inventory during each simulation for varying fleet share and transition start date.}
+    \caption{DYMOND EG01-30 Transition Scenario: ›Maximum amount of Pu [kg] in each inventory during each simulation for varying fleet share and transition start date.}
 \end{figure}
 
 Figures \ref{fig:3d_sfc}, \ref{fig:3d_pf}, and \ref{fig:3d_hlw}
@@ -788,7 +789,7 @@ in idle advanced reactor capacity.
 \begin{figure}[]
     \centering
     \includegraphics[width=0.7\linewidth]{cyclus_3d_hlw} 
-    \caption{Final amount of HLW [kg] in the scenario during each simulation for varying fleet share and transition start date.}
+    \caption{\Cyclus Transition Scenario: Final amount of HLW [kg] in the scenario during each simulation for varying fleet share and transition start date.}
     \label{fig:cyclus_3d_hlw}
 \end{figure}
 
@@ -796,7 +797,7 @@ in idle advanced reactor capacity.
 \begin{figure}[]
     \centering
     \includegraphics[width=0.7\linewidth]{cyclus_3d_depu} 
-    \caption{Final amount of Depleted Uranium [kg] in the scenario during each simulation for varying fleet share and transition start date.}
+    \caption{\Cyclus Transition Scenario: Final amount of Depleted Uranium [kg] in the scenario during each simulation for varying fleet share and transition start date.}
     \label{fig:cyclus_3d_depu}
 \end{figure}
 
@@ -804,7 +805,7 @@ in idle advanced reactor capacity.
 \begin{figure}[]
     \centering
     \includegraphics[width=0.7\linewidth]{cyclus_3d_ic} 
-    \caption{Total amount of Idle Capacity [MW] in the scenario during each simulation for varying fleet share and transition start date.}
+    \caption{\Cyclus Transition Scenario: Total amount of Idle Capacity [MW] in the scenario during each simulation for varying fleet share and transition start date.}
     \label{fig:cyclus_3d_ic}
 \end{figure}
 
