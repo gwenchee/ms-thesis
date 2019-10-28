@@ -36,18 +36,19 @@ Table \ref{tab:dymondinputs} describe high-level OECD benchmark transition
 scenario specifications. 
 
 \begin{table}[H]
+    \centering
     \caption{OECD Benchmark Transition Scenario
 	Specifications \cite{oecd_nuclear_energy_agency_wpfc_nodate}}
 	\label{tab:dymondinputs}
     \scriptsize
-    \begin{tabularx}{\textwidth}{LL}
+    \begin{tabular}{ll}
     \hline
                                \textbf{Input Parameter}            & \textbf{Value}            \\ \hline
     Demand driving commodity   & Power              \\
                                Demand equation {[}TWhe/y{]}   & 430        \\
                                Transition Start Date [Year] & 80\\ 
                                Fleet share ratio [\%] & \gls{MOX} \gls{PWR}: 15\%, \gls{SFR}: 85\%\\ \hline
-    \end{tabularx}%
+    \end{tabular}%
     \end{table}
 
 \subsection{\Cyclus}
@@ -71,13 +72,14 @@ Appendix B of the \gls{DOE} Evaluation and Screening Study
 % describe input parameters and what was changed. 
 
 \begin{table}[H]
+    \centering
     \caption{\Cyclus facility input parameters for
 	EG01-EG30 transition scenario
 	that minimizes undersupply for power and minimizes 
 	the undersupply and under capacity for other facilities. }
 	\label{tab:facinputs}
     \scriptsize
-    \begin{tabularx}{\textwidth}{L|LL}
+    \begin{tabular}{lll}
         \hline
         \textbf{Facility}                 & \textbf{Input Parameter}                    & \textbf{Value} \\ \hline
         \multirow{4}{*}{\textbf{LWR}}     & Lifetime {[}months{]}              & 960   \\
@@ -93,7 +95,7 @@ Appendix B of the \gls{DOE} Evaluation and Screening Study
                                  & Refuel time {[}months{]}           & 1     \\
                                  & Rated Power {[}MWe{]}              & 333   \\ \hline
         \textbf{Cooling Pools}            & Used fuel storage time {[}years{]} & 3  \\ \hline
-        \end{tabularx}
+        \end{tabular}
     \end{table}
 
 \section{Sensitivity Analysis: Evaluation Metrics}
@@ -221,7 +223,7 @@ increases.
     and goodness of transition) for OECD benchmark transition scenario.}
 	\label{tab:dymond-ct-1}
         \scriptsize
-        \begin{tabularx}{\textwidth}{L|LL|L|LLL}	
+        \begin{tabularx}{\textwidth}{R|RR|R|RRR}	
             \hline
             \textbf{} & \multicolumn{2}{c|}{\textbf{Environmental Impact}}                                                                                                                                                                                                                                                      & \textbf{Resource Utilization}                                                                                        & \multicolumn{3}{c}{\textbf{Goodness of Transition}}                                                                                                                                                                                 \\ \hline
 \textbf{Scenario: Used Fuel Cooling Time [Year]} & \textbf{Final HLW [kg] } & \textbf{Final Depleted U [kg]} &  \textbf{Total Mined Uranium Ore [kg]}  & \textbf{Total Idle Capacity[kg]} & \textbf{Year of Final Idle Capacity} & \textbf{Length of Transition [years]} \\ \hline
@@ -240,7 +242,7 @@ increases.
 	transition scenario.}
 	\label{tab:dymond-ct-2}
         \scriptsize
-        \begin{tabularx}{\textwidth}{L|LLLLLL}	
+        \begin{tabularx}{\textwidth}{R|RRRRRR}	
             \hline
             \textbf{} & \multicolumn{6}{c}{\textbf{Proliferation Risk}}  \\ \hline
 \textbf{Scenario: Used Fuel Cooling Time [Year]} & \textbf{Max Pu in cooling pools [kg] } & \textbf{Pu Quality at max Pu in cooling pools [kg]} &  \textbf{Max Pu in HLW [kg]}  & \textbf{Pu Quality at max Pu in HLW [kg]} & \textbf{Max Pu in Rpr facilities [kg]} & \textbf{Pu Quality at max Pu in Rpr facilities [kg]} \\ \hline
@@ -260,7 +262,7 @@ increases.
     an output variable from each scenario and the base case scenario (Cooling time = 2 years).}
     \label{tab:dymond-ct-sa-1}
     \scriptsize
-    \begin{tabularx}{\textwidth}{L|LL|L|LLL}	
+    \begin{tabularx}{\textwidth}{R|RR|R|RRR}	
 		\hline
         \textbf{} & \multicolumn{2}{c|}{\textbf{Environmental Impact}}                                    & \textbf{Resource Utilization}                                                                                       & \multicolumn{3}{c}{\textbf{Goodness of Transition}}                                                                                                                                                                                 \\ \hline
         \textbf{Scenario: Used Fuel Cooling Time [Year]} & \textbf{Final HLW [\%] } & \textbf{Final Depleted U [\%]} &  \textbf{Total Mined Uranium Ore [\%]]}  & \textbf{Total Idle Capacity [\%]} & \textbf{Year of Final Idle Capacity [\%]} & \textbf{Length of Transition [\%]} \\ \hline
@@ -286,7 +288,7 @@ increases.
     an output variable from each scenario and the base case scenario (Cooling time = 2 years).}
         \label{tab:dymond-ct-sa-2}
         \scriptsize
-        \begin{tabularx}{\textwidth}{L|LLLLLL}	
+        \begin{tabularx}{\textwidth}{R|RRRRRR}	
             \hline
             \textbf{} & \multicolumn{6}{c}{\textbf{Proliferation Risk}}  \\ \hline
 \textbf{Scenario: Used Fuel Cooling Time [Year]} & \textbf{Max Pu in cooling pools [\%] } & \textbf{Pu Quality at max Pu in cooling pools [\%]} &  \textbf{Max Pu in HLW [\%]}  & \textbf{Pu Quality at max Pu in HLW [\%]} & \textbf{Max Pu in Rpr facilities [\%]} & \textbf{Pu Quality at max Pu in Rpr facilities [\%]} \\ \hline
@@ -333,7 +335,7 @@ In Table \ref{tab:cyclus-ct-sa-2},
     and goodness of transition) for OECD benchmark transition scenario.}
 	\label{tab:cyclus-ct-1}
         \scriptsize
-        \begin{tabularx}{\textwidth}{L|LL|L|LLL}
+        \begin{tabularx}{\textwidth}{R|RR|R|RRR}
             \hline	
             \textbf{} & \multicolumn{2}{c|}{\textbf{Environmental Impact}}                                                                                                                                                                                                                                                      & \textbf{Resource Utilization}                                                                                        & \multicolumn{3}{c}{\textbf{Goodness of Transition}}                                                                                                                                                                                 \\ \hline
 \textbf{Scenario: Used Fuel Cooling Time [Year]} & \textbf{Final HLW [kg] } & \textbf{Final Depleted U [kg]} &  \textbf{Total Mined Uranium Ore [kg]}  & \textbf{Total Idle Capacity[kg]} & \textbf{Year of Final Idle Capacity} & \textbf{Length of Transition [years]} \\ \hline
@@ -353,7 +355,7 @@ In Table \ref{tab:cyclus-ct-sa-2},
 	transition scenario.}
 	\label{tab:cyclus-ct-2}
         \scriptsize
-        \begin{tabularx}{\textwidth}{L|LLLLLL}	
+        \begin{tabularx}{\textwidth}{R|RRRRRR}	
             \hline
             \textbf{} & \multicolumn{6}{c}{\textbf{Proliferation Risk}}  \\ \hline
 \textbf{Scenario: Used Fuel Cooling Time [Year]} & \textbf{Max Pu in cooling pools [kg] } & \textbf{Pu Quality at max Pu in cooling pools [kg]} &  \textbf{Max Pu in HLW [kg]}  & \textbf{Pu Quality at max Pu in HLW [kg]} & \textbf{Max Pu in Rpr facilities [kg]} & \textbf{Pu Quality at max Pu in Rpr facilities [kg]} \\ \hline
@@ -375,7 +377,7 @@ In Table \ref{tab:cyclus-ct-sa-2},
     an output variable from each scenario and the base case scenario (Cooling time = 2 years).}
     \label{tab:cyclus-ct-sa-1}
     \scriptsize
-    \begin{tabularx}{\textwidth}{L|LL|L|LLL}	
+    \begin{tabularx}{\textwidth}{R|RR|R|RRR}	
 		\hline
         \textbf{} & \multicolumn{2}{c|}{\textbf{Environmental Impact}}                                    & \textbf{Resource Utilization}                                                                                       & \multicolumn{3}{c}{\textbf{Goodness of Transition}}                                                                                                                                                                                 \\ \hline
         \textbf{Scenario: Used Fuel Cooling Time [Year]} & \textbf{Final HLW [\%] } & \textbf{Final Depleted U [\%]} &  \textbf{Total Mined Uranium Ore [\%]]}  & \textbf{Total Idle Capacity [\%]} & \textbf{Year of Final Idle Capacity [\%]} & \textbf{Length of Transition [\%]} \\ \hline0  & \cellcolor[HTML]{FE996B}1.15      & \cellcolor[HTML]{67FD9A}0.0              & \cellcolor[HTML]{67FD9A}0.0               & \cellcolor[HTML]{67FD9A}0.0                 & \cellcolor[HTML]{67FD9A}0.0                     & \cellcolor[HTML]{67FD9A}0.0                    \\
@@ -400,7 +402,7 @@ In Table \ref{tab:cyclus-ct-sa-2},
         an output variable from each scenario and the base case scenario (Cooling time = 2 years).}
         \label{tab:cyclus-ct-sa-2}
         \scriptsize
-        \begin{tabularx}{\textwidth}{L|LLLLLL}	
+        \begin{tabularx}{\textwidth}{R|RRRRRR}	
             \hline
             \textbf{} & \multicolumn{6}{c}{\textbf{Proliferation Risk}}  \\ \hline
             \textbf{Scenario: Used Fuel Cooling Time [Year]} & \textbf{Max Pu in cooling pools [\%] } & \textbf{Pu Quality at max Pu in cooling pools [\%]} &  \textbf{Max Pu in HLW [\%]}  & \textbf{Pu Quality at max Pu in HLW [\%]} & \textbf{Max Pu in Rpr facilities [\%]} & \textbf{Pu Quality at max Pu in Rpr facilities [\%]} \\ \hline
@@ -455,7 +457,7 @@ with a smaller fleet share of \gls{MOX} \glspl{PWR} is recommended.
     utilization, and goodness of transition) for EG01-30 transition scenario.}
 	\label{tab:cyclus-fs-1}
         \scriptsize
-        \begin{tabularx}{\textwidth}{L|LL|L|LLL}
+        \begin{tabularx}{\textwidth}{R|RR|R|RRR}
             \hline	
             \textbf{} & \multicolumn{2}{c|}{\textbf{Environmental Impact}}                                                                                                                                                                                                                                                      & \textbf{Resource Utilization}                                                                                        & \multicolumn{3}{c}{\textbf{Goodness of Transition}}                                                                                                                                                                                 \\ \hline
 \textbf{Scenario: PWR MOX Fleet Share [\%]} & \textbf{Final HLW [kg] } & \textbf{Final Depleted U [kg]} &  \textbf{Total Mined Uranium Ore [kg]}  & \textbf{Total Idle Capacity[kg]} & \textbf{Year of Final Idle Capacity} & \textbf{Length of Transition [years]} \\ \hline
@@ -476,7 +478,7 @@ with a smaller fleet share of \gls{MOX} \glspl{PWR} is recommended.
     impacts evaluation metrics (proliferation risk) for EG01-30 transition scenario.}
 	\label{tab:cyclus-fs-2}
         \scriptsize
-        \begin{tabularx}{\textwidth}{L|LLLLLL}	
+        \begin{tabularx}{\textwidth}{R|RRRRRR}	
             \hline
             \textbf{} & \multicolumn{6}{c}{\textbf{Proliferation Risk}}  \\ \hline
 \textbf{Scenario: PWR MOX Fleet Share [\%]} & \textbf{Max Pu in cooling pools [kg] } & \textbf{Pu Quality at max Pu in cooling pools [kg]} &  \textbf{Max Pu in HLW [kg]}  & \textbf{Pu Quality at max Pu in HLW [kg]} & \textbf{Max Pu in Rpr facilities [kg]} & \textbf{Pu Quality at max Pu in Rpr facilities [kg]} \\ \hline
@@ -499,7 +501,7 @@ with a smaller fleet share of \gls{MOX} \glspl{PWR} is recommended.
     (PWR MOX fleet share = 15\%).}
     \label{tab:cyclus-fs-sa-1}
     \scriptsize
-    \begin{tabularx}{\textwidth}{L|LL|L|LLL}	
+    \begin{tabularx}{\textwidth}{R|RR|R|RRR}	
 		\hline
         \textbf{} & \multicolumn{2}{c|}{\textbf{Environmental Impact}}                                    & \textbf{Resource Utilization}                                                                                       & \multicolumn{3}{c}{\textbf{Goodness of Transition}}                                                                                                                                                                                 \\ \hline
         \textbf{Scenario: PWR MOX Fleet Share [\%]} & \textbf{Final HLW [\%] } & \textbf{Final Depleted U [\%]} &  \textbf{Total Mined Uranium Ore [\%]]}  & \textbf{Total Idle Capacity [\%]} & \textbf{Year of Final Idle Capacity [\%]} & \textbf{Length of Transition [\%]} \\ \hline
@@ -528,7 +530,7 @@ with a smaller fleet share of \gls{MOX} \glspl{PWR} is recommended.
     (PWR MOX fleet share = 15\%).}
     \label{tab:cyclus-fs-sa-2}
     \scriptsize
-    \begin{tabularx}{\textwidth}{L|LLLLLL}	
+    \begin{tabularx}{\textwidth}{R|RRRRRR}	
 		\hline
         \textbf{} & \multicolumn{6}{c}{\textbf{Proliferation Risk}}  \\ \hline
         \textbf{Scenario: PWR MOX Fleet Share [\%]} & \textbf{Max Pu in cooling pools [\%] } & \textbf{Pu Quality at max Pu in cooling pools [\%]} &  \textbf{Max Pu in HLW [\%]}  & \textbf{Pu Quality at max Pu in HLW [\%]} & \textbf{Max Pu in Rpr facilities [\%]} & \textbf{Pu Quality at max Pu in Rpr facilities [\%]} \\ \hline
@@ -589,10 +591,10 @@ introduction year should be selected.
     utilization, and goodness of transition) for EG01-30 transition scenario.}
 	\label{tab:cyclus-ty-1}
         \scriptsize
-        \begin{tabularx}{\textwidth}{L|LL|L|LLL}
+        \begin{tabularx}{\textwidth}{R|RR|R|RRR}
             \hline	
             \textbf{} & \multicolumn{2}{c|}{\textbf{Environmental Impact}}                                                                                                                                                                                                                                                      & \textbf{Resource Utilization}                                                                                        & \multicolumn{3}{c}{\textbf{Goodness of Transition}}                                                                                                                                                                                 \\ \hline
-\textbf{Scenario: Intro date of advanced tech [Year]} & \textbf{Final HLW [kg] } & \textbf{Final Depleted U [kg]} &  \textbf{Total Mined Uranium Ore [kg]}  & \textbf{Total Idle Capacity [kg]} & \textbf{Year of Final Idle Capacity} & \textbf{Length of Transition [years]} \\ \hline
+\textbf{Scenario: Intro date of advanced tech [Year]} & \textbf{Final HLW [kg] } & \textbf{Final Depleted U [kg]} &  \textbf{Total Mined Uranium Ore [kg]}  & \textbf{Total Idle Capacity [MW]} & \textbf{Year of Final Idle Capacity} & \textbf{Length of Transition [years]} \\ \hline
 
 80  & 12959554.6 & 798818620.4      & 1.437e11    & 135.1               & 962                     & 2                      \\
 81  & 13069177.0 & 798818620.4      & 1.437e11    & 120.9               & 972                     & 0                      \\
@@ -611,7 +613,7 @@ introduction year should be selected.
     for EG01-30 transition scenario.}
 	\label{tab:cyclus-ty-2}
         \scriptsize
-        \begin{tabularx}{\textwidth}{L|LLLLLLL}
+        \begin{tabularx}{\textwidth}{R|RRRRRR}
             \hline	
             \textbf{} & \multicolumn{6}{c}{\textbf{Proliferation Risk}}  \\ \hline
             \textbf{Scenario: PWR MOX Fleet Share [\%]} & \textbf{Max Pu in cooling pools [kg] } & \textbf{Pu Quality at max Pu in cooling pools [kg]} &  \textbf{Max Pu in HLW [kg]}  & \textbf{Pu Quality at max Pu in HLW [kg]} & \textbf{Max Pu in Rpr facilities [kg]} & \textbf{Pu Quality at max Pu in Rpr facilities [kg]} \\ \hline
@@ -634,7 +636,7 @@ introduction year should be selected.
     (transition year = 80).}
     \label{tab:cyclus-ty-sa-1}
     \scriptsize
-    \begin{tabularx}{\textwidth}{L|LL|L|LLL}	
+    \begin{tabularx}{\textwidth}{R|RR|R|RRR}	
 		\hline
         \textbf{} & \multicolumn{2}{c|}{\textbf{Environmental Impact}}                                    & \textbf{Resource Utilization}                                                                                       & \multicolumn{3}{c}{\textbf{Goodness of Transition}}                                                                                                                                                                                 \\ \hline
         \textbf{Scenario: Intro date of advanced tech [Year]} & \textbf{Final HLW [\%] } & \textbf{Final Depleted U [\%]} &  \textbf{Total Mined Uranium Ore [\%]]}  & \textbf{Total Idle Capacity [\%]} & \textbf{Year of Final Idle Capacity [\%]} & \textbf{Length of Transition [\%]} \\ \hline
@@ -662,7 +664,7 @@ introduction year should be selected.
     an output variable from each scenario and the base case scenario (transition year = 80).}
         \label{tab:cyclus-ty-sa-2}
         \scriptsize
-        \begin{tabularx}{\textwidth}{L|LLLLLL}	
+        \begin{tabularx}{\textwidth}{R|RRRRRR}	
             \hline
             \textbf{} & \multicolumn{6}{c}{\textbf{Proliferation Risk}} \\ \hline
             \textbf{Scenario: Intro date of advanced tech [Year]} & \textbf{Max Pu in cooling pools [\%] } & \textbf{Pu Quality at max Pu in cooling pools [\%]} &  \textbf{Max Pu in HLW [\%]}  & \textbf{Pu Quality at max Pu in HLW [\%]} & \textbf{Max Pu in Rpr facilities [\%]} & \textbf{Pu Quality at max Pu in Rpr facilities [\%]} \\ \hline
@@ -834,7 +836,7 @@ Table \ref{tab:sobol} provides the sobol indices that depicts
 the impact of variance of each input variable on each output 
 variable. 
 It provides a summary of the most influential input parameters 
-are for each output parameter. 
+for each output parameter. 
 Fleet share has the largest impact on 
 final HLW value while transition start year has the largest 
 impact on final depleted uranium value and the total idle 
@@ -848,11 +850,12 @@ depleted uranium value.
         \centering
         \caption{Sobol Indices for a global sensitivity analysis study of the impact of 
         fleet share \% of PWR MOX reactors, transition start year and cooling time on various output
-        variables: final amount of HLW, final amout of depleted uranium, and total 
-        idle capacity in the simulation}
+        variables: final amount of HLW, final amount of depleted uranium, and total 
+        idle capacity in the simulation. The Sobol Indices are only comparable within each row, 
+        not within each column.}
         \label{tab:sobol}
             \scriptsize
-            \begin{tabularx}{\textwidth}{L|LLL}
+            \begin{tabular}{l|lll}
                 \hline	
                 \textbf{Input Variables}                      & \multicolumn{3}{c}{\textbf{Sobol Indices for Output Variables}}   \\ \hline
                 & \textbf{Final HLW} & \textbf{Final depleted uranium} & \textbf{Total idle capacity} \\ \hline
@@ -860,7 +863,7 @@ depleted uranium value.
                 \textbf{Transition Year}                & 0.381     & 0.971                  & 1.505               \\
                 \textbf{Cooling Time}                         & 0.126     & 0                      & 0                   \\ \hline
 
-            \end{tabularx}
+            \end{tabular}
     \end{table}
 
 \section{Main Takeaways}
@@ -891,13 +894,18 @@ minimize idle capacity in the simulation.
 This will ease the setting up of transition scenarios, and enable 
 more effective and accurate sensitivity analysis studies.
 
-\subsection{Importance of Different types of Sensitivity Analysis}
+\subsection{Importance of Different Types of Sensitivity Analysis}
 The OAT, synergistic, and global sensitivity analysis methods 
-are all important for analyzing \gls{NFC} transition scenarios. 
-Their use is in different forms. 
-Global sensitivity analysis should be the first analysis conducted to 
+are all key to analyzing \gls{NFC} transition scenarios. 
+In this chapter, we demonstrated each sensitivity analysis type. 
+Each method has its own advantage. 
+When conducting a comprehensive sensitivity analysis of a specific 
+transition scenario, 
+global sensitivity analysis should be conducted first to 
 determine which input variables are key to influencing the output 
 variables of interest. 
 OAT and synergistic sensitivity analysis can then be used together to 
 do further analysis to determine the trends and quantitative impacts 
 of specific input variables on specific output variables. 
+Synergistic sensitivity analysis is useful for analyzing 
+tightly coupled input variables.  

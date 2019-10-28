@@ -24,7 +24,7 @@
 \newcolumntype{m}{>{\hsize=.75\hsize}X}
 \newcolumntype{x}{>{\hsize=.25\hsize}X}
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
-\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X} 
 \def\arraystretch{1}
 \graphicspath{{figures/}}
 %\usepackage{subfigure}  % for subfigures
@@ -33,7 +33,7 @@
 %\usepackage{url}  % Hyphenation of URLs.
 \usepackage{lscape}  % Useful for wide tables or figures.
 \usepackage[justification=raggedright]{caption}	% makes captions ragged right - thanks to Bryce Lobdell
-\usepackage[font=small,labelfont=bf]{caption}
+%\usepackage[font=small,labelfont=bf]{caption}
 \usepackage[acronym,toc]{glossaries}  % acronyms inclusion
 \usepackage{color,soul}
 \makeglossary
@@ -43,6 +43,7 @@
 \newcommand{\Cyclus}{\textsc{Cyclus}\xspace}%
 \newcommand{\Cycamore}{\textsc{Cycamore}\xspace}%
 \newcommand{\deploy}{\texttt{d3ploy}\xspace}%
+\glspatchtabularx
 
 \usepackage{amsmath}%
 \usepackage{MnSymbol}%
@@ -60,10 +61,13 @@ text width=15em, text centered, rounded corners, minimum height=4em]
 \tikzstyle{bblock} = [rectangle, draw, fill=illiniblue, 
 text width=15em, text centered, rounded corners, minimum height=4em]
 \tikzstyle{sbblock} = [rectangle, draw, fill=illiniblue, 
-text width=15em, text centered, rounded corners, minimum height=4em]
+text width=12em, text centered, rounded corners, minimum height=4em]
 \tikzstyle{arrow} = [thick,->,>=stealth]
-\tikzstyle{sbblock} = [rectangle, draw, fill=illiniblue, 
-text width=7em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{obslock} = [rectangle, draw, fill=illiniorange, 
+text width=4em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{bbslock} = [rectangle, draw, fill=illiniblue, 
+text width=4em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{arrow} = [thick,->,>=stealth]
 
 
 % Uncomment the appropriate one of the following four lines:
@@ -167,10 +171,10 @@ dedication
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % INSERT REAL CONTENT HERE
 %
-%\include{intro}	% for INTRODUCTION in "intro.tex"
-%\include{chapter2}
-%\include{chapter3}
-%\include{chapter4}
+\include{intro}	% for INTRODUCTION in "intro.tex"
+\include{chapter2}
+\include{chapter3}
+\include{chapter4}
 \include{chapter5}
 \include{concl}
 

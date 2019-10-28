@@ -1,5 +1,5 @@
 \chapter{Results: \deploy Demonstration}
-In this chapter, \deploy's capabilities will be demonstrated 
+In this chapter, \deploy's capabilities is demonstrated 
 for a simple and complex case.  
 This chapter will be broken into two sections: 
 \begin{enumerate}
@@ -10,17 +10,17 @@ This chapter will be broken into two sections:
 \section{\deploy Demonstration of Simple Transition Scenarios}
 \label{sec:demo}
 
-This section will demonstrate \deploy's capability 
-to effectively conduct simple transition scenario analysis
+This section demonstrates \deploy's capability 
+to effectively set up a simple transition scenario simulation 
 for constant, linearly increasing, and 
 sinusoidal power demand simulations.
-These simulations are basic transition scenarios that only include 
-three types of facilities: \texttt{source}, \texttt{reactor}, and 
+These simulations only includes
+three facility types: \texttt{source}, \texttt{reactor}, and 
 \texttt{sink}. 
-All simulations have ten initial \texttt{reactor} facilities 
+The simulations begin with ten \texttt{reactor} facilities 
 (\texttt{reactor1} to \texttt{reactor10}). 
 These reactors have staggered cycle lengths and lifetimes to prevent 
-simultaneous refueling and promote gradual decommissioning. 
+simultaneous refueling and setup gradual decommissioning. 
 \deploy is configured to deploy \texttt{new reactor} facilities
 to meet the loss of power supply created by the decommissioning 
 of the initial \texttt{reactor} facilities. 
@@ -64,25 +64,24 @@ constant power demand and subsequently demanded
 secondary commodities with minimal undersupply. 
 Table \ref{tab:transition-scenario-results} shows the number of 
 undersupplied timesteps. 
-Figure \ref{fig:constanttransition-power} demonstrates that
-the main objective of \deploy (section \ref{sec:d3ploy}) 
-was met as there are no timesteps
-in which the supply of power falls under demand.
+In Figure \ref{fig:constanttransition-power} there exists no time steps 
+in which the supply of power falls under demand, meeting the main 
+objective of \deploy. 
 By using a combination of the \texttt{FFT} method for 
-predicting demand and setting the supply buffer to 3000MW 
+predicting demand and setting the power supply buffer to 3000MW 
 (the capacity of 3 reactors), the user minimizes the number of 
 undersupplied timesteps for every commodity.
 
 In figure \ref{fig:constanttransition-fuel},
-a source facility with a large fuel throughput is initially
-deployed to meet the large fuel demand imposed by loading ten 
-new reactors. 
-Without this large initial facility, \deploy will deploy 
-a large number of fuel fabrication facilities to meet 
-the initial demand that will later become redundant in 
-the simulation. 
-This is a reflection of reality in which reactor operators will 
-accumulate an appropriate amount of fuel inventory before starting 
+a large-throughput source facility is initially
+deployed to meet the large initial fuel demand for the commissioning 
+of ten reactors. 
+By having a large-throughput source facility exist for the 
+first few time steps, \deploy does not deploy supporting
+facilities that become redundant at later times in  
+the simulation.
+This reflects reality in which reactor manufacturers accumulate
+an appropriate amount of fuel inventory before starting 
 up reactors. 
 There is one time step in which a power undersupply exists after the 
 decommissioning of the large initial facility; 
@@ -119,13 +118,12 @@ unable to foresee this sudden drop in demand.
     of \deploy to deploy reactor and supporting facilities to meet the
     power demand and subsequently demanded secondary commodities 
     for a linearly increasing power demand. 
-    A smaller supply buffer could be used while still minimizing under supply.
+    A smaller supply buffer is used while still minimizing undersupply.
     Table \ref{tab:transition-scenario-results} shows the number of 
     undersupplied timesteps. 
-    Figure \ref{fig:growingtransition-power} demonstrates that
-    the main objective of \deploy (section \ref{sec:d3ploy}) 
-    was met as there are no timesteps
-    in which the supply of power falls under demand.
+    In Figure \ref{fig:growingtransition-power} there exists no time steps 
+    in which the supply of power falls under demand, meeting the main 
+    objective of \deploy. 
     
     \begin{figure}[]
         \centering
@@ -195,12 +193,12 @@ unable to foresee this sudden drop in demand.
 
     \begin{table}[]
         \centering
-        \caption {Undersupply results for each commodity in each scenario}
+        \caption {Undersupply results for each commodity in each simple transition scenario}
         \label{tab:transition-scenario-results}
             \scriptsize
-            \begin{tabularx}{\textwidth}{l|LL}	
+            \begin{tabular}{l|rr}	
                 \hline
-                \textbf{Basic Transition Scenario}    & \textbf{Commodity}    & \textbf{No. of timesteps with undersupply} \\ \hline
+                \textbf{Basic Transition Scenario}    & \textbf{Commodity}    & \textbf{No. of undersupply timesteps} \\ \hline
                 \multirow{2}{*}{\textbf{Constant Power}} & Fuel & 1 \\ 
                                                          & Power & 0 \\ 
                                                          & Spent Fuel & 0 \\ \hline
@@ -210,7 +208,7 @@ unable to foresee this sudden drop in demand.
                 \multirow{2}{*}{\textbf{Sinusoidal Power}} & Fuel & 1 \\ 
                                                          & Power & 1 \\ 
                                                          & Spent Fuel & 0 \\ \hline
-                \end{tabularx}
+                \end{tabular}
     \end{table}
 
 \section{\deploy Demonstration of EG01-30 Transition Scenario} 
