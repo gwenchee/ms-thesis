@@ -1,21 +1,37 @@
 \vspace{-0.2in}
-The present United States nuclear fuel cycle faces challenges, that hinder 
+The present United States nuclear fuel cycle faces challenges that hinder 
 the expansion of nuclear energy technology. 
 The U.S. Department of Energy identified four nuclear fuel cycle 
-options we could transition to, which would make nuclear energy technology
-more desirable. 
-In this work, our goal is to model the transition from our current
-state to these promising future end-states. 
-To successfully analyze the transition from our current 
-fuel cycle to these promising fuel cycles, we need a nuclear 
-fuel cycle simulator that can predictively and automatically 
-deploy fuel cycle facilities to meet user-defined power demand. 
-In this work, we developed demand-driven deployment capabilities in 
-\Cyclus, a nuclear fuel cycle simulator.  
-User-controlled capabilities such as supply buffers, 
-facility preferences, prediction algorithms, and installed capacity 
-deployment were introduced to give users tools to minimize power 
-undersupply in a transition scenario simulation. 
-We demonstrate \deploy's capability to automatically deploy fuel 
-cycle facilities to set up transition scenarios for promising 
-nuclear fuel cycle options. 
+options we could transition to, which would overcome these challenges 
+and make nuclear energy technology more desirable. 
+In this work, our first goal is to model the transition from our current
+state to a promising future end-state.
+In reality, the real transition process inevitably diverges from the 
+modeled scenario. 
+Therefore, our second goal is to conduct sensitivity analysis 
+studies to understand the nuances of the transition. 
+To successfully analyze the transition from our current fuel cycle to 
+a promising fuel cycle, we developed demand-driven deployment capabilities 
+(\deploy) in Cyclus, a nuclear fuel cycle simulator. 
+\deploy predictively and automatically deploys fuel cycle facilities 
+to meet user-defined power demand.
+We demonstrated \deploy's capability to automatically deploy fuel 
+cycle facilities to set up a transition scenario from the current 
+fleet to a combination of mixed oxide fuel pressurized water reactors 
+and sodium fast-cooled reactors. 
+In this work, we coupled nuclear fuel cycle simulators, DYMOND 
+and \Cyclus, with Dakota, a sensitivity analysis tool. 
+We demonstrated 
+one-at-a-time, synergistic, and global sensitivity analysis studies.
+We concluded that automated deployment of supporting fuel cycle 
+facilities is crucial for conducting sensitivity analysis studies 
+with nuclear fuel cycle simulators, to ensure that the simulation 
+adapts to the new parameters by minimizing idle reactor capacity. 
+We recommend that a comprehensive sensitivity analysis of a 
+nuclear fuel cycle transition scenario begin with a global 
+sensitivity analysis study to gain a general overview of the 
+influential input variables for the output variables of interest. 
+Using the global sensitivity analysis results, 
+conduct one-at-a-time and synergistic sensitivity 
+analysis to determine quantitative trends and impacts of influential 
+input variables on specific output variables.
