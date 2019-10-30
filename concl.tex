@@ -1,33 +1,85 @@
 \chapter{Conclusion}
 
-% difference between cyclus and dymond 
-% cyclus is more flexible but harder to use 
-% dymond is rigid in the type of scenarios to run 
-% more comparisons of cyclus and dymond in this section 
-%or after demonstration. 
+% Research Problem and how they were addressed. 
+The present nuclear fuel cycle in the United States is a once-through 
+fuel cycle of light water reactors in which there is no reprocessing 
+of the used fuel. 
+This nuclear fuel cycle faces cost, safety, proliferation, and waste 
+challenges that hinder large scale nuclear power deployment. 
+The U.S Department of Energy chartered a study and identified future 
+nuclear fuel cycles that overcome these challenges.  
+One of the most promising nuclear fuel cycles is evaluation group (EG) 30, 
+which reprocesses used fuel's transuranics to fuel \gls{MOX} \glspl{PWR}
+and \glspl{SFR}. 
+Modeling the transition from our current fleet to EG30 was historically 
+conducted using a single model in which the transition scenario future 
+is predicted based on assumptions made about various input parameters 
+such as facility size, length of used fuel cooling time, etc. 
+In reality, the real transition process inevitably diverges from the 
+modeled scenario. 
+To better understand the subtleties of the EG01-EG30 transition,
+in this work, we conduct sensitivity analysis studies to 
+understand the impact of changes in input parameters on the transition 
+and its final state. 
 
-% Research objectives 
-The objectives of this thesis were to: 
-(1) develop a capability in \Cyclus to ease the setup of 
-transition scenarios, 
-(2) develop capabilities in \Cyclus and DYMOND to conduct 
-sensitivity analysis,
-(3) demonstrate setting up of \Cyclus transition scenarios using the 
-capability developed,
-(4) use \Cyclus and DYMOND to conduct sensitivity analysis studies
-, and
-(5) compare \Cyclus and DYMOND's capabilities in conducting \gls{SA}. 
-
-All these objectives were met. 
-In this thesis, a new capability in \Cyclus was introduced 
-
-\Cyclus is shown to be flexible in setting up successful transition 
-scenarios when input parameters are slightly varied.
-DYMOND is able to successfully set up a transition scenario, if the 
-user ensures to set up a fuel management strategy correctly. 
-It is important that \gls{NFC} simulators are flexible and resilient to 
+We learned that sensitivity analysis studies of nuclear fuel cycles 
+are only effective if the nuclear fuel cycle simulator can 
+automatically deploy supporting fuel cycle facilities 
+to ensure that there is minimal idle reactor capacity. 
+NFC simulators must be flexible and resilient to 
 perturbations in transition scenario input parameters. 
-Despite 
+In this work, we developed the \deploy capability in \Cyclus to 
+automatically deploy fuel cycle facilities to meet user-defined 
+power demand. 
+We used \deploy for the sensitivity analysis studies, and \Cyclus 
+is shown to be flexible in setting up successful transition 
+scenarios, in which idle reactor capacity is minimized
+when input parameters are slightly varied.
+DYMOND can successfully set up a transition scenario,= if the 
+user ensures to set up a fuel management strategy correctly. 
+However, for sensitivity analysis studies, it is less effective, 
+because the fuel management strategy was optimized manually for specific 
+scenario parameters, resulting in idle reactor capacity when 
+an input parameter changes during sensitivity analysis.
 
-% for sensitivity analysis 
+Sensitivity analysis studies for large systems such as nuclear 
+fuel cycle transition scenarios are challenging to conduct 
+since there is a vast input sample space with an
+upwards of 20 input parameters that could be interdependent. 
+Previous work towards sensitivity analysis of the nuclear fuel cycle 
+conducted a one-at-a-time sensitivity analysis of each input parameter 
+to see the impact on the output variables of interest.
+However, this type of sensitivity analysis fails to capture the 
+synergistic effects of the input parameters on the system.  
+In this work, we coupled nuclear fuel cycle simulators, \Cyclus and 
+DYMOND with Dakota, a sensitivity analysis tool. 
+By doing this, we give these nuclear fuel cycle simulator codes 
+a new dimension to performing sensitivity analysis.
+With the use of one tool, many types of sensitivity analyses, 
+such as one-at-a-time, synergistic, and global 
+can be conducted together to understand the subtlety of the 
+interdependence of input parameters on a transition scenario's 
+transition period and final state. 
+In this work, we demonstrated the use of \Cyclus-Dakota coupling 
+and DYMOND-Dakota coupling to conduct one-at-a-time, synergistic, and 
+global sensitivity analysis. 
+Sensitivity analysis studies cover a vast input space. 
+It is crucial to initially determine your evaluation metrics and 
+streamline the input variables of interest through global sensitivity 
+analysis; if not, the resulting analysis might include one-at-a-time and 
+synergistic sensitivity analysis of more than 20 input parameters, 
+and difficulties merging them to optimize your transition scenario 
+effectively.
+
+\section{Future Work}
+Using the tools developed and demonstrated in this thesis, a comprehensive 
+sensitivity analysis of the EG01-EG30 transition scenario could be conducted. 
+The comprehensive sensitivity analysis should begin with a global
+sensitivity analysis to determine the influential input parameters 
+on the output parameters of interest. 
+Following that, OAT and synergistic sensitivity analysis tools can 
+be used to do further analysis for the influential input parameters and 
+input parameters that are shown to have interdependence to 
+determine the trends and quantitative impacts of specific input variables 
+on output variables.  
 
