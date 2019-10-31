@@ -81,7 +81,7 @@ end-states \cite{feng_standardized_2016}.
 Previously in \Cyclus, reactor facilities were automatically 
 deployed to meet user-defined power demand. 
 However, the user was required to define a deployment scheme of 
-supporting facilities to ensure that there would be no supply chain 
+supporting facilities to ensure no supply chain 
 gap resulting in idle reactor capacity. 
 To avoid this issue, users 
 have to set infinite capacities for the support facilities, 
@@ -228,7 +228,7 @@ predicted demand and installed capacity.
 Using installed capacity instead of predicted supply
 has two advantages. 
 First, to prevent over-deployment of facilities with an
-intermittent supply such as reactors that require refueling. 
+intermittent supply such as when reactors refuel. 
 If predicted supply is selected instead of installed capacity, 
 \deploy deploys surplus reactors during refueling downtimes to 
 meet the temporary power undersupply.
@@ -316,16 +316,16 @@ the buffers, facility preferences, and prediction methods.
     The user has the option to give preferences to facilities' 
     that supply the same commodity. 
     These preferences are in the form of a time-dependent 
-    equation so that the preferences can be dynamic with time. 
+    equation so that the preferences are dynamic with time. 
     \deploy uses these equations to determine which facility 
     to deploy during a commodity shortage.  
     In table \ref{tab:inputs}, 
     the \gls{LWR} reactor has a preference of $100-t$, and the 
     \gls{SFR} reactor has a preference of $t-100$. 
     At time step 1, LWR preference is $99$, while SFR preference is $-99$; 
-    therefore, a LWR is deployed if there is a commodity shortage. 
+    therefore, during a commodity shortage, \deploy deploys a LWR. 
     At time step $105$, LWR preference is $-5$, while SFR preference is $5$; 
-    therefore, SFR deployment occurs if there is a commodity shortage.
+    therefore, during a commodity shortage, \deploy deploys a SFR. 
 
     The user also has the option to specify percentage-share for facilities 
     that provide the same commodity.   
@@ -355,10 +355,9 @@ commodity.
 The time series forecasting methods investigated include non-optimizing, 
 deterministic-optimizing, and stochastic-optimizing methods. 
 Non-optimizing methods are techniques that harness 
-simple moving average and autoregression concepts that use 
+simple moving average and autoregression concepts by using 
 historical data to infer future supply and demand values. 
-Deterministic-optimizing and stochastic-optimizing 
-methods are techniques 
+Deterministic-optimizing and stochastic-optimizing methods are techniques 
 that use an assortment of more sophisticated time series forecasting 
 concepts to predict future supply and demand values. 
 Deterministic-optimizing methods give deterministic solutions,
