@@ -466,7 +466,7 @@ In this work, \Cyclus and DYMOND are coupled with Dakota
 \cite{eldred_dakota_2010} to give the \gls{NFC} simulators 
 Sensitivity Analysis (\gls{SA}), 
 Uncertainty Quantification (\gls{UQ}), and optimization capabilities. 
-Dakota is used in conjunction with \Cyclus and DYMOND because it 
+Dakota is coupled with \Cyclus and DYMOND because it 
 is a well supported \gls{SA}, \gls{UQ}, 
 and optimization tool that provides a flexible interface between 
 analysis codes and iterative system analysis methods 
@@ -495,13 +495,13 @@ methods used to read and write to the input and output files.
     \centering
     \begin{tikzpicture}[node distance=4.5cm]
         \tikzstyle{every node}=[font=\large]
-        \node (one) [sbblock,text width=4cm]{\small Dakota input file};
-    \node (two) [bblock, right of=one, xshift = 1cm, text width=5cm]{\scriptsize Python Script\begin{itemize}
+        \node (one) [sbblock,text width=4cm]{\small \textbf{Dakota Input File}};
+    \node (two) [bblock, right of=one, xshift = 1cm, text width=5cm]{\scriptsize \textbf{Python Script}\begin{itemize}
         \item Edit NFC code input file with Dakota's inputs 
         \item Run NFC code with new input file 
         \item Read NFC code database for selected output variable
     \end{itemize}};
-    \node  (three) [sbblock, xshift = 1cm, right of=two,text width=4cm]{\small Dakota output file};
+    \node  (three) [sbblock, xshift = 1cm, right of=two,text width=4cm]{\small \textbf{Dakota Output File}};
         
         \draw [arrow] (one) -- (two);
         \draw [arrow] (two) -- (three);
@@ -515,7 +515,7 @@ methods used to read and write to the input and output files.
 % python scripts to parse the excel input and output templates 
 In the interface between DYMOND and Dakota, the Pywin32 
 \cite{hammond_python_2000}
-Python package is used to parse the Excel input file to 
+Python package is used to parse the Excel input file and to 
 write to the relevant Excel cells accordingly. 
 Pywin32 is a thin Python wrapper that enables interaction 
 with COM objects \cite{hammond_python_2000}. 
