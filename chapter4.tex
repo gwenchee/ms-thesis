@@ -195,7 +195,7 @@ unable to foresee this sudden drop in demand.
         \centering
         \caption {Undersupply results for each commodity in each simple transition scenario}
         \label{tab:transition-scenario-results}
-            \scriptsize
+            \footnotesize
             \begin{tabular}{l|rr}	
                 \hline
                 \textbf{Basic Transition Scenario}    & \textbf{Commodity}    & \textbf{No. of undersupply timesteps} \\ \hline
@@ -321,8 +321,8 @@ the power undersupply for the EG01-EG30 transition scenario.
 	for EG01-EG30 transition scenarios with linearly 
 	increasing power demand using the fft prediction method.}
 	\label{tab:buff_size}
-	\scriptsize
-		\begin{tabularx}{\textwidth}{LLL}
+	\footnotesize
+		\begin{tabular}{lll}
                 \hline
                 \textbf{Buffer [MW]}     & \textbf{Undersupply}               & \textbf{EG01-30} \\
 		\hline
@@ -336,7 +336,7 @@ the power undersupply for the EG01-EG30 transition scenario.
 		& Cumulative $[GW\cdot mo]$     & 139083 \\ \hline
         8000          & Time steps $[\#]$  & 5  \\  
 	              & Cumulative $[GW\cdot mo]$  & 135083 \\ \hline
-	\end{tabularx}
+	\end{tabular}
 \end{table}
 
 \subsection{Demonstration of Best Performance Model}
@@ -360,13 +360,14 @@ during a transition from \glspl{LWR} to \gls{MOX} \glspl{LWR} and
 \glspl{SFR} for EG01-30. 
 
 \begin{table}[]
+    \centering
     \caption{\deploy's input parameters for
 	EG01-EG30 transition scenario
 	that minimizes undersupply for power and minimizes 
 	the undersupply and under capacity for other facilities. }
 	\label{tab:bestinputs}
-    \scriptsize
-    \begin{tabularx}{\textwidth}{L|LL}
+    \footnotesize
+    \begin{tabular}{lll}
     \hline
                               & \textbf{\deploy Input Parameter}            & \textbf{EG01-30}            \\ \hline
     \multirow{4}{*}{\textbf{Required}} & Demand driving commodity   & Power              \\
@@ -377,7 +378,7 @@ during a transition from \glspl{LWR} to \gls{MOX} \glspl{LWR} and
                               & Power buffer size {[}MW{]} & 8000               \\ 
                               & Transition Start Date [Month] & 960 (Year 80)\\ 
                               & Fleet share ratio [\%] & \gls{MOX} \gls{PWR}: 15\%, \gls{SFR}: 85\%\\ \hline
-    \end{tabularx}%
+    \end{tabular}%
     \end{table}
 
     \begin{figure}[]
