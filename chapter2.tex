@@ -5,7 +5,7 @@ The nuclear fuel cycle represents the life cycle of nuclear fuel from initial
 extraction, processing, use in reactors, and, eventually, 
 final disposal.
 It is a complex system of facilities and mass flows 
-that are combined to meet the goal of providing nuclear energy 
+combined to meet the goal of providing nuclear energy 
 in the form of electricity \cite{yacout_modeling_2005}.
 A closed \gls{NFC} reprocesses used fuel, whereas an open 
 \gls{NFC} does not.  
@@ -27,7 +27,6 @@ efforts, advise future design choices, and provide
 decision-makers with a transparent tool for evaluating \gls{FCO} 
 to inform big-picture policy decisions \cite{yacout_modeling_2005}.
 
-% Where are NFC codes from 
 Historically, national laboratories around the globe have driven 
 development and are the primary users of \gls{NFC} simulator tools. 
 However, due to propriety access to these tools, universities and 
@@ -55,7 +54,7 @@ and the organization(s) associated with them.
     \end{table}
 
 % what is agent, what is fleet
-There are two methods to model facility and material flow in 
+Two methods can be used to model facility and material flow in 
 \gls{NFC} simulators: fleet-level and agent-level.  
 Fleet-based models do not distinguish between discrete facilities 
 or materials but instead lumps them into fleets and streams. 
@@ -67,8 +66,6 @@ The advantages of this method are more flexible simulation control
 and ease of simulating a wide range of scenarios with new 
 technologies.  
 
-% why is it good that there are multiple tools 
-% benchmark against each other
 The U.S. national laboratories conducted a benchmarking effort to 
 verify NFC simulators against each other
 \cite{feng_standardized_2016,guerin_benchmark_2009}. 
@@ -84,12 +81,12 @@ to inform on potential strategic and policy decisions
 \section{Transition Scenarios}
 Chapter 1 gave an overview of the history and motivation of 
 \gls{NFC} transition scenario research.
-This section gives a more detailed description of the motivation 
-behind transition scenario studies.
+This section describes the motivation behind transition 
+scenario studies in greater detail.
 The evaluation and screening study identified 40 promising 
 evaluation groups (\glspl{EG}) to represent a comprehensive set of 
 fuel cycle options (\gls{FCO}) \cite{wigeland_nuclear_2014}. 
-The study conducted an assessment of each EG using 
+The study assessed each EG using 
 9 evaluation criteria: nuclear waste management, 
 proliferation risk, nuclear material security risk, 
 safety, environmental impact, resource utilization, 
@@ -126,7 +123,6 @@ state to these promising \glspl{EG} \cite{feng_standardized_2016}.
 \end{table}
 
 \section{\gls{NFC} simulators Transition Scenario Capabilities}
-% what has been done for transition scenarios so far
 Both \gls{NFC} simulator tools used in this thesis, \Cyclus and DYMOND,
 were verified in a transition scenario benchmarking effort
 \cite{feng_standardized_2016,bae_standardized_2019}.
@@ -155,14 +151,13 @@ Previous work towards Sensitivity Analysis (SA) and \gls{UQ} of
 \gls{NFC} simulations used these terms interchangeably
 because \gls{UQ} is viewed as design uncertainty.
 For example, a never-been-built pyrochemical reprocessing 
-facility's throughput is viewed as a design parameter that 
-can be varied.
+facility's throughput is viewed as a variable design parameter.
 We determine the impact of the variation of the pyroprocessing 
 facility's throughput on essential output parameters.
 Similarly, by conducting studies on a more extensive set of input 
 parameters, it is possible to determine the most sensitive input 
 parameters.
-This provides a target of where we should conduct closer 
+This helps us target where we should conduct closer 
 sensitivity analysis and add further modeling detail.
 It also identifies which parameters the system is relatively 
 insensitive to \cite{noauthor_effects_2017}. 
@@ -173,17 +168,17 @@ scenario.
 When setting up the simulation scenarios, many assumptions are made. 
 \gls{SA} assists in the evaluation of the sensitivity of the 
 output of the scenario to each of these assumptions. 
-There are three types of sensitivity analysis: 
+In this work, we use three types of sensitivity analysis: 
 one-at-a-time (OAT), synergistic, and global.
 
 \subsection{One-at-a-time Sensitivity Analysis}
-OAT is a basic \gls{SA} technique that focuses on estimating 
+OAT is a basic \gls{SA} technique that estimates 
 the lone effect of one input variable. 
 This approach gives the local impact of each variable on the 
 output parameters of interest. 
 OECD conducted an OAT sensitivity analysis \cite{noauthor_effects_2017} 
 on key \gls{NFC} input parameters
-and quantified the impacts on the selected output parameters. 
+and quantified the impacts on selected output parameters. 
 The base scenario used has a duration of 200 years and begins 
 with a fleet of \glspl{PWR}, transitioning to \glspl{SFR} while 
 maintaining constant electricity production. 
@@ -192,8 +187,8 @@ the base case, a high case, and a low case (relative to the base
 case). 
 The results of these variations on the output parameters 
 are expressed in tornado plots and sensitivity tables. 
-Figure \ref{fig:oecd-sensitivitytable} shows the sensitivity table
-provided by the benchmark that gives an overview of their analysis. 
+An overview of their analysis is given in 
+Figure \ref{fig:oecd-sensitivitytable}. 
 Figure \ref{fig:oecd-tornado} shows an example tornado plot that represents 
 the sensitivity of separated Pu in storage to the various input parameters. 
 
@@ -201,7 +196,7 @@ the sensitivity of separated Pu in storage to the various input parameters.
 	\begin{center}
 		\includegraphics[scale=0.55]{./figures/oecd-sensitivitytable.png}
 	\end{center}	
-		\caption{Sensitivity Table that provides an overview of the sensitivity 
+		\caption{Sensitivity Table with an overview of the sensitivity 
 		of each output parameter to the respective input parameters \cite{noauthor_effects_2017}.}
 	\label{fig:oecd-sensitivitytable}
 \end{figure}
@@ -219,7 +214,7 @@ the sensitivity of separated Pu in storage to the various input parameters.
 The Synergistic \gls{SA} technique involves multi-parameter 
 input sweeps to view the impact of synergistic 
 changes of input variables on specific output variables. 
-Synergistic \gls{SA} can be conducted by varying 
+Synergistic \gls{SA} is conducted by varying 
 two input variables simultaneously and viewing their 
 combined impact on each output parameter or a combination 
 of weighted output parameters. 
@@ -272,7 +267,7 @@ from the current to desired end states.
 The only relevant sensitivity study was conducted by OECD 
 \cite{noauthor_effects_2017}, however it was a basic OAT 
 \gls{SA}.   
-Therefore, synergistic \gls{SA} studies focused on
+Therefore, synergistic and global \gls{SA} studies focused on
 lower-level input parameters such as cooling time, 
 date of introduction of reprocessing/reactor 
 technologies, the ratio of technology types should be conducted to 
