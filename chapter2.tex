@@ -1,7 +1,6 @@
 \chapter{Literature Review}
 
 \section{History of Nuclear Fuel Cycle Simulators}
-% What is a nuclear fuel cycle
 The nuclear fuel cycle represents the life cycle of nuclear fuel from initial
 extraction, processing, use in reactors, and, eventually, 
 final disposal.
@@ -56,7 +55,7 @@ and the organization(s) associated with them.
     \end{table}
 
 % what is agent, what is fleet
-There are two methods of modeling facility and material flow in 
+There are two methods to model facility and material flow in 
 \gls{NFC} simulators: fleet-level and agent-level.  
 Fleet-based models do not distinguish between discrete facilities 
 or materials but instead lumps them into fleets and streams. 
@@ -73,7 +72,7 @@ technologies.
 The U.S. national laboratories conducted a benchmarking effort to 
 verify NFC simulators against each other
 \cite{feng_standardized_2016,guerin_benchmark_2009}. 
-These comparison studies assist developers in modifying the
+These comparison studies assist developers in improving the
 codes to more realistically model the \gls{NFC}. 
 Furthermore, by upholding the \gls{NFC} simulator tools to 
 a high level of agreement, 
@@ -83,14 +82,13 @@ to inform on potential strategic and policy decisions
 \cite{feng_standardized_2016}. 
 
 \section{Transition Scenarios}
-Chapter 1 described the history and motivation of NFC 
-transition scenario research.
-This section gives a detailed description of transition 
-scenario studies.
-
+Chapter 1 gave an overview of the history and motivation of 
+\gls{NFC} transition scenario research.
+This section gives a more detailed description of the motivation 
+behind transition scenario studies.
 The evaluation and screening study identified 40 promising 
-\glspl{EG} to represent a comprehensive set of 
-\gls{FCO} \cite{wigeland_nuclear_2014}. 
+evaluation groups (\glspl{EG}) to represent a comprehensive set of 
+fuel cycle options (\gls{FCO}) \cite{wigeland_nuclear_2014}. 
 The study conducted an assessment of each EG using 
 9 evaluation criteria: nuclear waste management, 
 proliferation risk, nuclear material security risk, 
@@ -102,10 +100,10 @@ involving continuous recycling of co-extracted U/Pu or U/TRU in
 fast spectrum critical reactors consistently scored high overall 
 performance.
 EG23, EG24, EG29, and EG30 are the high-performing fuel cycle options.
-Table \ref{tab:eg} describes the current US evaluation group 
+Table \ref{tab:eg} describes the current US EG
 and the high-performing \glspl{EG}. 
 These \glspl{EG} were evaluated at an equilibrium state to 
-understand the end-state benefits of each \gls{EG}.
+understand their end-state benefits.
 Knowing the most promising end-state \glspl{EG}, 
 the next step is to evaluate and compare the transition process 
 from the current EG01 
@@ -152,14 +150,6 @@ Therefore, \gls{NFC} simulators must be used to conduct
 sensitivity analysis studies to understand the nuances of 
 a transition scenario better to inform policy decisions reliably
 \cite{passerini_systematic_2014}. 
-Previously it was difficult to conduct sensitivity analysis with \Cyclus 
-as users have to manually calculate the deployment scheme for a 
-single change in an input parameter. 
-By using the \deploy capability,
-sensitivity analysis studies are more efficiently 
-conducted to determine how variation in different 
-input parameters impact the progress and final state of 
-a transition scenario.
 
 Previous work towards Sensitivity Analysis (SA) and \gls{UQ} of 
 \gls{NFC} simulations used these terms interchangeably
@@ -272,12 +262,8 @@ variable is more impactful to the output parameter.
 \gls{SA} studies of \glspl{NFC} have previously been used to narrow 
 down and compare a wide range of \gls{NFC} scenarios to determine 
 the ideal scenario end types. 
-The conclusions are that the main trade-off for fuel cycle 
-optimization is economics as opposed to
-other metrics such as environmental impact, proliferation 
-risk \cite{passerini_systematic_2014}.
-It was determined that the desired fuel cycle end states 
-were EG23, EG24, EG29, and EG30.
+The evaluation and screening study determined that the desired 
+fuel cycle end states were EG23, EG24, EG29, and EG30.
 These \gls{SA} studies focused on high level input 
 parameters such as reactor and reprocessing technologies, etc.
 However, limited sensitivity studies have been performed to 
