@@ -138,6 +138,19 @@ made to model realistic transition scenarios to evaluate the
 flexibility of the \gls{NFC} simulators \cite{feng_standardized_2016}.
 Chapter \ref{chap:3} gives in-depth descriptions of \Cyclus and DYMOND.
 
+Many fuel cycle simulators, automatically deploy reactor facilities 
+to meet a user-defined power demand. 
+However, the user must define a deployment scheme of 
+supporting facilities to avoid gaps in the supply 
+chain resulting in idle reactor capacity. 
+To avoid this issue, users use two strategies. 
+First, some users choose to set infinite capacity 
+for supporting facilities but this is an inaccurate 
+representation of reality resulting in misrepresented results. 
+Second, some users choose to manually calculate the deployment 
+scheme through trial and error, but this is a tedious process 
+for complex scenarios. 
+
 \section{\gls{NFC} simulators Sensitivity Analysis}
 We simulate transition scenarios to predict the future; 
 however, when implemented in the real world, they tend to deviate 
@@ -183,8 +196,7 @@ The base scenario used has a duration of 200 years and begins
 with a fleet of \glspl{PWR}, transitioning to \glspl{SFR} while 
 maintaining constant electricity production. 
 Each parameter was varied independently for three cases: 
-the base case, a high case, and a low case (relative to the base 
-case). 
+the base case, a high case, and a low case. 
 The results of these variations on the output parameters 
 are expressed in tornado plots and sensitivity tables. 
 An overview of their analysis is given in 
