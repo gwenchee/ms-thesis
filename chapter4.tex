@@ -14,7 +14,7 @@ This section demonstrates \deploy's capability
 to effectively set up a simple transition scenario simulation 
 for constant, linearly increasing, and 
 sinusoidal power demand simulations.
-These simulations only includes
+These simulations only include
 three facility types: \texttt{source}, \texttt{reactor}, and 
 \texttt{sink}. 
 The simulations begin with ten \texttt{reactor} facilities 
@@ -57,14 +57,14 @@ for the three simulations that \deploy deploys facilities to meet.
     \end{figure}
 
 \subsection{Simple Transition Scenario Simulation: Constant Demand}
-Figures \ref{fig:constanttransition-power}, \ref{fig:constanttransition-fuel}
+Figures \ref{fig:constanttransition-power}, \ref{fig:constanttransition-fuel},
 and \ref{fig:constanttransition-spentfuel} demonstrate \deploy's capability 
 to deploy reactor and supporting facilities to meet the
 constant power demand and subsequently demanded 
 secondary commodities with minimal undersupply. 
 Table \ref{tab:transition-scenario-results} shows the number of 
 undersupplied timesteps. 
-In Figure \ref{fig:constanttransition-power} there exists no time steps 
+In Figure \ref{fig:constanttransition-power}, there exist no time steps 
 in which the supply of power falls under demand, meeting the main 
 objective of \deploy. 
 By using a combination of the \texttt{FFT} method for 
@@ -113,15 +113,16 @@ unable to foresee this sudden drop in demand.
 
     \subsection{Simple Transition Scenario Simulation: Linearly Increasing Demand}
 
-    Figures \ref{fig:growingtransition-power}, \ref{fig:growingtransition-fuel}
+    Figures \ref{fig:growingtransition-power}, \ref{fig:growingtransition-fuel},
     and \ref{fig:growingtransition-spentfuel} demonstrate the capability 
     of \deploy to deploy reactor and supporting facilities to meet the
     power demand and subsequently demanded secondary commodities 
     for a linearly increasing power demand. 
-    A smaller supply buffer is used while still minimizing undersupply.
+    This transition utilizes a smaller supply buffer compared to the constant 
+    power case to minimize power undersupply.
     Table \ref{tab:transition-scenario-results} shows the number of 
     undersupplied timesteps. 
-    In Figure \ref{fig:growingtransition-power} there exists no time steps 
+    In Figure \ref{fig:growingtransition-power}, there exist no time steps 
     in which the supply of power falls under demand, meeting the main 
     objective of \deploy. 
     
@@ -149,21 +150,21 @@ unable to foresee this sudden drop in demand.
     \end{figure}
     
     \subsection{Simple Transition Scenario Simulation: Sinusoidal Demand}
-    A sinusoidal power demand is the reflection of power demand in 
+    Sinusoidal power demand is the reflection of power demand in 
     the real world where power usage is higher in the winter and summer
     and lower in the spring and fall. 
-    Figures \ref{fig:sinetransition-power}, \ref{fig:sinetransition-fuel}
+    Figures \ref{fig:sinetransition-power}, \ref{fig:sinetransition-fuel},
     and \ref{fig:sinetransition-spentfuel} demonstrate the capability 
     of \deploy to deploy reactor and supporting facilities to meet the
     power demand and subsequently demanded secondary commodities 
-    for a sinusoidal power demand. 
+    for sinusoidal power demand. 
     Table \ref{tab:transition-scenario-results} shows the number of 
     undersupplied timesteps.
     
     For a sinusoidal power demand, the use of the 
     \texttt{holt-winters} method
     for predicting demand is more effective than the 
-    \texttt{FFT} method which was used for the constant 
+    \texttt{FFT} method used for the constant 
     and linearly increasing power demand transition scenarios. 
     This is because the \texttt{holt-winters} method excels in
     forecasting data points for repetitive seasonal series of data. 
@@ -215,11 +216,11 @@ unable to foresee this sudden drop in demand.
 \label{sec:eg01-30}
 Figure \ref{fig:30flow} shows the setup of facilities and mass flows 
 for EG01-30 in \Cyclus. 
-In the EG01-30 transition scenario, the initial \gls{LWR} fleet is 
-progressively decommissioned beginning at the 80 year mark,
+In the EG01-30 transition scenario, the initial LWR fleet 
+progressively decommissions at the 80-year mark,
 after which \deploy deploys \glspl{SFR} and \gls{MOX} \glspl{LWR} to 
 meet a linearly increasing power demand. 
-Transuranics from the spent fuel are recycled to 
+Transuranic elements from the spent fuel are recycled to 
 produce \gls{MOX} \gls{LWR} and \gls{SFR} fuel. 
 The power demand equation (t represents a month): 
 \begin{align}
@@ -239,9 +240,9 @@ transition scenario, a comparison study of prediction
 methods and power supply buffer sizes was conducted. 
 
 \subsection{Comparison of Prediction Methods}
-To determine the most effective \deploy prediction methods, the
-EG01-30 linearly increasing power transition scenario is run 
-for each prediction method.  
+We ran EG01-30 transition scenarios with different prediction 
+methods to determine the prediction method that best minimizes 
+power undersupply. 
 In Figure \ref{fig:eg30under}, the \texttt{fft} method has
 the smallest and least number of crosses, 
 demonstrating that it performs the best at minimizing 
@@ -277,11 +278,11 @@ scenario simulation.
 
 \subsection{Comparison of Power Buffer Sizes}
 For the EG01-30 linearly increasing power demand 
-transition scenario, power buffer size is varied. 
+transition scenario, the power buffer size is varied. 
 Figure \ref{fig:eg30-bufplot} and Table \ref{tab:buff_size} 
-show that with an increasing buffer size, the number of 
+show that with increased buffer size, the number of 
 power undersupply time steps decreases. 
-The cumulative undersupply is smallest for a buffer 
+The cumulative undersupply is the smallest for a buffer 
 size of 8000MW.  
 As seen from Figure \ref{fig:eg30-dotplot}, these undersupply time 
 steps occur at the beginning of the simulation and for one 
@@ -351,11 +352,11 @@ in which a supply buffer is usually maintained to ensure
 continuity in the event of an unexpected failure in the supply chain.
 
 Figure \ref{fig:30stack} shows the
-time dependent deployment of reactor and supporting facilities 
+time-dependent deployment of reactor and supporting facilities 
 for the EG01-30 linearly increasing power demand 
 transition scenario.
 \deploy automatically deploys reactor and supporting facilities 
-to setup a supply chain to meet power demand
+to set up a supply chain to meet power demand
 during a transition from \glspl{LWR} to \gls{MOX} \glspl{LWR} and 
 \glspl{SFR} for EG01-30. 
 
