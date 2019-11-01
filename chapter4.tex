@@ -1,7 +1,7 @@
 \chapter{Results: \deploy Demonstration}
-In this chapter, \deploy's capabilities is demonstrated 
-for a simple and complex case.  
-This chapter will be broken into two sections: 
+In this chapter, we demonstrate \deploy's capabilities
+in simple and complex \Cyclus transition scenario simulations.  
+This chapter is broken into two sections: 
 \begin{enumerate}
     \item \deploy demonstration for simple transition scenarios
     \item \deploy demonstration for the EG01-30 transition scenario
@@ -20,7 +20,7 @@ three facility types: \texttt{source}, \texttt{reactor}, and
 The simulations begin with ten \texttt{reactor} facilities 
 (\texttt{reactor1} to \texttt{reactor10}). 
 These reactors have staggered cycle lengths and lifetimes to prevent 
-simultaneous refueling and setup gradual decommissioning. 
+simultaneous refueling and to set up gradual decommissioning. 
 \deploy is configured to deploy \texttt{new reactor} facilities
 to meet the loss of power supply created by the decommissioning 
 of the initial \texttt{reactor} facilities. 
@@ -105,7 +105,8 @@ unable to foresee this sudden drop in demand.
         \begin{subfigure}[t]{0.6\textwidth}
             \centering
             \includegraphics[width=\linewidth]{figures/constanttransition-spentfuel.png} 
-            \caption{Spent Fuel is supplied by reactors and the capacity is provided by sink facilities.}
+            \caption{Spent Fuel is supplied by reactors and the capacity is provided 
+            by sink facilities.}
             \label{fig:constanttransition-spentfuel}
         \end{subfigure}
         \caption{Transition Scenario: Constant Power Demand of 10000MW}
@@ -118,8 +119,8 @@ unable to foresee this sudden drop in demand.
     of \deploy to deploy reactor and supporting facilities to meet the
     power demand and subsequently demanded secondary commodities 
     for a linearly increasing power demand. 
-    This transition utilizes a smaller supply buffer compared to the constant 
-    power case to minimize power undersupply.
+    This transition utilizes a smaller power supply buffer compared with the constant 
+    power transition scenario to minimize power undersupply.
     Table \ref{tab:transition-scenario-results} shows the number of 
     undersupplied timesteps. 
     In Figure \ref{fig:growingtransition-power}, there exist no time steps 
@@ -151,7 +152,7 @@ unable to foresee this sudden drop in demand.
     
     \subsection{Simple Transition Scenario Simulation: Sinusoidal Demand}
     Sinusoidal power demand is the reflection of power demand in 
-    the real world where power usage is higher in the winter and summer
+    the real world in which power usage is higher in the winter and summer
     and lower in the spring and fall. 
     Figures \ref{fig:sinetransition-power}, \ref{fig:sinetransition-fuel},
     and \ref{fig:sinetransition-spentfuel} demonstrate the capability 
@@ -160,12 +161,9 @@ unable to foresee this sudden drop in demand.
     for sinusoidal power demand. 
     Table \ref{tab:transition-scenario-results} shows the number of 
     undersupplied timesteps.
-    
-    For a sinusoidal power demand, the use of the 
-    \texttt{holt-winters} method
-    for predicting demand is more effective than the 
-    \texttt{FFT} method used for the constant 
-    and linearly increasing power demand transition scenarios. 
+    For a sinusoidal power demand, using the 
+    \texttt{holt-winters} method to predict demand minimizes 
+    power undersupply more effectively than the \texttt{FFT} method. 
     This is because the \texttt{holt-winters} method excels in
     forecasting data points for repetitive seasonal series of data. 
     
@@ -234,18 +232,21 @@ The power demand equation (t represents a month):
     \label{fig:30flow}
 \end{figure}
 
-To determine the optimal \deploy parameters to minimize 
+We conducted a comparison study of different prediction 
+methods and power supply buffer sizes to determine the 
+optimal \deploy parameters to minimize 
 power undersupply in the EG01-30 \Cyclus 
-transition scenario, a comparison study of prediction 
-methods and power supply buffer sizes was conducted. 
+transition scenario. 
+The subsequent sections discuss the results from the comparison 
+study. 
 
 \subsection{Comparison of Prediction Methods}
 We ran EG01-30 transition scenarios with different prediction 
 methods to determine the prediction method that best minimizes 
 power undersupply. 
-In Figure \ref{fig:eg30under}, the \texttt{fft} method has
+In Figure \ref{fig:eg30under}, the \texttt{FFT} method has
 the smallest and least number of crosses, 
-demonstrating that it performs the best at minimizing 
+demonstrating it performs the best at minimizing 
 undersupply of all commodities.
 Thus, it is the best prediction method for this transition 
 scenario simulation. 
@@ -269,9 +270,9 @@ scenario simulation.
 	\hfill
 	\caption{
 	EG01-30 Transition Scenario with Linearly Increasing Power Demand:
-	Each cross represent a time step in which there is undersupply 
+	Each cross represent a time step in which there exists undersupply 
 	or under capacity of each commodity for varying prediction methods. 
-    The size of each cross is proportional on the size of the undersupply.
+    The size of each cross is proportional to the size of the undersupply.
     Larger crosses correspond to larger undersupply.}
 	\label{fig:eg30under}
 \end{figure}
@@ -310,9 +311,9 @@ the power undersupply for the EG01-EG30 transition scenario.
 		\label{fig:eg30-dotplot}
 	\end{subfigure}
 	\hfill
-	\caption{Sensitivity Analysis of Power buffer size on cumulative 
-	undersupply of Power for the EG01-EG30 transition scenario 
-	with linearly increasing power demand using the \texttt{fft} prediction method.}
+    \caption{The effect of sensitivity analysis of power buffer size on cumulative 
+    undersupply of power for the EG01-30 transition scenario with linearly 
+    increasing power demand using the \texttt{FFT} method.}
 	\label{fig:sabuffer}
 \end{figure}
 
@@ -320,7 +321,7 @@ the power undersupply for the EG01-EG30 transition scenario.
 	\centering
 	\caption{Dependency of the undersupply of Power on the buffer size 
 	for EG01-EG30 transition scenarios with linearly 
-	increasing power demand using the fft prediction method.}
+	increasing power demand using the \texttt{FFT} prediction method.}
 	\label{tab:buff_size}
 	\footnotesize
 		\begin{tabular}{lll}
@@ -373,7 +374,7 @@ during a transition from \glspl{LWR} to \gls{MOX} \glspl{LWR} and
                               & \textbf{\deploy Input Parameter}            & \textbf{EG01-30}            \\ \hline
     \multirow{4}{*}{\textbf{Required}} & Demand driving commodity   & Power              \\
                               & Demand equation {[}MW{]}   & 60000+250t/12        \\
-                              & Prediction method          & fft                \\
+                              & Prediction method          & \texttt{FFT}                \\
                               & Deployment driving method  & Installed Capacity \\ \cline{1-3}
     \multirow{2}{*}{\textbf{Optional}} & Buffer type                & Absolute           \\
                               & Power buffer size {[}MW{]} & 8000               \\ 
