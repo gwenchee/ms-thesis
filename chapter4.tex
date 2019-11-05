@@ -31,20 +31,21 @@ for the three simulations that \deploy deploys facilities to meet.
 
 \begin{table}[]
     \resizebox{\textwidth}{!}{%
-    \begin{tabular}{l|l|c|l|l}
+    \doublespacing
+    \begin{tabular}{l|c|c|c}
     \hline
-    \multirow{2}{*}{}                         & \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Input Parameter}}} & \multicolumn{3}{c}{\textbf{Simulation Description}}                                                                                                                                                                                                                                                       \\ \cline{3-5} 
-                                              & \multicolumn{1}{c|}{}                                          & \multicolumn{1}{l|}{\textbf{Constant Power}}                                                                 & \textbf{\begin{tabular}[c]{@{}l@{}}Linearly Increasing \\ Power\end{tabular}}                  & \textbf{Sinusoidal Power}                                                                  \\ \hline
-    \multirow{5}{*}{\textbf{Required Inputs}} & Demand driving commodity                                       & \multicolumn{3}{c}{Power}                                                                                                                                                                                                                                                                                 \\ \cline{2-5} 
-                                              & Demand equation                                                & \multicolumn{1}{l|}{10000 MW}                                                                                & \begin{tabular}[c]{@{}l@{}}t\textless 40: 10000 MW\\ t\textgreater{}=40: 250*t MW\end{tabular} & 1000*$\sin(\pi*t/3)$+10000                                                                 \\ \cline{2-5} 
-                                              & Facilities it controls                                         & \multicolumn{3}{c}{Source, reactor, sink}                                                                                                                                                                                                                                                                 \\ \cline{2-5} 
-                                              & Prediction method                                              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Power: \texttt{FFT}\\ Fuel: \texttt{MA}\\ Spent fuel: \texttt{MA}\end{tabular}}          & \begin{tabular}[c]{@{}l@{}}Power: FFT\\ Fuel: MA\\ Spent fuel: FFT\end{tabular}                & \begin{tabular}[c]{@{}l@{}}Power: HW\\ Fuel: MA\\ Spent fuel: FFT\end{tabular}             \\ \cline{2-5} 
-                                              & Deployment Driving Method                                      & \multicolumn{3}{c}{Installed Capacity}                                                                                                                                                                                                                                                                    \\ \hline
-    \multirow{2}{*}{\textbf{Optional Inputs}} & Buffer type                                                    & \multicolumn{3}{c}{Absolute}                                                                                                                                                                                                                                                                              \\ \cline{2-5} 
-                                              & Buffer size                                                    & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Power: 3000 MW\\ Fuel: 0 kg \\ Spent fuel: 0 kg\end{tabular}} & \begin{tabular}[c]{@{}l@{}}Power: 2000 MW\\ Fuel: 1000 kg \\ Spent fuel: 0 kg\end{tabular}     & \begin{tabular}[c]{@{}l@{}}Power: 2000 MW\\ Fuel: 1000 kg \\ Spent fuel: 0 kg\end{tabular} \\ \hline
+    &\multicolumn{3}{c}{\textbf{Simulation Description}}                                                                                                                                                                                                                                                       \\ \hline
+    \multicolumn{1}{c|}{\textbf{Input Parameter}}                           & \multicolumn{1}{l|}{\textbf{Constant Power}}                                                                 & \textbf{\begin{tabular}[c]{@{}l@{}}Linearly Increasing \\ Power\end{tabular}}                  & \textbf{Sinusoidal Power}                                                                  \\ \hline
+    Demand driving commodity                                       & \multicolumn{3}{c}{Power}                                                                                                                                                                                                                                                                                 \\ \hline 
+    Demand equation                                                & \multicolumn{1}{l|}{10000 MW}                                                                                & \begin{tabular}[c]{@{}l@{}}t\textless 40: 10000 MW\\ t\textgreater{}=40: 250*t MW\end{tabular} & 1000*$\sin(\pi*t/3)$+10000                                                                 \\ \hline 
+    Available Facilities                                           & \multicolumn{3}{c}{Source, Reactor, Sink}                                                                                                                                                                                                                                                                 \\ \hline
+    Prediction method                                              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Power: \texttt{FFT}\\ Fuel: \texttt{MA}\\ Spent fuel: \texttt{MA}\end{tabular}}          & \begin{tabular}[c]{@{}l@{}}Power: FFT\\ Fuel: MA\\ Spent fuel: FFT\end{tabular}                & \begin{tabular}[c]{@{}l@{}}Power: HW\\ Fuel: MA\\ Spent fuel: FFT\end{tabular}             \\\hline 
+    Deployment Driving Method                                      & \multicolumn{3}{c}{Installed Capacity}                                                                                                                                                                                                                                                                    \\ \hline
+    Buffer type                                                    & \multicolumn{3}{c}{Absolute}                                                                                                                                                                                                                                                                              \\ \hline 
+    Buffer size                                                    & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Power: 3000 MW\\ Fuel: 0 kg \\ Spent fuel: 0 kg\end{tabular}} & \begin{tabular}[c]{@{}l@{}}Power: 2000 MW\\ Fuel: 1000 kg \\ Spent fuel: 0 kg\end{tabular}     & \begin{tabular}[c]{@{}l@{}}Power: 2000 MW\\ Fuel: 1000 kg \\ Spent fuel: 0 kg\end{tabular} \\ \hline
     \end{tabular}%
     }
-    \caption{\deploy's input parameters for the basic transition scenarios.}
+    \caption{\deploy's input parameters for the simple transition scenarios.}
     \label{tab:demonstrations}
     \end{table}
 
@@ -59,9 +60,9 @@ for the three simulations that \deploy deploys facilities to meet.
 \subsection{Simple Transition Scenario Simulation: Constant Demand}
 Figures \ref{fig:constanttransition-power}, \ref{fig:constanttransition-fuel},
 and \ref{fig:constanttransition-spentfuel} demonstrate \deploy's capability 
-to deploy reactor and supporting facilities to meet the
-constant power demand and subsequently demanded 
-secondary commodities with minimal undersupply. 
+to deploy reactor and supporting facilities to minimize undersupply 
+when meeting linearly increasing power demand and subsequent secondary 
+commodities demand.  
 Table \ref{tab:transition-scenario-results} shows the number of 
 undersupplied timesteps. 
 In Figure \ref{fig:constanttransition-power}, there exist no time steps 
@@ -90,35 +91,45 @@ unable to foresee this sudden drop in demand.
 
     \begin{figure}[]
         \centering
-        \begin{subfigure}[t]{\textwidth}
-        \centering
-            \includegraphics[width=0.7\linewidth]{figures/constanttransition-power.png} 
-            \caption{The power demand is a user-defined equation and power is supplied by the reactors.}
+        \includegraphics[width=0.8\linewidth]{figures/constanttransition-power.png} 
+            \caption{Power demand and supply, and reactor facility deployment plot for  
+            a simple constant power demand transition scenario with 
+            three facility types: \texttt{source}, \texttt{reactor}, and \texttt{sink}.
+            Power demand is a user-defined equation and power is supplied by the reactors.
+            There are no time steps with undersupply of power.}
             \label{fig:constanttransition-power}
-        \end{subfigure}
-        \begin{subfigure}[t]{0.6\textwidth}
+    \end{figure}
+
+    \begin{figure}[]
+        \centering
+        \begin{subfigure}[t]{1\textwidth}
             \centering
-            \includegraphics[width=\linewidth]{figures/constanttransition-fuel.png} 
-            \caption{Fuel is demanded by reactors and supplied by source facilities.}
+            \includegraphics[width=0.8\linewidth]{figures/constanttransition-fuel.png} 
+            \caption{Fuel demand and supply, and source facility deployment plot.
+            Fuel is demanded by reactors and supplied by source facilities.
+            There is only one time step with undersupply of fuel.}
             \label{fig:constanttransition-fuel}
         \end{subfigure}
-        \begin{subfigure}[t]{0.6\textwidth}
+        \begin{subfigure}[t]{1\textwidth}
             \centering
-            \includegraphics[width=\linewidth]{figures/constanttransition-spentfuel.png} 
-            \caption{Spent Fuel is supplied by reactors and the capacity is provided 
-            by sink facilities.}
+            \includegraphics[width=0.8\linewidth]{figures/constanttransition-spentfuel.png} 
+            \caption{Spent fuel demand and supply, and sink facility deployment plot.
+                Spent Fuel is supplied by reactors and the capacity to store them 
+                is provided by sink facilities.
+            There are no time steps with under-capacity of sink space.}
             \label{fig:constanttransition-spentfuel}
         \end{subfigure}
-        \caption{Transition Scenario: Constant Power Demand of 10000MW}
+        \caption{Simple constant power demand transition scenario with 
+        three facility types: \texttt{source}, \texttt{reactor}, and \texttt{sink}.}
     \end{figure}
 
     \subsection{Simple Transition Scenario Simulation: Linearly Increasing Demand}
 
     Figures \ref{fig:growingtransition-power}, \ref{fig:growingtransition-fuel},
-    and \ref{fig:growingtransition-spentfuel} demonstrate the capability 
-    of \deploy to deploy reactor and supporting facilities to meet the
-    power demand and subsequently demanded secondary commodities 
-    for a linearly increasing power demand. 
+    and \ref{fig:growingtransition-spentfuel} demonstrate \deploy's capability 
+    to deploy reactor and supporting facilities to minimize undersupply 
+    when meeting linearly increasing power demand and subsequent secondary 
+    commodities demand. 
     This transition utilizes a smaller power supply buffer compared with the constant 
     power transition scenario to minimize power undersupply.
     Table \ref{tab:transition-scenario-results} shows the number of 
@@ -129,25 +140,36 @@ unable to foresee this sudden drop in demand.
     
     \begin{figure}[]
         \centering
-        \begin{subfigure}[t]{\textwidth}
-        \centering
-            \includegraphics[width=0.7\linewidth]{figures/growingtransition-power.png} 
-            \caption{The power demand is a user-defined equation and power is supplied by the reactors.}
+        \includegraphics[width=0.8\linewidth]{figures/growingtransition-power.png} 
+            \caption{Power demand and supply, and reactor facility deployment plot for  
+            a simple linearly increasing power demand transition scenario with 
+            three facility types: \texttt{source}, \texttt{reactor}, and \texttt{sink}.
+            Power demand is a user-defined equation and power is supplied by the reactors.
+            There are no time steps with undersupply of power.}
             \label{fig:growingtransition-power}
-        \end{subfigure}
-        \begin{subfigure}[t]{0.6\textwidth}
+    \end{figure}
+    
+    \begin{figure}[]
+        \centering
+        \begin{subfigure}[t]{\textwidth}
             \centering
-            \includegraphics[width=\linewidth]{figures/growingtransition-fuel.png} 
-            \caption{Fuel is demanded by reactors and supplied by source facilities.}
+            \includegraphics[width=0.8\linewidth]{figures/growingtransition-fuel.png} 
+            \caption{Fuel demand and supply, and source facility deployment plot.
+            Fuel is demanded by reactors and supplied by source facilities.
+            There is only one time step with undersupply of fuel.}
             \label{fig:growingtransition-fuel}
         \end{subfigure}
-        \begin{subfigure}[t]{0.6\textwidth}
+        \begin{subfigure}[t]{\textwidth}
             \centering
-            \includegraphics[width=\linewidth]{figures/growingtransition-spentfuel.png} 
-            \caption{Spent Fuel is supplied by reactors and the capacity is provided by sink facilities.}
+            \includegraphics[width=0.8\linewidth]{figures/growingtransition-spentfuel.png} 
+            \caption{Spent fuel demand and supply, and sink facility deployment plot.
+                Spent Fuel is supplied by reactors and the capacity to store them 
+                is provided by sink facilities.
+            There are no time steps with under-capacity of sink space.}
             \label{fig:growingtransition-spentfuel}
         \end{subfigure}
-        \caption{Transition Scenario: Linearly Increasing Power Demand.}
+        \caption{Simple linearly increasing power demand transition scenario with 
+        three facility types: \texttt{source}, \texttt{reactor}, and \texttt{sink}.}
     \end{figure}
     
     \subsection{Simple Transition Scenario Simulation: Sinusoidal Demand}
@@ -155,10 +177,10 @@ unable to foresee this sudden drop in demand.
     the real world in which power usage is higher in the winter and summer
     and lower in the spring and fall. 
     Figures \ref{fig:sinetransition-power}, \ref{fig:sinetransition-fuel},
-    and \ref{fig:sinetransition-spentfuel} demonstrate the capability 
-    of \deploy to deploy reactor and supporting facilities to meet the
-    power demand and subsequently demanded secondary commodities 
-    for sinusoidal power demand. 
+    and \ref{fig:sinetransition-spentfuel} demonstrate \deploy's capability 
+    to deploy reactor and supporting facilities to minimize undersupply 
+    when meeting linearly increasing power demand and subsequent secondary 
+    commodities demand. 
     Table \ref{tab:transition-scenario-results} shows the number of 
     undersupplied timesteps.
     For a sinusoidal power demand, using the 
@@ -166,38 +188,51 @@ unable to foresee this sudden drop in demand.
     power undersupply more effectively than the \texttt{FFT} method. 
     This is because the \texttt{holt-winters} method excels in
     forecasting data points for repetitive seasonal series of data. 
+
+    \begin{figure}[]
+        \centering
+        \includegraphics[width=0.8\linewidth]{figures/sinetransition-power.png} 
+            \caption{Power demand and supply, and reactor facility deployment plot for  
+            a simple sinusoidal power demand transition scenario with 
+            three facility types: \texttt{source}, \texttt{reactor}, and \texttt{sink}.
+            Power demand is a user-defined equation and power is supplied by the reactors.
+            There are no time steps with undersupply of power.}
+            \label{fig:sinetransition-power}
+    \end{figure}
     
     \begin{figure}[]
         \centering
         \begin{subfigure}[t]{\textwidth}
-        \centering
-            \includegraphics[width=0.7\linewidth]{figures/sinetransition-power.png} 
-            \caption{The power demand is a user-defined equation and power is supplied by the reactors.}
-            \label{fig:sinetransition-power}
-        \end{subfigure}
-        \begin{subfigure}[t]{0.6\textwidth}
             \centering
-            \includegraphics[width=\linewidth]{figures/sinetransition-fuel.png} 
-            \caption{Fuel is demanded by reactors and supplied by source facilities.}
+            \includegraphics[width=0.8\linewidth]{figures/sinetransition-fuel.png} 
+            \caption{Fuel demand and supply, and source facility deployment plot.
+            Fuel is demanded by reactors and supplied by source facilities.
+            There is only one time step with undersupply of fuel.}
             \label{fig:sinetransition-fuel}
         \end{subfigure}
-        \begin{subfigure}[t]{0.6\textwidth}
+        \begin{subfigure}[t]{\textwidth}
             \centering
-            \includegraphics[width=\linewidth]{figures/sinetransition-spentfuel.png} 
-            \caption{Spent Fuel is supplied by reactors and the capacity is provided by sink facilities.}
+            \includegraphics[width=0.8\linewidth]{figures/sinetransition-spentfuel.png} 
+            \caption{Spent fuel demand and supply, and sink facility deployment plot.
+                Spent Fuel is supplied by reactors and the capacity to store them 
+                is provided by sink facilities.
+            There are no time steps with under-capacity of sink space.}
             \label{fig:sinetransition-spentfuel}
         \end{subfigure}
-        \caption{Transition Scenario: Sinusoidal Power Demand}
+        \caption{Simple sinusoidal power demand transition scenario with 
+        three facility types: \texttt{source}, \texttt{reactor}, and \texttt{sink}.}
     \end{figure}
 
     \begin{table}[]
         \centering
+        \doublespacing
         \caption {Undersupply results for each commodity in each simple transition scenario}
         \label{tab:transition-scenario-results}
-            \footnotesize
+            \small
             \begin{tabular}{l|rr}	
                 \hline
-                \textbf{Basic Transition Scenario}    & \textbf{Commodity}    & \textbf{No. of undersupply timesteps} \\ \hline
+                \textbf{Simple Transition Scenario}    & \textbf{Commodity}    & \textbf{No. of time steps} \\ 
+                && \textbf{with undersupply} \\ \hline
                 \multirow{2}{*}{\textbf{Constant Power}} & Fuel & 1 \\ 
                                                          & Power & 0 \\ 
                                                          & Spent Fuel & 0 \\ \hline
@@ -227,7 +262,7 @@ The power demand equation (t represents a month):
 
 \begin{figure}[]
     \centering
-    \includegraphics[width=0.55\linewidth]{30flow.pdf} 
+    \includegraphics[width=0.8\linewidth]{30flow.pdf} 
     \caption{Facility and mass flow for EG01-30 transition scenario.}
     \label{fig:30flow}
 \end{figure}
@@ -244,42 +279,62 @@ study.
 We ran EG01-30 transition scenarios with different prediction 
 methods to determine the prediction method that best minimizes 
 power undersupply. 
-In Figure \ref{fig:eg30under}, the \texttt{FFT} method has
-the smallest and least number of crosses, 
-demonstrating it performs the best at minimizing 
-undersupply of all commodities.
-Thus, it is the best prediction method for this transition 
-scenario simulation. 
+In Figure \ref{fig:eg30under}, each histogram represents 
+the number of time steps with undersupply or 
+under capacity for all commodities for each prediction method.  
+Table \ref{tab:all-power} shows the number of time steps with power 
+undersupply for the linearly increasing power EG01-30 transition scenario. 
+Figure \ref{fig:eg30under} and Table \ref{tab:all-power}
+demonstrate that the \texttt{FFT} and \texttt{POLY} methods 
+perform the best for the EG01-30 transition scenario, 
+with the least number of time steps with power undersupply.
 
-% update these figures to actually be 30
 \begin{figure}[]
 	\centering
-	\begin{subfigure}[t]{1\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{eg30-undersupply.png} 
-		\caption{Time dependent undersupply of commodities in simulation }
-		\label{fig:30undersupply}
-	\end{subfigure}
-	\vspace{1cm}
-	\begin{subfigure}[t]{1\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{eg30-undercapacity.png} 
-		\caption{Time dependent under capacity of commodities in simulation }
-		\label{fig:30undercapacity}
-	\end{subfigure}
-	\hfill
+	\includegraphics[width=1\linewidth]{eg01-30-histogram.png} 
 	\caption{
-	EG01-30 Transition Scenario with Linearly Increasing Power Demand:
-	Each cross represent a time step in which there exists undersupply 
-	or under capacity of each commodity for varying prediction methods. 
-    The size of each cross is proportional to the size of the undersupply.
-    Larger crosses correspond to larger undersupply.}
+	EG01-30 transition scenario with linearly increasing power demand. 
+	Each subplot shows the total number of time steps in which there exists 
+	undersupply and under capacity of commodities for each prediction method. 
+	The different colors represent different commodities, and each time bin 
+	refers to a specific time periods in the simulation.
+    The \texttt{FFT} and \texttt{POLY} methods perform the best, 
+    with the least number of 
+	time steps with undersupply and under capacity.}
 	\label{fig:eg30under}
 \end{figure}
 
+\begin{table}[]
+    \doublespacing
+	\centering
+        \caption{Total number of time steps with undersupply of power for the 
+        EG01-30 transition scenario for different prediction methods.}
+		\label{tab:all-power}
+		\small
+        \begin{tabular}{lr}
+		\hline
+        \textbf{Algorithm} & \textbf{EG01-30: No. of Time Steps} \\ 
+        & \textbf{with Power Undersupply} \\ \hline
+		\texttt{MA}     		& 24 \\ 
+		\texttt{ARMA}     	    & 24\\ 
+		\texttt{ARCH}     	    & 21\\ 
+		\texttt{POLY}      		&  9\\ 
+		\texttt{EXP-SMOOTHING} 	& 25\\ 
+		\texttt{HOLT-WINTERS}  	& 25\\ 
+		\texttt{FFT}       		& 9\\ 
+		\texttt{SW-SEASONAL}    & 51\\ \hline
+	\end{tabular}
+\end{table}
+
+
 \subsection{Comparison of Power Buffer Sizes}
 For the EG01-30 linearly increasing power demand 
-transition scenario, the power buffer size is varied. 
+transition scenario, the power buffer size is varied
+for both \texttt{FFT} and \texttt{POLY} methods. 
+Varying the power buffer size does not impact the number of 
+undersupply time steps for the transition scenario 
+with the \texttt{POLY} prediction method.
+Whereas, for the transition scenario with \texttt{FFT} prediction method, 
 Figure \ref{fig:eg30-bufplot} and Table \ref{tab:buff_size} 
 show that with increased buffer size, the number of 
 power undersupply time steps decreases. 
@@ -294,7 +349,8 @@ time steps to collect time series data about power demand
 to predict and start deploying reactor and supporting 
 fuel cycle facilities. 
 Therefore, a buffer of 8000MW minimizes 
-the power undersupply for the EG01-EG30 transition scenario.
+the power undersupply for the EG01-EG30 transition scenario
+with the \texttt{FFT} prediction method.
 
 \begin{figure}[]
 	\centering
@@ -318,25 +374,26 @@ the power undersupply for the EG01-EG30 transition scenario.
 \end{figure}
 
 \begin{table}[h]
-	\centering
+    \centering
+    \doublespacing
 	\caption{Dependency of the undersupply of Power on the buffer size 
 	for EG01-EG30 transition scenarios with linearly 
 	increasing power demand using the \texttt{FFT} prediction method.}
 	\label{tab:buff_size}
-	\footnotesize
-		\begin{tabular}{lll}
+	\small
+	\begin{tabular}{rrr}
                 \hline
                 \textbf{Buffer [MW]}     & \textbf{Undersupply}               & \textbf{EG01-30} \\
 		\hline
-		0             & Time steps $[\#]$  & 9\\  
+		\textbf{0}             & Time steps $[\#]$  & 9\\  
                       & Cumulative $[GW\cdot mo]$    & 152517 \\ \hline
-        2000          & Undersupplied $[\#]$ & 6 \\  
+        \textbf{2000}          & Undersupplied $[\#]$ & 6 \\  
         	      & Cumulative $[GW\cdot mo]$   & 147166 \\ \hline
-        4000          & Time steps $[\#]$ & 6 \\  
+        \textbf{4000}         & Time steps $[\#]$ & 6 \\  
 				  & Cumulative $[GW\cdot mo]$     & 143166 \\ \hline
-		6000          & Time steps $[\#]$  & 5 \\  
+        \textbf{6000}          & Time steps $[\#]$  & 5 \\  
 		& Cumulative $[GW\cdot mo]$     & 139083 \\ \hline
-        8000          & Time steps $[\#]$  & 5  \\  
+        \textbf{8000}          & Time steps $[\#]$  & 5  \\  
 	              & Cumulative $[GW\cdot mo]$  & 135083 \\ \hline
 	\end{tabular}
 \end{table}
@@ -363,13 +420,14 @@ during a transition from \glspl{LWR} to \gls{MOX} \glspl{LWR} and
 
 \begin{table}[]
     \centering
+    \doublespacing
     \caption{\deploy's input parameters for
 	EG01-EG30 transition scenario
 	that minimizes undersupply for power and minimizes 
 	the undersupply and under capacity for other facilities. }
 	\label{tab:bestinputs}
-    \footnotesize
-    \begin{tabular}{lll}
+    \small
+    \begin{tabular}{llr}
     \hline
                               & \textbf{\deploy Input Parameter}            & \textbf{EG01-30}            \\ \hline
     \multirow{4}{*}{\textbf{Required}} & Demand driving commodity   & Power              \\

@@ -4,10 +4,10 @@ sensitivity analysis studies of the
 EG01-30 \gls{NFC} transition scenario. 
 Dakota-\Cyclus (\texttt{dcwrapper}) 
 and Dakota-DYMOND coupling (\texttt{ddwrapper})
-are used for 
+perform  
 one-at-a-time sensitivity analysis (SA), synergistic 
 SA, and global SA. 
-This chapter is broken into five sections: 
+This chapter has six sections: 
 \begin{enumerate}
     \item Transition Scenario Specifications 
     \item Sensitivity Analysis Evaluation Metrics 
@@ -37,10 +37,11 @@ scenario specifications.
 
 \begin{table}[H]
     \centering
+    \doublespacing
     \caption{OECD Benchmark Transition Scenario
 	Specifications \cite{oecd_nuclear_energy_agency_wpfc_nodate}}
 	\label{tab:dymondinputs}
-    \footnotesize
+    \small
     \begin{tabular}{ll}
     \hline
                                \textbf{Input Parameter}            & \textbf{Value}            \\ \hline
@@ -73,12 +74,13 @@ Appendix B of the \gls{DOE} Evaluation and Screening Study
 
 \begin{table}[H]
     \centering
+    \doublespacing
     \caption{\Cyclus facility input parameters for
 	EG01-EG30 transition scenario
 	that minimizes undersupply for power and minimizes 
 	the undersupply and under capacity for other facilities. }
 	\label{tab:facinputs}
-    \footnotesize
+    \small
     \begin{tabular}{lll}
         \hline
         \textbf{Facility}                 & \textbf{Input Parameter}                    & \textbf{Value} \\ \hline
@@ -138,13 +140,13 @@ Table \ref{tab:category-output-DD} shows the selected
 output variables used in this work and their associated 
 evaluation metrics. 
 
-% update for cyclus and dymond when decided
 \begin{table}[H]
     \centering
+    \doublespacing
     \caption {Evaluation metrics and their associated output 
     variables for sensitivity analysis.}
 	\label{tab:category-output-DD}
-        \footnotesize
+        \small
         \begin{tabular}{lll}	
             	\hline
             \textbf{Evaluation Metrics} & \textbf{Output Variable} & \textbf{Indicators}\\
@@ -861,17 +863,18 @@ depleted uranium value.
     
     \begin{table}[H]
         \centering
+        \doublespacing
         \caption{Sobol Indices for a global sensitivity analysis study of the impact of 
         fleet share \% of PWR MOX reactors, transition start year and cooling time on various output
         variables: final amount of HLW, final amount of depleted uranium, and total 
         idle capacity in the simulation. The Sobol Indices are only comparable within each column, 
         not within each row.}
         \label{tab:sobol}
-            \footnotesize
+            \small
             \begin{tabular}{l|lll}
                 \hline	
-                \textbf{Input Variables}                      & \multicolumn{3}{c}{\textbf{Sobol Indices for Output Variables}}   \\ \cline{2-4}
-                & \textbf{Final HLW} & \textbf{Final depleted uranium} & \textbf{Total idle capacity} \\ \hline
+                \multicolumn{4}{c}{\textbf{Sobol Indices for Output Variables}}   \\ \hline
+                \textbf{Input Variables} & \textbf{Final HLW} & \textbf{Final depleted uranium} & \textbf{Total idle capacity} \\ \hline
                 \textbf{Fleet Share} & 0.828     & 0                      & 0.00509             \\
                 \textbf{Transition Year}                & 0.381     & 0.971                  & 1.505               \\
                 \textbf{Cooling Time}                         & 0.126     & 0                      & 0                   \\ \hline

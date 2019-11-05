@@ -157,7 +157,7 @@ commodity:
 	\label{eq:sub1}
 	obj = min \sum_{i=c_1}^{c_M}\sum_{t=1}^{t_N} |D_{t,i}-S_{t,i}|,
 \end{align}
-(2) to minimize excessive oversupply of all commodities: 
+,and (2) to minimize excessive oversupply of all commodities: 
 \begin{align}
 	\label{eq:sub2}
 	obj &= min \sum_{i=c_1}^{c_M}\sum_{t=1}^{t_N} |S_{t,i}-D_{t,i}|.
@@ -256,15 +256,16 @@ the buffers, facility preferences, and prediction methods.
 
 \begin{table}[]
     \centering
+    \doublespacing
     \caption{\deploy's required and optional input parameters with examples.}
     \label{tab:inputs}
-        \footnotesize
+        \small
         \begin{tabular}{l|ll}
         \hline
             & \textbf{Input Parameter}                                                           & \textbf{Examples}                                                                                                          \\ \hline
             \multirow{5}{*}{\textbf{Required}} & Demand driving commodity                                                           & Power                                                                                                                      \\ \cline{2-3} 
                                                       & Demand equation                                                                    & P(t) = 10000, sin(t), 10000*t                                                                                                                 \\ \cline{2-3} 
-                                                      & Facilities it controls                                                             & Fuel Fab, LWR reactor, Sink, etc.                                                                                                      \\ \cline{2-3} 
+                                                      & Available Facilities                                                             & Fuel Fab, LWR reactor, Sink, etc.                                                                                                      \\ \cline{2-3} 
                                                       & Capacities of the facilities                                                       & 3000 kg, 1000 MW, 50000 kg                                                                                                     \\ \cline{2-3} 
                                                       & Prediction method                                                                  & \begin{tabular}[c]{@{}l@{}}Power: fast fourier transform\\ Fuel: moving average\\ Spent fuel: moving average\end{tabular} \\ \cline{2-3} 
                                                       & Deployment driven by & Installed Capacity                                                                                                                    \\ \hline
@@ -438,7 +439,7 @@ SciPy \cite{jones_scipy:_2016} Python package.
 	\label{eq:fft}
 	X_k &= \sum_{n=0}^{N-1}x_n e^{-i2\pi kn/N}
 	\intertext{where:}
-	k &= \mbox{0,...,N-1} \nonumber\\
+	k &= 0,...,N-1 \nonumber\\
 	N &= \mbox{No. of data points} \nonumber\\
 \end{align}
 
@@ -507,7 +508,7 @@ methods used to read and write to the input and output files.
     \begin{tikzpicture}[node distance=4.5cm]
         \tikzstyle{every node}=[font=\large]
         \node (one) [sbblock,text width=4cm]{\small \textbf{Dakota Input File}};
-    \node (two) [bblock, right of=one, xshift = 1cm, text width=5cm]{\scriptsize \textbf{Python Script}\begin{itemize}
+    \node (two) [oblock, right of=one, xshift = 1cm, text width=5cm]{\footnotesize \textbf{Python Script}\begin{itemize}
         \item Edit NFC code input file with Dakota's inputs 
         \item Run NFC code with new input file 
         \item Read NFC code database for selected output variable
