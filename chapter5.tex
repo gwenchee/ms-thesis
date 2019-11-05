@@ -101,7 +101,7 @@ Appendix B of the \gls{DOE} Evaluation and Screening Study
     \end{table}
 
 \section{Sensitivity Analysis: Evaluation Metrics}
-Important optimization metrics and their associated output variables 
+Evaluation metrics and their associated output variables 
 must be defined to determine the basis of comparison for sensitivity 
 analysis of \gls{NFC} transition scenarios.
 The E\&S study \cite{wigeland_nuclear_2014} evaluated transition 
@@ -110,15 +110,14 @@ management, proliferation risk, nuclear material security risk,
 safety, environmental impact, resource utilization, development 
 and deployment risk, institutional issues, financial risk, and 
 economics. 
-These nine metrics can be narrowed down into four categories
+These nine metrics are narrowed down into four categories
  \cite{passerini_systematic_2014}: environmental 
 impact, economics, proliferation risk and resource utilization. 
 
 It is necessary to define output indicators to measure the 
 impact of the variation of an input parameter on an output 
 parameter \cite{noauthor_effects_2017}. 
-Output indicators are introduced because the output variables
-are a time series resulting in a need for a single value that 
+Output indicators are introduced because of the need for a single value that 
 is representative of the output parameter's time series.  
 Four types of output indicators are introduced 
 \cite{noauthor_effects_2017}: 
@@ -212,13 +211,12 @@ We did not manually change the fuel management strategy
 because this is a one-at-a-time \gls{SA} study 
 and, thus, only used fuel cooling time was varied. 
 
-In Table \ref{tab:dymond-ct-sa-2}, compared to the base case, 
+In Table \ref{tab:dymond-ct-sa-2}, compared with the base case, 
 as cooling time increases, maximum Pu in the cooling pools increases.
-This is expected since there is a larger inventory of used fuel 
+This is expected since there exists a larger inventory of used fuel 
 in the cooling pools when cooling time increases. 
 The quality of Pu in the cooling pools also increases as cooling time 
 increases. 
-% add more description?  
 
 \begin{table}[H]
     \centering
@@ -328,7 +326,7 @@ In Table \ref{tab:cyclus-ct-sa-1}, most evaluation metrics do not change
 for variation in the used fuel cooling time, with exception of the final 
 HLW amount in the scenario. 
 Final HLW amount decreases for a longer used fuel cooling time.
-In Table \ref{tab:cyclus-ct-sa-2}, compared to the base case, 
+In Table \ref{tab:cyclus-ct-sa-2}, compared with the base case, 
 as cooling time increases, maximum Pu in the cooling pools increases.
 This is similar to the result for the DYMOND transition scenario (table 
 \ref{tab:dymond-ct-sa-2}). 
@@ -774,10 +772,10 @@ and the total amount of idle capacity in the scenario for varying
 fleet share and advanced reactor introduction date values. 
 
 Figure \ref{fig:cyclus_3d_hlw} shows that for scenarios in which 
-there is a smaller fleet share of \gls{MOX} \glspl{PWR}, and the 
+there exists a smaller fleet share of \gls{MOX} \glspl{PWR}, and the 
 transition begins later in the simulation, less high 
 level waste produced. 
-For a later transition year, we assume that the initial 
+For a later transition year, we assume the initial 
 \glspl{LWR} have a longer lifetime
 and thus, advanced reactors exist in the simulation for a shorter 
 amount of time, resulting in a smaller production of reprocessing 
@@ -790,9 +788,9 @@ natural uranium fuel that generates depleted uranium.
 Figure \ref{fig:cyclus_3d_ic} shows that idle capacity is minimized 
 for a later advanced reactor introduction date. 
 Having a later introduction date of advanced reactor technology ensures 
-that a sufficiently large inventory of transuranic elements is amassed
+a sufficiently large inventory of transuranic elements is amassed
 to produce fuel for the \gls{MOX} \glspl{PWR} and \glspl{SFR}.  
-This ensures that there is no gap in the supply chain that results 
+This ensures that there exists no gap in the supply chain resulting 
 in idle advanced reactor capacity.
 
 % replace transition year 
@@ -820,16 +818,16 @@ in idle advanced reactor capacity.
 \end{figure}
 
 \section{Global Sensitivity Analysis}
-\texttt{dcwrapper} was used to conduct a global sensitivity 
+We used \texttt{dcwrapper} to conduct a global sensitivity 
 analysis study to generate Sobol indices, which tells us which 
-input parameters have the most influence on an output variable.
+input parameters have the most influence on each output variable.
 Section \ref{sec:sobol} describes this type of sensitivity 
 analysis.
 It provides a more holistic view of the system 
 than OAT (section \ref{sec:oat}) and 
 synergistic (section \ref{sec:synergistic}) sensitivity 
 analysis because it decomposes the variance of the 
-output of the scenario simulation into fractions which can be 
+output of the scenario simulation into fractions which are 
 attributed to each input, giving a better idea of the
 most impactful input parameters. 
 We could vary more than two variables in a synergistic 
@@ -898,11 +896,11 @@ capacity due to the lack of fuel.
 Therefore, the user has to use trial and error to find a fuel 
 management strategy to minimize or eliminate idle reactor capacity. 
 With a 300-year simulation taking a few hours to run, it quickly 
-becomes very tedious and time-consuming.  
+becomes tedious and time-consuming.  
 
-This issue impacts sensitivity analysis conducted 
-with DYMOND because the fuel management strategy was 
-optimized manually for specificß scenario parameters, resulting in 
+This issue impacts DYMOND sensitivity analysis 
+because the fuel management strategy was 
+optimized manually for specific scenario parameters, resulting in 
 idle reactor capacity occurring when scenario parameters differed 
 from it. 
 An AI-based method (similar to \deploy) 
@@ -919,7 +917,7 @@ In this chapter, we demonstrated each sensitivity analysis type.
 Each method has its advantage. 
 When conducting a comprehensive sensitivity analysis of a specific 
 transition scenario, 
-global sensitivity analysis should be conducted first to 
+global sensitivity analysis should be done first to 
 determine which input variables are key to influencing the output 
 variables of interest. 
 OAT and synergistic sensitivity analysis can then be used together to 
