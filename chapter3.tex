@@ -198,9 +198,10 @@ and the \texttt{Institution} type governing each
 facility's deployment.  
 
 \begin{figure}[]
-	\centering
-\begin{tikzpicture}[node distance=3cm,auto,>=latex']
-	\tikzstyle{every node}=[font=\scriptsize]
+    \centering
+    \resizebox{1\textwidth}{!}{
+\begin{tikzpicture}[node distance=3.1cm,auto,>=latex']
+	\tikzstyle{every node}=[font=\footnotesize]
     \node [bbslock] (a) {Source};
     \node [bbslock] (b) [right of=a] {Enrichment \\ Facility};
 	\node [bbslock] (c) [right of=b] {Reactor};
@@ -211,6 +212,7 @@ facility's deployment.
 	\draw[->] (c) edge node {\shortstack{Used \\ Fuel}} (d) ;
 	\draw[->] (d) edge node {\shortstack{Cooled \\ Used \\ Fuel}} (e) ;
 \end{tikzpicture}
+    }
 \resizebox{0.5\textwidth}{!}{
     \fbox{\begin{tabular}{ll}
         \textcolor{illiniblue}{$\blacksquare$} & Deployed by \texttt{DemandDrivenDeploymentInst}\\
@@ -264,15 +266,15 @@ the buffers, facility preferences, and prediction methods.
         \hline
             & \textbf{Input Parameter}                                                           & \textbf{Examples}                                                                                                          \\ \hline
             \multirow{5}{*}{\textbf{Required}} & Demand driving commodity                                                           & Power                                                                                                                      \\ \cline{2-3} 
-                                                      & Demand equation                                                                    & P(t) = 10000, sin(t), 10000*t                                                                                                                 \\ \cline{2-3} 
+                                                      & Demand equation [MW]                                                                   & P(t) = 10000, sin(t), 10000*t                                                                                                                 \\ \cline{2-3} 
                                                       & Available Facilities                                                             & Fuel Fab, LWR reactor, Sink, etc.                                                                                                      \\ \cline{2-3} 
                                                       & Capacities of the facilities                                                       & 3000 kg, 1000 MW, 50000 kg                                                                                                     \\ \cline{2-3} 
                                                       & Prediction method                                                                  & \begin{tabular}[c]{@{}l@{}}Power: fast fourier transform\\ Fuel: moving average\\ Spent fuel: moving average\end{tabular} \\ \cline{2-3} 
                                                       & Deployment driven by & Installed Capacity                                                                                                                    \\ \hline
             \multirow{4}{*}{\textbf{Optional}} & Supply/Capacity Buffer type                                                                        & Absolute                                                                                                                  \\ \cline{2-3} 
                                                       & Supply/Capacity Buffer size                                                                        & \begin{tabular}[c]{@{}l@{}}Power: 3000 MW\\ Fuel: 0 kg \\ Spent fuel: 0 kg\end{tabular}                                   \\ \cline{2-3} 
-                                                      & Facility preferences                                                               & \begin{tabular}[c]{@{}l@{}}LWR reactor = 100-t\\ SFR reactor = t-100 \end{tabular}          \\ \cline{2-3} 
-                                                      & Fleet share percentage                                                            & \begin{tabular}[c]{@{}l@{}}MOX LWR = 85\%\\ SFR = 15\% \end{tabular}          \\ \hline
+                                                      & Facility preferences [month]                                                              & \begin{tabular}[c]{@{}l@{}}LWR reactor = 100-t\\ SFR reactor = t-100 \end{tabular}          \\ \cline{2-3} 
+                                                      & Fleet share percentage [\%]                                                           & \begin{tabular}[c]{@{}l@{}}MOX LWR = 85\%\\ SFR = 15\% \end{tabular}          \\ \hline
                     \end{tabular}
 \end{table}
     
@@ -505,13 +507,14 @@ methods used to read and write to the input and output files.
 
 \begin{figure}[]
     \centering
+    \resizebox{1\textwidth}{!}{
     \begin{tikzpicture}[node distance=4.5cm]
         \tikzstyle{every node}=[font=\large]
         \node (one) [sbblock,text width=4cm]{\small \textbf{Dakota Input File}};
-    \node (two) [oblock, right of=one, xshift = 1cm, text width=5cm]{\footnotesize \textbf{Python Script}\begin{itemize}
-        \item Edit NFC code input file with Dakota's inputs 
-        \item Run NFC code with new input file 
-        \item Read NFC code database for selected output variable
+    \node (two) [oblock, right of=one, xshift = 1cm, text width=5.3cm]{\footnotesize \textbf{Python Script}\begin{itemize}
+        \item \textbf{Edit} NFC code input file with Dakota's inputs 
+        \item \textbf{Run} NFC code with new input file 
+        \item \textbf{Read} NFC code database for selected output variable
     \end{itemize}};
     \node  (three) [sbblock, xshift = 1cm, right of=two,text width=4cm]{\small \textbf{Dakota Output File}};
         
@@ -519,7 +522,8 @@ methods used to read and write to the input and output files.
         \draw [arrow] (two) -- (three);
         \draw [arrow] (three) |-([shift={(0cm,-1.5cm)}]three.south west)-- ([shift={(0cm,-1.5cm)}]one.south east)-|(one);
     \end{tikzpicture}
-    \caption{Depiction of coupling of Dakota and NFC code}
+    }
+    \caption{Depiction of the coupling of Dakota and each NFC code.}
     \label{fig:dakota-NFC-flow}
 \end{figure}
 

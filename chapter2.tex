@@ -36,6 +36,8 @@ Table \ref{tab:nfctools} shows a breakdown of all major \gls{NFC} simulators
 and the organization(s) associated with them.  
 
 \begin{table}[]
+    \caption{Nuclear fuel cycle simulator tools and their corresponding organizations.}
+    \label{tab:nfctools}
     \centering
     \doublespacing
     \small
@@ -50,8 +52,6 @@ and the organization(s) associated with them.
     CLASS  \cite{mouginot_class_2012}                                &  \gls{CNRS}, \\ & \gls{IRSN}                                    \\
     DESAE  \cite{tsibulskiy_desae_2006} & \gls{OECD} \\ \hline
     \end{tabular}%
-    \caption{Nuclear Fuel Cycle Simulator Tools and their corresponding organizations.}
-    \label{tab:nfctools}
     \end{table}
 
 % what is agent, what is fleet
@@ -208,18 +208,20 @@ the sensitivity of separated Pu in storage to the various input parameters.
 
 \begin{figure}[]
 	\begin{center}
-		\includegraphics[scale=0.55]{./figures/oecd-sensitivitytable.png}
+		\includegraphics[scale=0.6]{./figures/oecd-sensitivitytable.png}
 	\end{center}	
-		\caption{Sensitivity Table with an overview of the sensitivity 
+        \caption{Overall results from OECD one-at-a-time sensitivity analysis 
+        study. Sensitivity Table with an overview of the sensitivity 
 		of each output parameter to the respective input parameters \cite{noauthor_effects_2017}.}
 	\label{fig:oecd-sensitivitytable}
 \end{figure}
 
 \begin{figure}[]
 	\begin{center}
-		\includegraphics[scale=0.65]{./figures/oecd-tornado.png}
+		\includegraphics[scale=0.75]{./figures/oecd-tornado.png}
 	\end{center}	
-		\caption{Tornado plot showing the sensitivity of separated Pu in 
+		\caption{A tornado plot from the OECD one-at-a-time sensitivity analysis 
+        study, showing the sensitivity of separated Pu in 
 		storage to relation to each input parameter \cite{noauthor_effects_2017}.}
 	\label{fig:oecd-tornado}
 \end{figure}
@@ -243,7 +245,7 @@ on the global sensitivity of the system.
 
 \begin{figure}[]
 	\begin{center}
-		\includegraphics[scale=0.25]{./figures/passerini_payoff.jpg}
+		\includegraphics[scale=0.45]{./figures/passerini_payoff.jpg}
 	\end{center}	
 		\caption{Optimization Surface of the payoff when varying thermal 
 		reprocessing and fast reactor technology introduction date
