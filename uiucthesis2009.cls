@@ -199,7 +199,6 @@
         \hspace{-\ct@dim}\@committeename\\}
         \hspace{-\cn@dim}\begin{tabular}{l}\@committee\end{tabular}\vfil
 \end{flushleft}
-    \newpage
     \endgroup
 }
 \let\thesis@frontmatter=\frontmatter
