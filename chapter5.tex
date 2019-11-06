@@ -1,9 +1,9 @@
 \chapter{Results: Sensitivity Analysis}
-In this chapter, DYMOND and \Cyclus are used to conduct 
+In this chapter, we use DYMOND and \Cyclus to conduct 
 sensitivity analysis studies of the 
 EG01-30 \gls{NFC} transition scenario. 
-Dakota-\Cyclus (\texttt{dcwrapper}) 
-and Dakota-DYMOND coupling (\texttt{ddwrapper})
+We use Dakota-\Cyclus (\texttt{dcwrapper}) 
+and Dakota-DYMOND coupling (\texttt{ddwrapper}) toß
 perform  
 one-at-a-time sensitivity analysis (SA), synergistic 
 SA, and global SA. 
@@ -18,7 +18,6 @@ This chapter has six sections:
 \end{enumerate}
 
 \section{Transition Scenario Specification}
-% improve this section 
 Both DYMOND and \Cyclus sensitivity analyses 
 use the EG01-30 transition scenario.
 Slight differences lie in the values of some input variables. 
@@ -33,7 +32,7 @@ Fuel Cycle Scenarios in France in 2017
 The OECD benchmark scenario is based on the EG01-30 transition scenario 
 in which a \gls{PWR} fleet is transitioned to
 a mixed fleet of \gls{MOX} \glspl{PWR} and \glspl{SFR}. 
-Table \ref{tab:dymondinputs} describe high-level OECD benchmark transition 
+Table \ref{tab:dymondinputs} describes high-level OECD benchmark transition 
 scenario specifications. 
 
 \begin{table}[H]
@@ -54,7 +53,7 @@ scenario specifications.
     \end{table}
 
 \subsection{\Cyclus}
-\Cyclus transition scenario sensitivity analysis uses 
+The \Cyclus transition scenario sensitivity analysis uses 
 the linearly increasing power demand EG01-30 transition scenario 
 (described in Section \ref{sec:eg01-30}).  
 Figure \ref{fig:30flow} shows the facility and mass flow 
@@ -78,7 +77,7 @@ Appendix B of the \gls{DOE} Evaluation and Screening Study
     \caption{\Cyclus facility input parameters for
 	EG01-EG30 transition scenario
 	that minimizes undersupply for power and minimizes 
-	the undersupply and under capacity for other facilities. }
+	the undersupply and under capacity of other commodities. }
 	\label{tab:facinputs}
     \small
     \begin{tabular}{lll}
@@ -110,9 +109,9 @@ management, proliferation risk, nuclear material security risk,
 safety, environmental impact, resource utilization, development 
 and deployment risk, institutional issues, financial risk, and 
 economics. 
-These nine metrics are narrowed down into four categories
- \cite{passerini_systematic_2014}: environmental 
-impact, economics, proliferation risk and resource utilization. 
+These nine metrics are narrowed down into four categories: environmental 
+impact, economics, proliferation risk and resource utilization
+\cite{passerini_systematic_2014}. 
 
 It is necessary to define output indicators to measure the 
 impact of the variation of an input parameter on an output 
@@ -121,10 +120,10 @@ Output indicators are introduced because of the need for a single value that
 is representative of the output parameter's time series.  
 Four types of output indicators are introduced 
 \cite{noauthor_effects_2017}: 
-(1) final value at the end of simulation
-(2) maximum value during simulation,  
-(3) cumulative sum over the whole simulation, and 
-(4) quality of Plutonium (equation \ref{eq:pu}). 
+(1) the final value at the end of simulation
+(2) the maximum value during simulation,  
+(3) the cumulative sum over the whole simulation, and 
+(4) the quality of Plutonium (equation \ref{eq:pu}). 
 A different output indicator is used depending on 
 the nature of the output parameter.
 
@@ -184,7 +183,7 @@ quantify the evaluation metric impact.
 \subsection{Length of cooling time for used fuel}
 In the DYMOND and \Cyclus EG01-30 transition scenarios, 
 we varied used fuel cooling time from 0 to 8 years. 
-These simulations are compared based on the evaluation 
+We compared these simulations based on the evaluation 
 metrics described in Table \ref{tab:category-output-DD}.
 
 \subsubsection{\textbf{DYMOND}}
@@ -323,8 +322,8 @@ difference compared with the base case of `Cooling Time = 2 years'
 scenario.
 
 In Table \ref{tab:cyclus-ct-sa-1}, most evaluation metrics do not change 
-for variation in the used fuel cooling time, with exception of the final 
-HLW amount in the scenario. 
+with variation in the used fuel cooling time, except for the final 
+HLW amount. 
 Final HLW amount decreases for a longer used fuel cooling time.
 In Table \ref{tab:cyclus-ct-sa-2}, compared with the base case, 
 as cooling time increases, maximum Pu in the cooling pools increases.
@@ -428,7 +427,7 @@ Pu quality, decrease for a longer cooling time.
 The fleet share ratio of \gls{MOX} \glspl{PWR} and \glspl{SFR}
 was varied from 0\% to 20\% of \gls{MOX} \glspl{PWR} for the 
 \Cyclus EG01-30 transition scenario. 
-These simulations are compared based on the evaluation 
+We compared these simulations based on the evaluation 
 metrics described in Table \ref{tab:category-output-DD}. 
 
 Tables \ref{tab:cyclus-fs-1} and \ref{tab:cyclus-fs-2} show 
@@ -564,7 +563,7 @@ to minimize the Pu amount in the cooling pools and reprocessing facilities.
 The introduction year of advanced reactor technology
 was varied from year 80 to 84 for the \Cyclus 
 EG01-30 transition scenario. 
-These simulations are compared based on the evaluation 
+We compared these simulations based on the evaluation 
 metrics described in Table \ref{tab:category-output-DD}.
 
 Tables \ref{tab:cyclus-ty-1} and \ref{tab:cyclus-ty-2} show 
@@ -589,7 +588,7 @@ For a later advanced reactor introduction year,
 maximum Pu in HLW increases, while maximum Pu in reprocessing facilities 
 decreases; the quality of Pu is constant. 
 A later advanced reactor introduction year should be 
-selected to ensure minimal idle capacity
+selected to ensure minimal idle capacity.
 
 % correct stuff
 \begin{table}[H]
@@ -705,8 +704,8 @@ the EG01-30 transition scenario.
 \subsubsection{\textbf{DYMOND}}
 We evaluated 9 scenarios for a combination of fleet share ratio of 
 2\%, 5\%, 8\% PWR MOX, and transition start date of year 162, 163, and 164.
-These simulations are compared based on the evaluation
-metrics described in table \ref{tab:category-output-DD}.
+We compared these simulations based on the evaluation 
+metrics described in Table \ref{tab:category-output-DD}.
 Tables with the absolute results of each scenario's performance 
 for each evaluation metric are available in  \texttt{ddwrapper} github repository 
 \cite{chee_gwenchee/ddwrapper_2019}. 
@@ -762,8 +761,8 @@ to Figure \ref{fig:passerini_payoff} to determine the ideal fleet share
 ratio and transition year combination. 
 
 \subsubsection{\textbf{Cyclus}}
-We evaluated 25 scenarios for a combination of fleet share percentage 
-of 0\%, 5\%, 10\%, 15\%, 20\% PWR MOX, and advanced reactor introduction 
+We evaluated 25 scenarios for a combination of PWR MOX fleet share percentage 
+of 0\%, 5\%, 10\%, 15\%, 20\%, and advanced reactor introduction 
 date of year 80 to 84.
 Figures \ref{fig:cyclus_3d_hlw}, \ref{fig:cyclus_3d_depu}, and 
 \ref{fig:cyclus_3d_ic}
@@ -837,10 +836,8 @@ The input variables varied are fleet share ratio,
 transition start year, and used fuel cooling time.
 The output variables considered are the final amount of HLW, 
 the final amount of depleted uranium, and total idle capacity. 
-Table \ref{tab:sobol} provides the Sobol indices that depict 
-the impact of the variance of each input variable on each output 
-variable. 
-It provides a summary of the most influential input parameters 
+Table \ref{tab:sobol} provides the Sobol indices which is 
+a summary of the most influential input parameters 
 for each output parameter. 
 The Sobol indices are only comparable for each output variable 
 (within each column). 
@@ -899,15 +896,15 @@ With a 300-year simulation taking a few hours to run, it quickly
 becomes tedious and time-consuming.  
 
 This issue impacts DYMOND sensitivity analysis 
-because the fuel management strategy was 
+because the fuel management strategy is 
 optimized manually for specific scenario parameters, resulting in 
-idle reactor capacity occurring when scenario parameters differed 
+idle reactor capacity occurring when scenario parameters differs 
 from it. 
 An AI-based method (similar to \deploy) 
 should be introduced to 
 determine where the recycled part of each fuel comes from to 
 minimize idle capacity in the simulation. 
-This eases the setting up of transition scenarios, and enable 
+This eases the setting up of transition scenarios, and enables 
 more effective and accurate sensitivity analysis studies.
 
 \subsection{Importance of Different Types of Sensitivity Analysis}
