@@ -1,7 +1,7 @@
 \chapter{Methods}
 \label{chap:3}
-In this chapter, we describe the nuclear fuel cycle simulators utilized in this work
-, \Cyclus and DYMOND, and the new capabilities developed for them. 
+In this chapter, we describe the nuclear fuel cycle simulators utilized in this work, 
+\Cyclus and DYMOND, and the new capabilities developed for them. 
 The new capabilities developed are 
 (1) demand-driven deployment capabilities in \Cyclus, 
 (2) sensitivity analysis capabilities for DYMOND, and
@@ -37,8 +37,8 @@ and capabilities.
 Agent interchangeability facilitates the configuration of custom fuel 
 cycles and direct comparisons of alternative modeling methodologies 
 and facility concepts \cite{huff_fundamental_2016}. 
-\Cyclus' input file has an XML format, and the output file is 
-a SQL database. 
+\Cyclus' input file has an XML or JSON format, and the output file is 
+a SQLite or HDF5 database. 
 
 \section{DYMOND}
 DYMOND \cite{yacout_modeling_2005} is a nuclear fuel cycle simulator developed 
@@ -76,12 +76,12 @@ Compared to \Cyclus, DYMOND is easier to use but less flexible.
 
 \section{Demand driven deployment capability in \Cyclus (\deploy)}
 In 2016, there was a push from the DOE to understand and evaluate the 
-transition from the initial EG01 state to promising future 
-end-states \cite{feng_standardized_2016}.
+transition from the current once through LWR fuel cycle (EG01) 
+to promising future end-states \cite{feng_standardized_2016}.
 Previously in \Cyclus, reactor facilities were automatically 
 deployed to meet user-defined power demand. 
-However, the user was required to define a deployment scheme of 
-supporting facilities to ensure no supply chain 
+However, the user was required to define a deployment scheme for all 
+supporting facilities to avoid any supply chain 
 gap resulting in idle reactor capacity. 
 To avoid this issue, users 
 have to set infinite capacities for the support facilities, 
