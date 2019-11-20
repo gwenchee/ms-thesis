@@ -3,31 +3,30 @@
 
 \section{Motivation}
 The impact of climate change on natural and human systems 
-is increasingly apparent.
+is increasingly apparent \cite{noauthor_climate_2018}.
 Increases in global average 
 surface temperatures, sea levels, and larger climate extremes
 are a few of the consequences of elevated Greenhouse Gas (GHG) 
-concentrations.
+concentrations \cite{noauthor_climate_2018}.
 The production and use of energy contribute to 
 two-thirds of the total Green House Gas (GHG) 
 emissions \cite{noauthor_climate_2018}.
-Furthermore, as the human population increases, and previously 
-under-developed nations urbanize rapidly, 
+Furthermore, as the human population increases and previously 
+under-developed nations rapidly urbanize, 
 global energy demand is forecasted to increase.  
-The types of power generation technologies used 
-profoundly impacts the effects of growing energy demand 
-on climate change.  
+Energy generation technology selection 
+profoundly impacts climate change via growing energy demand. 
 Large scale deployment of nuclear power plants has significant 
 potential to reduce GHG production due to their low 
 carbon emissions \cite{noauthor_climate_2018}.  
 
 However, the nuclear power industry is facing four major challenges 
 that hinder large scale nuclear power deployment: 
-cost, safety, proliferation, and waste 
+cost, safety, proliferation, and used nuclear fuel 
 \cite{massachusetts_institute_of_technology_future_2003}. 
-Nuclear power has high overall lifetime costs, an unresolved 
-long-term nuclear waste management strategy, perceived adverse safety, 
-environmental, and health effects, and increases the risk of nuclear proliferation,
+Nuclear power has high capital costs, an unresolved 
+long-term used nuclear fuel management strategy, perceived adverse safety, 
+environmental, and health effects, and increases the risk of nuclear proliferation
 \cite{massachusetts_institute_of_technology_future_2003}. 
 The nuclear power industry must overcome these four challenges 
 to ensure continued global use and expansion 
@@ -39,16 +38,17 @@ in which fabricated nuclear fuel is used once and placed into
 storage to await disposal. 
 This once-through fuel cycle is associated with the four
 challenges described above.
-To overcome these challenges, the \gls{DOE} chartered an evaluation 
+To overcome these challenges, the Office of Nuclear Energy's
+\gls{FCO} Campaign led an evaluation 
 and screening study of a comprehensive set of nuclear \gls{FCO} 
-to identify \glspl{FCO} with potential to substantially 
+to identify \glspl{FCO} with the potential to substantially 
 improve the nuclear fuel cycle in the four challenge areas
 \cite{wigeland_nuclear_2014}. 
 
 The study concluded that fuel cycles with continuous recycling
 of co-extracted U/Pu or U/TRU in fast spectrum critical reactors
 consistently scored high overall performance in the following 
-categories: nuclear waste management, environmental impact, 
+categories: used nuclear fuel management, environmental impact, 
 and resource utilization. 
 The evaluation and screening study assumed
 the nuclear energy systems were at equilibrium to understand 
@@ -56,23 +56,23 @@ the end-state benefits of each \gls{EG} \cite{feng_standardized_2016}.
 Therefore, evaluation of the transition from the current 
 once-through fuel cycle to these promising 
 future end-states \cite{feng_standardized_2016} 
-is the logical next step, propelling 
-nuclear fuel cycle transition 
-scenario analysis research. 
+is the logical next step, propelling this
+nuclear fuel cycle transition scenario analysis research. 
 
-\gls{NFC} simulator tools must automate the transition scenario simulation 
+\gls{NFC} simulation tools must automate the transition scenario simulation 
 setup to successfully model a time-dependent transition scenario. 
 Many existing \gls{NFC} simulator tools have conducted 
 transition scenario analyses 
 \cite{feng_standardized_2016,bae_standardized_2019,coquelet-pascal_cosi6:_2015}
 and faced challenges stemming from the vast input parameter
 sample space.
-Since many of these input parameters are interdependent, it is 
+Since many of these input parameters are coupled, it is 
 a tedious process to use trial and error to manually find a balance 
 between various input parameters to set up a successful transition 
 scenario. 
-A successful transition scenario is a simulation in which there 
-is minimal power undersupply.
+We define a successful transition scenario simulation as one that 
+has a minimal power undersupply, minimal undersupply, 
+and oversupply of all commodities. 
  
 In reality, the real transition process inevitably diverges
 from the modeled transition scenario. 
@@ -85,13 +85,14 @@ relevant output parameters.
 \section{Objectives}
 The objectives of this thesis were developed based on the difficulties 
 \gls{NFC} simulators face when modeling transition scenarios 
-and conducting sensitivity analysis.
-The objectives are to 
+and conducting sensitivity analysis in the context of those scenarios.
+Accordingly, we aim to 
 (1) develop a capability in \Cyclus to ease the setup of 
 transition scenarios, 
 (2) develop sensitivity analysis capabilities in \Cyclus and DYMOND, 
 (3) demonstrate the set up of \Cyclus transition scenarios using the 
-capability developed,
-(4) use \Cyclus and DYMOND to conduct sensitivity analysis studies
+developed capability,
+(4) use \Cyclus and DYMOND to conduct sensitivity studies
 , and
-(5) compare \Cyclus and DYMOND's capabilities in conducting \gls{SA}. 
+(5) compare \Cyclus' and DYMOND's capabilities in conducting sensitivity 
+analysis. 
