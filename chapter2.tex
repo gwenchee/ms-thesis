@@ -186,30 +186,31 @@ one-at-a-time, synergistic, and global.
 \subsection{One-at-a-time Sensitivity Analysis}
 One-at-a-time is a basic sensitivity analysis technique that estimates 
 the lone effect of one input variable. 
-This approach gives the local impact of each variable on the 
-performance metrics. 
+This approach gives each variable's local impact 
+on the performance metrics. 
 OECD conducted an one-at-a-time sensitivity analysis \cite{noauthor_effects_2017} 
 on key nuclear fuel cycle input parameters
 and quantified the impacts on the performance metrics. 
 The base scenario used has a duration of 200 years and begins 
-with a fleet of \glspl{PWR}, transitioning to \glspl{SFR} while 
+with \glspl{PWR}, that transition to \glspl{SFR} while 
 maintaining constant electricity production. 
 Each parameter was varied independently for three cases: 
 the base case, a high case, and a low case. 
 The results of these variations on the performance metrics 
 are expressed in tornado plots and sensitivity tables. 
-An overview of their analysis is given in 
-Figure \ref{fig:oecd-sensitivitytable}. 
+Their analysis overview is given in Figure \ref{fig:oecd-sensitivitytable}. 
 Figure \ref{fig:oecd-tornado} shows an example tornado plot that represents 
-the sensitivity of separated Pu in storage to the various input parameters. 
+the sensitivity of the separated Pu in storage amount to the 
+various input parameters. 
 
 \begin{figure}[]
 	\begin{center}
 		\includegraphics[scale=0.6]{./figures/oecd-sensitivitytable.png}
 	\end{center}	
         \caption{Overall results from OECD one-at-a-time sensitivity analysis 
-        study. Sensitivity Table with an overview of the sensitivity 
-		of each output parameter to the respective input parameters \cite{noauthor_effects_2017}.}
+        study. Sensitivity Table with an overview of each output parameter's 
+        sensitivity to the respective input parameters 
+        \cite{noauthor_effects_2017}.}
 	\label{fig:oecd-sensitivitytable}
 \end{figure}
 
@@ -218,26 +219,26 @@ the sensitivity of separated Pu in storage to the various input parameters.
 		\includegraphics[scale=0.75]{./figures/oecd-tornado.png}
 	\end{center}	
 		\caption{A tornado plot from the OECD one-at-a-time sensitivity analysis 
-        study, showing the sensitivity of separated Pu in 
-		storage to relation to each input parameter \cite{noauthor_effects_2017}.}
+        study, showing the sensitivity of the separated Pu in 
+		storage amount to each input parameter \cite{noauthor_effects_2017}.}
 	\label{fig:oecd-tornado}
 \end{figure}
 
 \subsection{Synergistic Sensitivity Analysis}
-The Synergistic sensitivity analysis technique involves multi-parameter 
-input sweeps to view the impact of synergistic 
-changes of input variables on specific output variables. 
+The synergistic sensitivity analysis technique involves multi-parameter 
+input sweeps to view how synergistically changing input variables 
+impacts the performance metrics.  
 Synergistic sensitivity analysis is conducted by varying 
 two input variables simultaneously and viewing their 
-combined impact on each output parameter or a combination 
-of weighted output parameters. 
+combined impact on each performance metric or a combination 
+of weighted performance metrics. 
 Figure \ref{fig:passerini_payoff} shows an example of this analysis 
 in which thermal reprocessing and fast reactor technology 
 introduction dates were varied, and the plot shows an objective 
-payoff surface representing a combination of multiple optimization 
-criteria. 
-This method of synergistic study informs on the local effects of 
-two input variables on the system; however, it fails to inform 
+payoff surface representing a combination of multiple performance 
+metrics. 
+Synergistic studies inform on the how variation in 
+two input variables impacts the system; however, it fails to inform 
 on the global sensitivity of the system. 
 
 \begin{figure}[]
@@ -253,14 +254,14 @@ on the global sensitivity of the system.
 \subsection{Global Sensitivity Analysis}
 \label{sec:sobol}
 To fully consider the synergistic effects of
-simultaneous variation of the input variables, a variance-based 
+simultaneous variation of all the input variables, a variance-based 
 approach can be used instead \cite{thiolliere_methodology_2018}.
 Thiolliere et al. conducted a global sensitivity analysis of a 
 nuclear fuel cycle transition scenario by using Latin Hypercube sampling 
 to generate Sobol indices. 
-Sobol Indices provide the global sensitivity effect of each 
-input variable by decomposing the variance of the output into 
-fractions attributed to inputs or sets of inputs.
+Sobol Indices provide the global sensitivity effect that each 
+input variable has on a performance metric by decomposing the 
+variance of the metric into fractions attributed to inputs or sets of inputs.
 Essentially, it indicates which design parameter has 
 the most influence on the response quantities.
 A large Sobol index signifies that variation in that input 
@@ -282,9 +283,9 @@ The only relevant sensitivity study was conducted by OECD
 sensitivity analysis.   
 Therefore, synergistic and global sensitivity analysis studies focused on
 lower-level input parameters such as cooling time, 
-date of introduction of reprocessing/reactor 
+introduction date of reprocessing/reactor 
 technologies, the ratio of technology types should be conducted to 
-understand the nuances of the variation of these low-level parameters. 
+understand the nuances brought about by the variation of low-level parameters. 
 Through synergistic sensitivity analysis, these transition scenarios can be 
 further optimized and used to inform other nuclear research areas 
 such as reprocessing facility design, etc. 
