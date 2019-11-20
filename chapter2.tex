@@ -2,7 +2,7 @@
 
 \section{History of Nuclear Fuel Cycle Simulators}
 The nuclear fuel cycle represents the life cycle of nuclear fuel from initial
-extraction, processing, use in reactors, and, eventually, 
+extraction through processing, use in reactors, and, eventually, 
 final disposal.
 It is a complex system of facilities and mass flows 
 combined to meet the goal of providing nuclear energy 
@@ -177,17 +177,17 @@ sensitivity analysis and add further modeling detail.
 It also identifies which parameters the system is relatively 
 insensitive to \cite{noauthor_effects_2017}. 
 
-\gls{SA} is a technique used to determine how the variation of 
+Sensitivity analysis is a technique used to determine how the variation of 
 different input variable(s) impacts the output of a given 
 scenario. 
 When setting up the simulation scenarios, many assumptions are made. 
-\gls{SA} assists in the evaluation of the sensitivity of the 
+Sensitivity analysis assists in the evaluation of the sensitivity of the 
 output of the scenario to each of these assumptions. 
 In this work, we use three types of sensitivity analysis: 
 one-at-a-time (OAT), synergistic, and global.
 
 \subsection{One-at-a-time Sensitivity Analysis}
-OAT is a basic \gls{SA} technique that estimates 
+OAT is a basic sensitivity analysis technique that estimates 
 the lone effect of one input variable. 
 This approach gives the local impact of each variable on the 
 output parameters of interest. 
@@ -227,10 +227,10 @@ the sensitivity of separated Pu in storage to the various input parameters.
 \end{figure}
 
 \subsection{Synergistic Sensitivity Analysis}
-The Synergistic \gls{SA} technique involves multi-parameter 
+The Synergistic sensitivity analysis technique involves multi-parameter 
 input sweeps to view the impact of synergistic 
 changes of input variables on specific output variables. 
-Synergistic \gls{SA} is conducted by varying 
+Synergistic sensitivity analysis is conducted by varying 
 two input variables simultaneously and viewing their 
 combined impact on each output parameter or a combination 
 of weighted output parameters. 
@@ -247,7 +247,7 @@ on the global sensitivity of the system.
 	\begin{center}
 		\includegraphics[scale=0.45]{./figures/passerini_payoff.jpg}
 	\end{center}	
-		\caption{Optimization Surface of the payoff when varying thermal 
+		\caption{Payoff surface for variation in thermal 
 		reprocessing and fast reactor technology introduction date
 		\cite{passerini_systematic_2014}}
 	\label{fig:passerini_payoff}
@@ -266,28 +266,28 @@ input variable by decomposing the variance of the output into
 fractions attributed to inputs or sets of inputs.
 Essentially, it indicates which design parameter has 
 the most influence on the response quantities.
-A large Sobol indices value signifies that variation in that input 
+A large Sobol index signifies that variation in that input 
 variable is more impactful to the output parameter.
 
 \subsection{Main Takeaways}
-\gls{SA} studies of \glspl{NFC} have previously been used to narrow 
+Sensitivity analysis studies of \glspl{NFC} have previously been used to narrow 
 down and compare a wide range of \gls{NFC} scenarios to determine 
 the ideal scenario end types. 
 The evaluation and screening study determined that the desired 
 fuel cycle end states were EG23, EG24, EG29, and EG30.
-These \gls{SA} studies focused on high level input 
+These sensitivity analysis studies focused on high level input 
 parameters such as reactor and reprocessing technologies, etc.
 However, limited sensitivity studies have been performed to 
 evaluate specific transition scenarios that describe the transition 
 from the current to desired end states.
 The only relevant sensitivity study was conducted by OECD 
 \cite{noauthor_effects_2017}, however it was a basic OAT 
-\gls{SA}.   
-Therefore, synergistic and global \gls{SA} studies focused on
+sensitivity analysis.   
+Therefore, synergistic and global sensitivity analysis studies focused on
 lower-level input parameters such as cooling time, 
 date of introduction of reprocessing/reactor 
 technologies, the ratio of technology types should be conducted to 
 understand the nuances of the variation of these low-level parameters. 
-Through synergistic \gls{SA}, these transition scenarios can be 
+Through synergistic sensitivity analysis, these transition scenarios can be 
 further optimized and used to inform other nuclear research areas 
 such as reprocessing facility design, etc. 

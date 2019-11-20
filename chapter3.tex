@@ -478,10 +478,10 @@ model to make the model fit the time series data better.
 \section{Sensitivity Analysis Capabilities}
 In this work, \Cyclus and DYMOND are coupled with Dakota 
 \cite{eldred_dakota_2010} to give the \gls{NFC} simulators 
-Sensitivity Analysis (\gls{SA}), 
+Sensitivity Analysis, 
 Uncertainty Quantification (\gls{UQ}), and optimization capabilities. 
 Dakota is coupled with \Cyclus and DYMOND because it 
-is a well supported \gls{SA}, \gls{UQ}, 
+is a well supported sensitivity analysis, \gls{UQ}, 
 and optimization tool that provides a flexible interface between 
 analysis codes and iterative system analysis methods 
 \cite{turner_virtual_nodate}. 
@@ -500,7 +500,7 @@ The Python interface has three functions:
 (2) run the simulation with the newly edited \gls{NFC} simulator's input file, and 
 (3) read the \gls{NFC} simulator's output file and returns values of interest 
 to the Dakota output file. 
-The Dakota input file defines the parameters for the \gls{SA}, \gls{UQ}, or 
+The Dakota input file defines the parameters for the sensitivity analysis, \gls{UQ}, or 
 optimization study.
 The difference between \Cyclus and DYMOND's Python interface with Dakota is the
 methods used to read and write to the input and output files. 
