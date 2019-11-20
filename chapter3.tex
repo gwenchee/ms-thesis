@@ -1,6 +1,6 @@
 \chapter{Methods}
 \label{chap:3}
-In this chapter, we describe the \gls{NFC} simulators utilized in this work
+In this chapter, we describe the nuclear fuel cycle simulators utilized in this work
 , \Cyclus and DYMOND, and the new capabilities developed for them. 
 The new capabilities developed are 
 (1) demand-driven deployment capabilities in \Cyclus, 
@@ -41,7 +41,7 @@ and facility concepts \cite{huff_fundamental_2016}.
 a SQL database. 
 
 \section{DYMOND}
-DYMOND \cite{yacout_modeling_2005} is a \gls{NFC} simulator developed 
+DYMOND \cite{yacout_modeling_2005} is a nuclear fuel cycle simulator developed 
 at Argonne National Laboratory (\gls{ANL}). 
 It is built using the AnyLogic simulation software with 
 Microsoft Excel templates for data input and output. 
@@ -90,10 +90,10 @@ Another option is to calculate a suitable deployment schedule manually.
 It is straightforward to determine a deployment scheme for a once-through 
 fuel cycle manually, however, it is not straightforward for complex 
 closed fuel cycle scenarios.
-A \gls{NFC} simulator should bring demand-responsive deployment decisions into 
-the simulation logic dynamics to ease setting up realistic \gls{NFC} 
+A nuclear fuel cycle simulator should bring demand-responsive deployment decisions into 
+the simulation logic dynamics to ease setting up realistic nuclear fuel cycle 
 simulations \cite{huff_current_2017}. 
-Thus, a next-generation \gls{NFC} simulator should automate 
+Thus, a next-generation nuclear fuel cycle simulator should automate 
 transition scenario setup by predictively and 
 automatically deploying fuel cycle facilities to meet user-defined 
 power demand. 
@@ -111,7 +111,7 @@ The \deploy \texttt{Institution} agent was
 implemented in Python to enable the use of 
 well-developed time series forecasting Python packages. 
 
-In a \Cyclus \gls{NFC} simulation, at every time step, \deploy 
+In a \Cyclus nuclear fuel cycle simulation, at every time step, \deploy 
 predicts the supply and demand of each commodity for the next time 
 step. 
 When there exists undersupply for any commodity, 
@@ -172,7 +172,7 @@ Minimizing excessive oversupply
 reflects reality in which utilities avoid 
 undersupply of power on the grid by ensuring power 
 plants are never short of fuel while avoiding expensive oversupply.
-\gls{NFC} simulators often face power undersupplies 
+Nuclear fuel cycle simulators often face power undersupplies 
 due to lack of viable fuel, despite having sufficient installed 
 reactor capacity.  
 Using \deploy to automate the deployment of supporting 
@@ -477,11 +477,11 @@ model to make the model fit the time series data better.
 
 \section{Sensitivity Analysis Capabilities}
 In this work, \Cyclus and DYMOND are coupled with Dakota 
-\cite{eldred_dakota_2010} to give the \gls{NFC} simulators 
-Sensitivity Analysis, 
-Uncertainty Quantification (\gls{UQ}), and optimization capabilities. 
+\cite{eldred_dakota_2010} to give the nuclear fuel cycle simulators 
+Sensitivity analysis, 
+uncertainty quantification, and optimization capabilities. 
 Dakota is coupled with \Cyclus and DYMOND because it 
-is a well supported sensitivity analysis, \gls{UQ}, 
+is a well supported sensitivity analysis, uncertainty quantification, 
 and optimization tool that provides a flexible interface between 
 analysis codes and iterative system analysis methods 
 \cite{turner_virtual_nodate}. 
@@ -490,18 +490,18 @@ Dakota to conduct sensitivity analysis
 \cite{turner_virtual_nodate,zhang_uncertainty_nodate}. 
 
 The process of coupling with Dakota is similar 
-for both \gls{NFC} simulators. 
+for both nuclear fuel cycle simulators. 
 Figure \ref{fig:dakota-NFC-flow} depicts the coupling; 
-Dakota wraps each of the \gls{NFC} simulators.
+Dakota wraps each of the nuclear fuel cycle simulators.
 In this work, we developed the Python interface between 
-Dakota and the \gls{NFC} simulators.
+Dakota and the nuclear fuel cycle simulators.
 The Python interface has three functions: 
-(1) edit the \gls{NFC} simulator's input file based on Dakota's input values, 
-(2) run the simulation with the newly edited \gls{NFC} simulator's input file, and 
-(3) read the \gls{NFC} simulator's output file and returns values of interest 
+(1) edit the nuclear fuel cycle simulator's input file based on Dakota's input values, 
+(2) run the simulation with the newly edited nuclear fuel cycle simulator's input file, and 
+(3) read the nuclear fuel cycle simulator's output file and returns values of interest 
 to the Dakota output file. 
-The Dakota input file defines the parameters for the sensitivity analysis, \gls{UQ}, or 
-optimization study.
+The Dakota input file defines the parameters for the sensitivity analysis, 
+uncertainty quantification, or optimization study.
 The difference between \Cyclus and DYMOND's Python interface with Dakota is the
 methods used to read and write to the input and output files. 
 
