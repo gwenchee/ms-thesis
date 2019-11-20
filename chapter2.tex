@@ -1,34 +1,33 @@
 \chapter{Literature Review}
 
-\section{History of Nuclear Fuel Cycle Simulators}
-The nuclear fuel cycle represents the life cycle of nuclear fuel from initial
+\section{Nuclear Fuel Cycle Simulator History}
+The nuclear fuel cycle represents the nuclear fuel life cycle from initial
 extraction through processing, use in reactors, and, eventually, 
 final disposal.
 It is a complex system of facilities and mass flows 
-combined to meet the goal of providing nuclear energy 
+combined to provide nuclear energy 
 in the form of electricity \cite{yacout_modeling_2005}.
 A closed nuclear fuel cycle reprocesses used fuel, whereas an open 
 nuclear fuel cycle does not.  
 The US has an open nuclear fuel cycle; other countries, such as France, 
-have a closed NFC. 
+have a closed nuclear fuel cycle. 
 
 Nuclear fuel cycle simulators are system analysis tools used to evaluate 
-quantitative measures of dynamic nuclear fuel cycle performance 
-in both high and low resolution. 
+nuclear fuel cycle performance in both high and low resolution. 
 Plutonium concentration in a single used fuel bundle and 
-total electricity produced are examples of high and low 
-resolution elements, respectively.   
-The primary purpose of nuclear fuel cycle simulators is to understand the 
-dependence between various input parameters and components 
+total electricity produced are high and low 
+resolution element examples, respectively.
+Nuclear fuel cycle simulators' primary purpose   
+is to understand the dependence between various input parameters and components 
 in the nuclear fuel cycle and the impact their variations have on 
 the system's performance. 
-The results of nuclear fuel cycle simulators are used to guide research 
+The results from nuclear fuel cycle simulators are used to guide research 
 efforts, advise future design choices, and provide 
 decision-makers with a transparent tool for evaluating \gls{FCO} 
 to inform big-picture policy decisions \cite{yacout_modeling_2005}.
 
 Historically, national laboratories around the globe have driven 
-development and are the primary users of nuclear fuel cycle simulator tools. 
+development and are nuclear fuel cycle simulator tools' primary users. 
 However, due to propriety access to these tools, universities and 
 other non-laboratory organizations have taken to creating their 
 own nuclear fuel cycle simulator tools. 
@@ -59,16 +58,16 @@ Two methods can be used to model facility and material flow in
 nuclear fuel cycle simulators: fleet-level and agent-level.  
 Fleet-based models do not distinguish between discrete facilities 
 or materials but instead lumps them into fleets and streams. 
-The advantages of this method are a more straightforward code 
+This method's advantages are a more straightforward code 
 structure and lower computational cost.
 Agent-based models treat facilities and materials as discrete 
 objects. 
-The advantages of this method are more flexible simulation control
+This method's advantages are more flexible simulation control
 and ease of simulating a wide range of scenarios with new 
 technologies.  
 
 The U.S. national laboratories conducted a benchmarking effort to 
-verify NFC simulators against each other
+verify nuclear fuel cycle simulators against each other
 \cite{feng_standardized_2016,guerin_benchmark_2009}. 
 These comparison studies assist developers in improving the
 codes to more realistically model the nuclear fuel cycle. 
@@ -80,7 +79,7 @@ to inform on potential strategic and policy decisions
 \cite{feng_standardized_2016}. 
 
 \section{Transition Scenarios}
-Chapter 1 gave an overview of the history and motivation of 
+Chapter 1 gave an overview of the history and motivation behind
 nuclear fuel cycle transition scenario research.
 This section describes the motivation behind transition 
 scenario studies in greater detail.
@@ -110,7 +109,7 @@ state to these promising \glspl{EG} \cite{feng_standardized_2016}.
 \begin{table}[]
     \centering
     \doublespacing
-    \caption{Descriptions of the current and other high performing nuclear fuel cycle evaluation groups described in the evaluation and screening study \cite{wigeland_nuclear_2014}.}
+    \caption{Descriptions of the current and other high performing nuclear fuel cycle evaluation groups from the evaluation and screening study \cite{wigeland_nuclear_2014}.}
     \label{tab:eg}
         \small
         \begin{tabular}{llll}
@@ -129,21 +128,21 @@ Both nuclear fuel cycle simulator tools used in this thesis, \Cyclus and DYMOND,
 were verified in a transition scenario benchmarking effort
 \cite{feng_standardized_2016,bae_standardized_2019}.
 The reference problem used in the benchmark was a simplified 
-transition of one hundred 1000-MWe \glspl{LWR} to a fleet 
-of 333.3-MWe \gls{SFR} fleet. 
+transition from a one hundred 1000-MWe \glspl{LWR} to a 
+333.3-MWe \gls{SFR} fleet. 
 They were found to have excellent agreement with the 
 spreadsheet solution and other nuclear fuel cycle codes.  
 This benchmarking effort proved that these nuclear fuel cycle simulators
 are capable of simulating a simple transition scenario. 
 However, it acknowledged that there needs to be more efforts 
-made to model realistic transition scenarios to evaluate the
-flexibility of the nuclear fuel cycle simulators \cite{feng_standardized_2016}.
-Chapter \ref{chap:3} gives in-depth descriptions of \Cyclus and DYMOND.
+made to model realistic transition scenarios to evaluate
+the nuclear fuel cycle simulators' flexibility \cite{feng_standardized_2016}.
+Chapter \ref{chap:3} gives in-depth \Cyclus and DYMOND descriptions.
 
 Many fuel cycle simulators, automatically deploy reactor facilities 
 to meet a user-defined power demand. 
-However, the user must define a deployment scheme of 
-supporting facilities to avoid gaps in the supply 
+However, the user must define the supporting facilities' 
+deployment scheme to avoid gaps in the supply 
 chain resulting in idle reactor capacity. 
 To avoid this issue, users use two strategies. 
 First, some users choose to set infinite capacity 
@@ -158,8 +157,8 @@ We simulate transition scenarios to predict the future;
 however, when implemented in the real world, they tend to deviate 
 from the optimal scenario.
 Therefore, nuclear fuel cycle simulators must be used to conduct
-sensitivity analysis studies to understand the nuances of 
-a transition scenario better to inform policy decisions reliably
+sensitivity analysis studies to better understand 
+transition scenario nuances to inform policy decisions reliably
 \cite{passerini_systematic_2014}. 
 
 Previous work towards Sensitivity Analysis (SA) and uncertainty quantification of 
@@ -167,8 +166,8 @@ nuclear fuel cycle simulations used these terms interchangeably
 because uncertainty quantification is viewed as design uncertainty.
 For example, a never-been-built pyrochemical reprocessing 
 facility's throughput is viewed as a variable design parameter.
-We determine the impact of the variation of the pyroprocessing 
-facility's throughput on essential output parameters.
+We determine the impact of varying the pyroprocessing 
+facility's throughput on performance metrics.
 Similarly, by conducting studies on a more extensive set of input 
 parameters, it is possible to determine the most sensitive input 
 parameters.
@@ -177,9 +176,8 @@ sensitivity analysis and add further modeling detail.
 It also identifies which parameters the system is relatively 
 insensitive to \cite{noauthor_effects_2017}. 
 
-Sensitivity analysis is a technique used to determine how the variation of 
-different input variable(s) impacts the output of a given 
-scenario. 
+Sensitivity analysis is a technique used to determine how varying
+different input variable(s) impacts the a transition scenario's performance metrics.
 When setting up the simulation scenarios, many assumptions are made. 
 Sensitivity analysis assists in the evaluation of the sensitivity of the 
 output of the scenario to each of these assumptions. 
@@ -190,16 +188,16 @@ one-at-a-time (OAT), synergistic, and global.
 OAT is a basic sensitivity analysis technique that estimates 
 the lone effect of one input variable. 
 This approach gives the local impact of each variable on the 
-output parameters of interest. 
+performance metrics. 
 OECD conducted an OAT sensitivity analysis \cite{noauthor_effects_2017} 
 on key nuclear fuel cycle input parameters
-and quantified the impacts on selected output parameters. 
+and quantified the impacts on the performance metrics. 
 The base scenario used has a duration of 200 years and begins 
 with a fleet of \glspl{PWR}, transitioning to \glspl{SFR} while 
 maintaining constant electricity production. 
 Each parameter was varied independently for three cases: 
 the base case, a high case, and a low case. 
-The results of these variations on the output parameters 
+The results of these variations on the performance metrics 
 are expressed in tornado plots and sensitivity tables. 
 An overview of their analysis is given in 
 Figure \ref{fig:oecd-sensitivitytable}. 
