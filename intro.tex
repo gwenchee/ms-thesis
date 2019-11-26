@@ -98,13 +98,41 @@ performance metrics.
 This thesis' objectives were developed based on the difficulties 
 nuclear fuel cycle simulators face when modeling transition scenarios 
 and conducting sensitivity analysis in the context of those scenarios.
-Accordingly, we aim to 
-(1) develop a capability in \Cyclus to ease the setup of 
-transition scenarios, 
-(2) develop sensitivity analysis capabilities in \Cyclus and DYMOND, 
-(3) demonstrate \Cyclus transition scenario setup using the 
-developed capability,
-(4) use \Cyclus and DYMOND to conduct sensitivity studies
-, and
-(5) compare \Cyclus' and DYMOND's capabilities in conducting sensitivity 
-analysis. 
+Accordingly, the objectives are listed below. 
+\paragraph{Develop a capability in \Cyclus to ease the setup of 
+transition scenarios.}
+Due to the interdependence of many nuclear fuel cycle input parameters, 
+nuclear fuel cycle simulator users'
+must manually determine each facility's deployment schedule 
+to avoid supply chain gaps. 
+Thus, a next-generation nuclear fuel cycle simulator must automate 
+transition scenario setup by predictively and 
+automatically deploying fuel cycle facilities to meet user-defined 
+power demand. 
+
+\paragraph{Develop sensitivity analysis capabilities in \Cyclus and DYMOND.}
+Sensitivity analysis identifies areas in the nuclear fuel cycle
+that highly influence performance metrics. 
+We leverage Dakota \cite{eldred_dakota_2010}, a well supported sensitivity 
+analysis tool, to introduce sensitivity analysis capabilities to 
+\Cyclus and DYMOND.  
+
+\paragraph{Demonstrate \Cyclus transition scenario setup using the 
+developed capability.} 
+We demonstrate successful implementation of \Cyclus' automated transition scenario 
+setup capability by setting up a simple three-facility transition scenario and 
+a complex closed fuel cycle transition scenario. 
+
+\paragraph{Use \Cyclus and DYMOND to conduct sensitivity studies.}
+We demonstrate one-at-a-time, synergistic, and global sensitivity analysis 
+with \Cyclus-Dakota and DYMOND-Dakota. 
+
+\paragraph{Compare \Cyclus-Dakota's and DYMOND-Dakota's capabilities in conducting sensitivity 
+analysis.} 
+DYMOND lacks the automated transition scenario setup capability that was developed for 
+\Cyclus. 
+Through comparison of sensitivity analysis studies conducted by \Cyclus-Dakota and 
+DYMOND-Dakota, we demonstrate the importance of automated transition scenario setup 
+capability in nuclear fuel cycle simulators. 
+
+
