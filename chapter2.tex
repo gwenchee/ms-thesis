@@ -14,7 +14,7 @@ have a closed nuclear fuel cycle.
 
 % Why were nuclear fuel cycle simulators introduced 
 Nuclear fuel cycle system analysis tools were introduced to investigate 
-its dynamics at a local and global level. 
+nuclear fuel cycle dynamics at a local and global level. 
 Nuclear fuel cycle simulators' primary purpose   
 is to understand the dependence between various system designs, deployment 
 strategies, and technology choices
@@ -33,7 +33,7 @@ development of nuclear fuel cycle simulators.
 These simulators track the flow of materials through the nuclear fuel cycle, 
 from enrichment to final disposal of the fuel. 
 However many have been developed for customized applications, resulting in 
-inflexible architectures.  
+inflexible architectures \cite{huff_fundamental_2016}.  
 
 Two methods can be used to model facility and material flow in 
 nuclear fuel cycle simulators: fleet-level and agent-level.  
@@ -44,11 +44,11 @@ Agent-based models treat facilities and materials as discrete
 objects. 
 This method's advantages are more flexible simulation control,
 ease of simulating a wide range of scenarios with new 
-technologies, enable plug-and-play comparison of modeling 
-methodologies, and allows for a range of fidelities.  
-Many nuclear fuel cycle simulators model only fleet-level dynamics,
-grouping facilities into fleets and materials into streams, valuing integral 
-effects over isotopic and facility-level resolution \cite{huff_fundamental_2016}.
+technologies, enabling of plug-and-play comparison of modeling 
+methodologies, and allowing for a range of fidelities.  
+Many nuclear fuel cycle simulators value integral effects over isotopic and 
+facility-level resolution by modeling only fleet-level dynamics,
+grouping facilities into fleets and materials into streams \cite{huff_fundamental_2016}.
 
 Historically, national laboratories have restricted public access to their tools, 
 resulting in universities and 
@@ -86,13 +86,13 @@ and the organization(s) associated with them.
 
 In this work, we use the \Cyclus and DYMOND nuclear fuel cycle simulator tools. 
 The \Cyclus nuclear fuel cycle simulator was created to break the practice of 
-tools with inflexible architectures and restricted access.
+tools with inflexible architectures and restricted access \cite{huff_fundamental_2016}.
 \Cyclus is an open source nuclear fuel cycle simulator with agent-based 
 modeling of discrete facilities and isotopic materials. 
 With an agent-based framework, the simulator tracks transformation and 
 trade of resources between agents with customizable behavior
 \cite{huff_fundamental_2016}. 
-This enables a capability for extension and reuse of this tool for fuel cycle 
+This enables extension and reuse of this tool for fuel cycle 
 simulations with different objectives. 
 DYMOND is a hybrid nuclear fuel cycle simulator tool that uses fleet-based 
 modeling for all facilities and materials 
@@ -154,7 +154,7 @@ ORION, VISION, and MARKAL.
 This benchmarking effort proved that these nuclear fuel cycle simulators
 are capable of simulating a simple transition scenario. 
 However, to evaluate the nuclear fuel cycle simulators' flexibility, 
-more efforts must be made to model realistic transition scenarios
+Feng et al concluded that more efforts must be made to model realistic transition scenarios
 \cite{feng_standardized_2016}.
 
 \section{Sensitivity Analysis Studies}
@@ -164,22 +164,22 @@ more efforts must be made to model realistic transition scenarios
 We simulate transition scenarios to predict the future; 
 however, when implemented in the real world, the simulated 
 scenarios tend to deviate from the optimal scenario.
-Transition scenario analysis using nuclear fuel cycle simulators 
+Also, transition scenario analysis using nuclear fuel cycle simulators 
 are imperfect representations of the real world \cite{noauthor_effects_2017}.
-Therefore, nuclear fuel cycle simulators must be used to conduct
-sensitivity analysis studies to better understand 
-transition scenario nuances to
+Therefore, sensitivity analysis studies of nuclear fuel cycle transition 
+scenarios must be conducted to better understand the impact of the variation 
+of input parameters on performance metrics, enabling the nuclear fuel cycle simulators to
 more reliably inform policy decisions \cite{passerini_systematic_2014}. 
 
-Sensitivity analysis is a technique used to determine how varying
-different input variables impacts the a transition scenario's performance metrics.
+Transition scenario sensitivity analysis is a technique used to determine how varying
+different input variables impacts a transition scenario's performance metrics.
 Assumptions about facility parameters and technology readiness 
 are made when setting up the simulation scenarios. 
 Sensitivity analysis evaluates each performance metric's 
 sensitivity to each assumption. 
 Previous work towards sensitivity analysis and uncertainty quantification of 
 nuclear fuel cycle simulations used these terms interchangeably
-because uncertainty quantification is viewed as design uncertainty.
+because uncertainty quantification is viewed as design uncertainty \cite{noauthor_effects_2017}.
 For example, a never-been-built pyrochemical reprocessing 
 facility's throughput is viewed as a variable design parameter.
 We determine how variation of the pyroprocessing 
@@ -300,12 +300,12 @@ Latin Hypercube sampling is a statistical method for generating random samples o
 parameter values from a multidimensional distribution. 
 For Latin Hypercube Sampling of M input parameters, the user first chooses the  
 number of sample points, N, 
-then each parameter's input space is divided into N sub sections. 
-The algorithm will then select a random value from each subsection for each input 
+then each parameter's input space is divided into N sub-sections. 
+The algorithm will then select a random value from each sub-section for each input 
 parameter. 
 Once there is a list of samples for each input parameter, they are combined randomly 
 to form M-dimensional sets \cite{sobol_global_2001}.
-The simulation is run M times and the performance metrics of interest are recorded. 
+The nuclear fuel cycle simulation is run M times and the performance metrics of interest are recorded. 
 Sobol sensitivity analysis provides how much variability in the model's 
 performance metrics is dependent on each input parameter \cite{zhang_sobol_2015}. 
 Sobol Indices decomposes the 
