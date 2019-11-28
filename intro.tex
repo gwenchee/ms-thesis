@@ -35,14 +35,18 @@ The challenges described above are associated with
 the present once-through fuel cycle in the \gls{US}, 
 in which fabricated nuclear fuel is used once and placed into 
 storage to await disposal. 
-To overcome these challenges, the national laboratories 
-use nuclear fuel cycle simulators to explore 
+To overcome these challenges, nuclear fuel cycle simulator tools 
+are used to explore 
 long-term behavior and performance of alternative fuel cycles. 
 Nuclear fuel cycle simulators are used to evaluate the impact of 
 nuclear fuel cycles at both high and low resolution. 
 These simulators track the flow of materials through the nuclear fuel cycle, 
 from enrichment to final disposal of the fuel, while also accounting for 
 decay and transmutation of isotopes. 
+The impacts are evaluated in the form of `metrics', quantitative measures 
+of performance \cite{huff_fundamental_2016}. 
+These metrics are calculated from mass balances and facility operation 
+histories calculated by a fuel cycle simulator \cite{huff_fundamental_2016}. 
 By evaluating performance metrics of different fuel cycles, we gain an 
 understanding of how each facility's parameters and technology choices 
 impact the system's performance. 
@@ -65,7 +69,7 @@ The evaluation and screening study assumed
 the nuclear energy systems were at equilibrium to understand 
 each Evaluation Group's
 end-state benefits \cite{feng_standardized_2016}. 
-Therefore, evaluation of the transition from the current 
+Therefore, evaluation of the dynamics of transitioning from the current 
 once-through fuel cycle to these promising 
 future end-states \cite{feng_standardized_2016} 
 is the logical next step, propelling this
@@ -99,7 +103,9 @@ This thesis' objectives were developed based on the difficulties
 nuclear fuel cycle simulators face when modeling transition scenarios 
 and conducting sensitivity analysis in the context of those scenarios.
 Accordingly, the objectives are listed below. 
-\paragraph{Develop a capability in \Cyclus to ease the setup of 
+
+\paragraph{Develop a capability in \Cyclus \cite{huff_fundamental_2016},
+a nuclear fuel cycle simulator, to ease the setup of 
 transition scenarios.}
 Due to the interdependence of many nuclear fuel cycle input parameters, 
 nuclear fuel cycle simulator users'
@@ -110,7 +116,8 @@ transition scenario setup by predictively and
 automatically deploying fuel cycle facilities to meet user-defined 
 power demand. 
 
-\paragraph{Develop sensitivity analysis capabilities in \Cyclus and DYMOND.}
+\paragraph{Develop sensitivity analysis capabilities in the \Cyclus and DYMOND 
+nuclear fuel cycle simulators.}
 Sensitivity analysis identifies areas in the nuclear fuel cycle
 that highly influence performance metrics. 
 We leverage Dakota \cite{eldred_dakota_2010}, a well supported sensitivity 
@@ -133,6 +140,4 @@ DYMOND lacks the automated transition scenario setup capability that was develop
 \Cyclus. 
 Through comparison of sensitivity analysis studies conducted by \Cyclus-Dakota and 
 DYMOND-Dakota, we demonstrate the importance of automated transition scenario setup 
-capability in nuclear fuel cycle simulators. 
-
-
+capability in nuclear fuel cycle simulators.
