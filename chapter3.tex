@@ -599,11 +599,45 @@ and past values of an error series \cite{institute_sas_1985}:
     \intertext{where:}
     t &= \mbox{time index} \nonumber \\
     \mu &= \mbox{mean term} \nonumber \\
-    B &= \mbox{backshift operator, such that} BX_t = X_{t-1} \nonumber \\
+    B &= \mbox{backshift operator, such that } BX_t = X_{t-1} \nonumber \\
     \phi(B) &= \mbox{autoregressive operator} \nonumber \\
     \theta(B) &= \mbox{moving average operator} \nonumber \\
     a_t &= \mbox{random error} \nonumber 
 \end{align}
+
+\section{DYMOND}
+DYMOND \cite{yacout_modeling_2005} is a nuclear fuel cycle simulator developed 
+at Argonne National Laboratory (\gls{ANL}). 
+It is built using the AnyLogic simulation software with 
+Microsoft Excel templates for data input and output. 
+The primary inputs to this code are time-dependent power demand, 
+reactor, and fuel cycle characteristics 
+\cite{feng_standardized_2016}.   
+The code calls ORIGEN \cite{bell_origen_1973} during the simulation 
+to conduct reactor depletion calculations. 
+DYMOND records isotopic mass flows and inventories
+at a system-level.
+DYMOND's primary design objective is ease of understanding the  
+simulator's behavior and variables. 
+
+In DYMOND, reactor facilities are automatically deployed to 
+meet user-defined power demand, and the user can define 
+the percentage share of energy for up to five reactor types. 
+The user also defines the fuel loading model used to calculate 
+reactor spent fuel compositions, the type of reprocessing 
+technology for each reactor type, and the length 
+of used fuel cooling time. 
+In DYMOND, the user must define the deployment schedule for 
+the reprocessing plants; the cooling pools and storage pools 
+are all assumed to have infinite capacities. 
+DYMOND does not have demand-driven deployment capabilities for 
+supporting fuel cycle facilities. 
+
+The difference between \Cyclus and DYMOND is that \Cyclus uses 
+agent-based modeling for all facilities and mass flows, 
+whereas DYMOND uses fleet-based modeling for all facilities and 
+mass flows except for reactor facilities. 
+Compared to \Cyclus, DYMOND is easier to use but less flexible. 
 
 \section{Sensitivity Analysis Capabilities}
 In this work, \Cyclus and DYMOND are coupled with Dakota 
@@ -659,40 +693,6 @@ is the methods used to read and write to their input and output files.
     \label{fig:dakota-NFC-flow}
 \end{figure}
 
-\section{DYMOND}
-DYMOND \cite{yacout_modeling_2005} is a nuclear fuel cycle simulator developed 
-at Argonne National Laboratory (\gls{ANL}). 
-It is built using the AnyLogic simulation software with 
-Microsoft Excel templates for data input and output. 
-The primary inputs to this code are time-dependent power demand, 
-reactor, and fuel cycle characteristics 
-\cite{feng_standardized_2016}.   
-The code calls ORIGEN \cite{bell_origen_1973} during the simulation 
-to conduct reactor depletion calculations. 
-DYMOND records isotopic mass flows and inventories
-at a system-level.
-DYMOND's primary design objective is ease of understanding the  
-simulator's behavior and variables. 
-
-In DYMOND, reactor facilities are automatically deployed to 
-meet user-defined power demand, and the user can define 
-the percentage share of energy for up to five reactor types. 
-The user also defines the fuel loading model used to calculate 
-reactor spent fuel compositions, the type of reprocessing 
-technology for each reactor type, and the length 
-of used fuel cooling time. 
-In DYMOND, the user must define the deployment schedule for 
-the reprocessing plants; the cooling pools and storage pools 
-are all assumed to have infinite capacities. 
-DYMOND does not have demand-driven deployment capabilities for 
-supporting fuel cycle facilities. 
-
-The difference between \Cyclus and DYMOND is that \Cyclus uses 
-agent-based modeling for all facilities and mass flows, 
-whereas DYMOND uses fleet-based modeling for all facilities and 
-mass flows except for reactor facilities. 
-Compared to \Cyclus, DYMOND is easier to use but less flexible. 
-
 \subsection{DYMOND-Dakota Coupling (\texttt{ddwrapper})}
 % python scripts to parse the excel input and output templates 
 In the interface between DYMOND and Dakota, the Pywin32 
@@ -723,6 +723,13 @@ demonstrate \Cyclus and Dakota coupling.
 % Add Github doi 
 
 \section{Chapter Summary}
-
-
-
+In this chapter, we introduced the nuclear fuel cycle simulators, 
+\Cyclus and DYMOND. 
+In \Cyclus, we implemented an \texttt{Institution}, \deploy, that automatically deploys
+a supply chain of fuel cycle facilities to meet a user-defined power demand. 
+We also coupled \Cyclus and DYMOND with Dakota, a sensitivity 
+analysis tool. 
+With these new capabilities, we use \Cyclus and DYMOND to conduct 
+sensitivity analysis of transition scenario simulations. 
+\deploy will ensure automatic and effective transition set up in \Cyclus 
+sensitivity analysis studies. 
