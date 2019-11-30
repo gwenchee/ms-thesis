@@ -1,66 +1,77 @@
 \chapter{Conclusion}
 The present nuclear fuel cycle in the United States is a once-through 
-fuel cycle of light water reactors in which there exists no reprocessing 
-of the used fuel. 
-This nuclear fuel cycle faces cost, safety, proliferation, and waste 
-challenges that hinder large scale nuclear power deployment. 
+fuel cycle of light water reactors with no used fuel reprocessing. 
+This nuclear fuel cycle faces cost, safety, proliferation, and spent nuclear fuel
+challenges that hinder large-scale nuclear power deployment. 
 The U.S Department of Energy identified future 
-nuclear fuel cycles that overcome these challenges.  
+nuclear fuel cycles that may overcome these challenges.  
 One of the most promising nuclear fuel cycles is evaluation group (EG) 30, 
-which reprocesses used fuel's transuranics to fuel \gls{MOX} \glspl{PWR}
+which reprocesses transuranics to fuel \gls{MOX} \glspl{PWR}
 and \glspl{SFR}. 
 Modeling the transition from our current fleet to EG30 was historically 
 conducted using a single model in which the transition scenario future 
 is predicted based on assumptions made about various input parameters 
 such as facility size, length of used fuel cooling time, etc. 
-In reality, the real transition process inevitably diverges from the 
+In reality, the transition process inevitably diverges from the 
 modeled scenario. 
 To better understand the subtleties of the EG01-EG30 transition,
-in this work, we conduct sensitivity analysis studies to 
+in this work, we conducted sensitivity analysis studies to 
 understand the impact of changes in input parameters on the transition 
 and its final state. 
 
-We learned that sensitivity analysis studies of nuclear fuel cycles 
-are only useful if the nuclear fuel cycle simulator can 
+We learned that comprehensive sensitivity analysis studies of nuclear fuel cycles 
+are only feasible if the nuclear fuel cycle simulator can 
 automatically deploy supporting fuel cycle facilities 
 to ensure minimal idle reactor capacity. 
-Nuclear fuel cycle simulators must be flexible and resilient to 
+This automatic deployment capability makes nuclear fuel cycle simulators 
+flexible and resilient to 
 perturbations in transition scenario input parameters. 
 In this work, we developed the \deploy capability in \Cyclus to 
 automatically deploy fuel cycle facilities to meet user-defined 
 power demand. 
+We demonstrated the use of \deploy to set up the EG01-EG30 transition scenario,
+and found that the \texttt{FFT} prediction method was most effective at 
+minimizing power undersupply. 
+
 We used \deploy for the sensitivity analysis studies, and it has 
 proven to be flexible in minimizing idle reactor capacity for 
 transition scenarios with varying input parameters. 
-DYMOND can successfully set up a transition scenario if the 
-user sets up the fuel management strategy correctly. 
-However, for sensitivity analysis studies, it is less effective, 
+DYMOND requires the user to manually set up a correct fuel management 
+strategy to ensure a successful transition scenario with minimal 
+idle reactor capacity. 
+Therefore, when DYMOND is used for sensitivity analysis studies, it tends 
+to produce transition scenario simulations with idle reactor capacity 
 because the fuel management strategy was optimized manually for specific 
-scenario parameters, resulting in idle reactor capacity when 
-an input parameter changes during sensitivity analysis.
+scenario parameters and is not robust to changes in the input parameters.
 
-Sensitivity analysis studies for large systems such as nuclear 
+Sensitivity analyses for large systems such as nuclear 
 fuel cycle transition scenarios are challenging to conduct 
-since there exists a vast input sample space with
-upwards of 20 input parameters. 
-Previous work towards sensitivity analysis of the nuclear fuel cycle 
+since they involve a vast input parameter space with
+upwards of 20 input variables. 
+Previous work toward nuclear fuel cycle transition scenario sensitivity analysis 
 includes a one-at-a-time sensitivity analysis of each input parameter 
-to see the impact on the output variables of interest.
+to see the impact on the output variables of interest \cite{noauthor_effects_2017}.
 However, this type of sensitivity analysis fails to capture the 
 synergistic effects of the input parameters on the system.  
 In this work, we coupled nuclear fuel cycle simulators, \Cyclus and 
 DYMOND, with Dakota, a sensitivity analysis tool. 
-By doing this, we give these nuclear fuel cycle simulator codes 
-a new dimension to performing sensitivity analysis.
-With the use of one tool, many types of sensitivity analyses, 
-such as one-at-a-time, synergistic, and global, 
-can be conducted together to understand the subtlety of the 
-interdependence of input parameters on a transition scenario's 
-transition period and final state. 
+By coupling the nuclear fuel cycle simulators with Dakota, 
+many types of sensitivity analyses, 
+can be conducted together to understand the subtle
+interdependence of input parameters on transition scenario
+performance. 
+
 In this work, we demonstrated the use of \Cyclus-Dakota coupling 
 and DYMOND-Dakota coupling to conduct one-at-a-time, synergistic, and 
 global sensitivity analysis. 
-It is crucial to initially determine your evaluation metrics and 
+We found that the transition year input parameter was the most influential
+to the final depleted uranium and total idle reactor capacity performance 
+metrics, however, not it was not influential at all to the amount of final high 
+level waste in the simulation. 
+We found that fleet share ratio and cooling time input parameters 
+were the most influential to the amount of final high 
+level waste in the simulation. 
+This work demonstrates that it is crucial to initially determine evaluation metrics and 
 streamline the input variables of interest through global sensitivity 
 analysis; if not, the resulting analysis might include one-at-a-time and 
 synergistic sensitivity analysis of more than 20 input parameters, 
@@ -75,5 +86,5 @@ sensitivity analysis to determine the influential input parameters
 on the output parameters of interest. 
 Following that, one-at-a-time and synergistic sensitivity analysis can be used to do 
 further analysis of the influential and interdependent input parameters, respectively. 
-Thus, determining the trends and quantitative impacts of influential input 
-variables on output variables.  
+Thus, we can determine the trends and quantitative impacts of influential input 
+variables on the performance metrics.  
