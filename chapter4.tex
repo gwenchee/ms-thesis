@@ -300,8 +300,8 @@ The power demand equation:
     \path[->] (mox) edge[line width=0.5mm] node[ fill=white, anchor=center, pos=0.5] {MOX used fuel} (moxsto);
     \path[->] (moxsto) edge[line width=0.5mm] node[ fill=white, anchor=center, pos=0.5] {\shortstack{cooled used \\ MOX fuel}} (moxrep);
     \path[->] (moxrep) edge[line width=0.5mm] node[ fill=white, anchor=center, pos=0.5] {\shortstack{MOX reprocessing \\ waste}} (moxrepo);
-    \draw [arrow] (lwrrep) -- ([shift={(0.7cm,0cm)}]lwrrep.east)-- node[ fill=white, anchor=center, pos=0.5] {U/TRU} ([shift={(-0.7cm,0cm)}]frmix.west)--(frmix);
-    \draw [arrow] (frmix) -- ([shift={(-0.7cm,0cm)}]frmix.west) |- ([shift={(0cm,0.9cm)}]moxmix.north)--(moxmix);
+    \draw [arrow] (lwrrep) -- ([shift={(0.7cm,0cm)}]lwrrep.east)-- node[ fill=white, anchor=center, pos=0.5] {U/TRU} ([shift={(-1.05cm,0cm)}]frmix.west)--(frmix);
+    \draw [arrow] (frmix) -- ([shift={(-1.05cm,0cm)}]frmix.west) |- ([shift={(0cm,0.7cm)}]moxmix.north)--(moxmix);
     \draw [arrow] (frrep) -- ([shift={(0.7cm,0cm)}]frrep.east)-- node[ fill=white, anchor=center, pos=0.5] {U/TRU} ([shift={(0.7cm,0cm)}]frmix.east)--(frmix);
     \draw [arrow] (frmix) -- ([shift={(0.7cm,0cm)}]frmix.east) |- ([shift={(-0.7cm,0cm)}]moxmix.west)--(moxmix);
     \draw [-,thick] (moxrep) -- ([shift={(-0.7cm,0cm)}]moxrep.west)-- ([shift={(0.7cm,0cm)}]frrep.east)--(frrep);

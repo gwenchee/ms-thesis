@@ -1,4 +1,4 @@
-\documentclass[edeposit,fullpage,12pt]{uiucthesis2009}
+\documentclass[edeposit,fullpage,11pt]{uiucthesis2009}
 % Use draftthesis for notes and date markings on every page.  Useful when you
 %   have multiple copies floating around.
 % Use offcenter for the extra .5 inch on the left side. Needed with fullpage and fancy.
@@ -48,6 +48,8 @@
 \usepackage{amsmath}%
 \usepackage{MnSymbol}%
 \usepackage{wasysym}%
+\usepackage{adjustbox}
+\usepackage{hyperref}
 
 \usepackage{tikz}
 \usetikzlibrary{positioning, arrows, decorations, shapes}
@@ -68,6 +70,14 @@ text width=4em, text centered, rounded corners, minimum height=4em]
 \tikzstyle{bbslock} = [rectangle, draw, fill=illiniblue, 
 text width=4em, text centered, rounded corners, minimum height=4em]
 \tikzstyle{arrow} = [thick,->,>=stealth]
+\tikzstyle{olblock} = [rectangle, draw, fill=illiniorange, 
+text width=12em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{ollblock} = [rectangle, draw, fill=illiniorange, 
+text width=9em, text centered, rounded corners, minimum height=3em]
+\tikzstyle{bbmlock} = [rectangle, draw, fill=illiniblue, 
+text width=12em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{bbmmlock} = [rectangle, draw, fill=illiniblue, 
+text width=12em, text centered, rounded corners, minimum height=4em]
 
 \usepackage[document]{ragged2e}
 % Uncomment the appropriate one of the following four lines:
@@ -185,7 +195,7 @@ text width=4em, text centered, rounded corners, minimum height=4em]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % BIBLIOGRAPHY
 %
-\bibliographystyle{ans}
+\bibliographystyle{abbrv}
 \bibliography{2019-chee-thesis}
 
 \end{document}

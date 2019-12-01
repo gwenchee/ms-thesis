@@ -238,7 +238,7 @@ facility's deployment.
         \textcolor{illiniorange}{$\blacksquare$} & Deployed by \texttt{SupplyDrivenDeploymentInst} 
 		\end{tabular}}}
 		\caption{Simple once-through fuel cycle depicting which facilities are deployed by 
-		\texttt{DemandDrivenDeploymentInst} and \texttt{SupplyDrivenDeploymentInst}.}
+		\texttt{DemandDriven} \texttt{DeploymentInst} and \texttt{SupplyDrivenDeploymentInst}.}
 \label{fig:insts}
 \end{figure}
 
@@ -486,7 +486,7 @@ such as increasing and decreasing volatility in the same series
 The \texttt{ARCH} method is
 better than the \texttt{ARMA} method for volatile 
 time-series data \cite{flanagan_methods_2019}. 
-The StatsModels \cite{github_community_statsmodels:_2019}
+The StatsModels \cite{seabold_statsmodels:_2010}
 Python package is used to implement \texttt{ARMA} and 
 \texttt{ARCH} methods in \deploy. 
 
@@ -537,7 +537,7 @@ supply values:
 \end{align}
 
 This method was implemented in \deploy using the 
-NumPy \cite{developers_numpy_2013} Python package. 
+NumPy \cite{oliphant_guide_2006} Python package. 
 The \texttt{EXP-SMOOTHING} and \texttt{HOLT-WINTERS} 
 methods use a weighted average 
 of time-series data with exponentially decaying weights 
@@ -575,7 +575,7 @@ modeling seasonal time series data
     \alpha, \beta, \gamma &= \mbox{constants} \nonumber
 \end{align}
 
-The StatsModels \cite{github_community_statsmodels:_2019}
+The StatsModels \cite{seabold_statsmodels:_2010}
 Python package was used to implement the \texttt{EXP-SMOOTHING} 
 and \texttt{HOLT-WINTERS} methods in \deploy. 
 
@@ -588,7 +588,7 @@ seasonal method (\texttt{SW-}
 \noindent
 \texttt{SEASONAL}). 
 The method was implemented in \deploy by the auto \gls{ARIMA} 
-method in the pmdarima \cite{noauthor_pmdarima:_2019}
+method in the pmdarima \cite{smith_pmdarima:_2017}
 Python package. 
 The \gls{ARIMA} model is a dependent time series that is 
 modeled as a linear combination of its own past values 

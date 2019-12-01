@@ -52,7 +52,7 @@ a mixed fleet of \gls{MOX} \glspl{PWR} and \glspl{SFR}.
 Table \ref{tab:dymondinputs} describes those high-level OECD benchmark transition 
 scenario specifications. 
 
-\begin{table}[htb]
+\begin{table}[]
     \centering
     \doublespacing
     \caption{OECD Benchmark Transition Scenario
@@ -88,7 +88,7 @@ that closely match EG30 scenario specifications in
 Appendix B of the \gls{DOE} Evaluation and Screening Study 
 (E\&S study) \cite{wigeland_nuclear_2014}. 
 
-\begin{table}[htb]
+\begin{table}[]
     \centering
     \doublespacing
     \caption{\Cyclus facility input parameters for
@@ -174,7 +174,7 @@ The four evaluation metrics are:
 Table \ref{tab:category-output-DD} shows each evaluation metric's
 associated output variables and their indicators. 
 
-\begin{table}[htb]
+\begin{table}[]
     \centering
     \doublespacing
     \caption {Evaluation metrics and their associated output 
@@ -274,8 +274,8 @@ cooling pools.
 \begin{table}[]
     \centering
     \onehalfspacing
-    \caption{DYMOND: Assessment of how variation of used fuel cooling times
-    impacts evaluation metrics (waste management, resource utilization, 
+    \caption{DYMOND: Assessment of the impact of used fuel cooling time variation on
+    evaluation metrics (waste management, resource utilization, 
     and goodness of transition) for the OECD benchmark transition scenario \cite{chee_gwenchee/ddwrapper_2019}.}
 	\label{tab:dymond-ct-1}
         \footnotesize
@@ -340,8 +340,8 @@ cooling pools.
     \end{table}
 
     \begin{table}[]
-        \caption{DYMOND: Sensitivity analysis of how variation of used fuel 
-        cooling times impacts evaluation metrics (proliferation risk)for OECD benchmark transition scenario.
+        \caption{DYMOND: Impact of variation in used fuel 
+        cooling times on evaluation metrics (proliferation risk)for OECD benchmark transition scenario.
         The numbers in the table represent the percentage difference between 
     an output variable from each scenario and the base case scenario (Cooling time = 2 years) \cite{chee_gwenchee/ddwrapper_2019}.}
         \label{tab:dymond-ct-sa-2}
@@ -401,15 +401,15 @@ facility.
 \begin{table}[]
     \centering
     \onehalfspacing
-    \caption{\Cyclus: Assessment of how variation of used fuel cooling times
-    impacts evaluation metrics (waste management, resource utilization, 
-    and goodness of transition) for OECD benchmark transition scenario \cite{chee_arfc/dcwrapper_2019}.}
+    \caption{\Cyclus: Assessment of the impact of used fuel cooling time variation on
+    evaluation metrics (waste management, resource utilization, 
+    and goodness of transition) for EG01-EG30 transition scenario \cite{chee_arfc/dcwrapper_2019}.}
 	\label{tab:cyclus-ct-1}
         \footnotesize
         \begin{tabularx}{\textwidth}{R|RR|R|RRR}
             \hline	
             \textbf{Scenario} & \multicolumn{2}{c|}{\textbf{Environmental Impact}}                                                                                                                                                                                                                                                      & \textbf{Resource Utilization}                                                                                        & \multicolumn{3}{c}{\textbf{Goodness of Transition}}                                                                                                                                                                                 \\ \hline
-\textbf{Used Fuel Cooling Time [yr]} & \textbf{Final HLW [kg] } & \textbf{Final Depleted U [kg]} &  \textbf{Uranium Ore Used [kg]}  & \textbf{Total Idle Capacity [kg]} & \textbf{Final Idle Capacity Year} & \textbf{Length of Transition [yrs]} \\ \hline
+\textbf{Used Fuel Cooling Time [yr]} & \textbf{Final HLW [kg] } & \textbf{Final Depleted U [kg]} &  \textbf{Uranium Ore Used [kg]}  & \textbf{Total Idle Capacity [MW]} & \textbf{Final Idle Capacity Year} & \textbf{Length of Transition [yrs]} \\ \hline
 
 0  & 13223828.1 & 798818620.4      & 1.437e11    & 135.1               & 962                     & 2                      \\
 2  & 13073261.2 & 798818620.4      & 1.437e11    & 135.1               & 962                     & 2                      \\
@@ -422,8 +422,8 @@ facility.
 \begin{table}[]
     \centering
     \onehalfspacing
-    \caption{\Cyclus: Assessment of how variation of used fuel cooling times
-    impacts evaluation metrics (proliferation risk) for OECD benchmark
+    \caption{\Cyclus: Assessment of the impact of used fuel cooling time variation on
+    evaluation metrics (proliferation risk) for EG01-EG30
 	transition scenario \cite{chee_arfc/dcwrapper_2019}.}
 	\label{tab:cyclus-ct-2}
     \footnotesize
@@ -442,9 +442,9 @@ facility.
 % add color 
 \begin{table}[]
     \onehalfspacing
-    \caption{\Cyclus: Sensitivity analysis of how variation of used fuel 
-    cooling times impacts evaluation metrics (environmental impact, resource
-    utilization, and goodness of transition) for OECD benchmark 
+    \caption{\Cyclus: Impact of variation in used fuel 
+    cooling times on evaluation metrics (environmental impact, resource
+    utilization, and goodness of transition) for EG01-EG30 
     transition scenario.
     The numbers in the table represent the percentage difference between 
     an output variable from each scenario and the base case scenario (Cooling time = 2 years) \cite{chee_arfc/dcwrapper_2019}.}
@@ -470,8 +470,8 @@ facility.
 
     \begin{table}[]
         \onehalfspacing
-        \caption{\Cyclus: Sensitivity analysis of how variation of used fuel 
-        cooling times impacts evaluation metrics (proliferation risk) for OECD benchmark transition scenario.
+        \caption{\Cyclus: Impact of variation in used fuel 
+        cooling times on evaluation metrics (proliferation risk) for EG01-EG30 transition scenario.
         The numbers in the table represent the percentage difference between 
         an output variable from each scenario and the base case scenario (Cooling time = 2 years) \cite{chee_arfc/dcwrapper_2019}.}
         \label{tab:cyclus-ct-sa-2}
@@ -537,16 +537,16 @@ to minimize the Pu amount in the cooling pools and reprocessing facilities.
 \begin{table}[]
     \centering
     \onehalfspacing
-    \caption{\Cyclus: Assessment of how variation of fleet share ratio
-    of PWR MOX and SFR reactors
-    impacts evaluation metrics (environmental impact, resource
+    \caption{\Cyclus: Assessment of the impact of variation in fleet share ratio
+    of LWR MOX and SFR reactors on
+    evaluation metrics (environmental impact, resource
     utilization, and goodness of transition) for EG01-30 transition scenario \cite{chee_arfc/dcwrapper_2019}.}
 	\label{tab:cyclus-fs-1}
     \footnotesize
         \begin{tabularx}{\textwidth}{R|RR|R|RRR}
             \hline	
             \textbf{Scenario} & \multicolumn{2}{c|}{\textbf{Environmental Impact}}                                                                                                                                                                                                                                                      & \textbf{Resource Utilization}                                                                                        & \multicolumn{3}{c}{\textbf{Goodness of Transition}}                                                                                                                                                                                 \\ \hline
-\textbf{MOX Fleet Share [\%]} & \textbf{Final HLW [kg] } & \textbf{Final Depleted U [kg]} &  \textbf{Uranium Ore Used [kg]}  & \textbf{Total Idle Capacity [kg]} & \textbf{Final Idle Capacity Year} & \textbf{Length of Transition [yrs]} \\ \hline
+\textbf{MOX Fleet Share [\%]} & \textbf{Final HLW [kg] } & \textbf{Final Depleted U [kg]} &  \textbf{Uranium Ore Used [kg]}  & \textbf{Total Idle Capacity [MW]} & \textbf{Final Idle Capacity Year} & \textbf{Length of Transition [yrs]} \\ \hline
 
 0  & 13153061.6 & 798818620.4      & 1.437e11    & 135.1               & 962                     & 2                      \\
 5  & 13056988.7 & 798818620.4      & 1.437e11    & 135.1               & 962                     & 2                      \\
@@ -560,9 +560,9 @@ to minimize the Pu amount in the cooling pools and reprocessing facilities.
 \begin{table}[]
     \onehalfspacing
     \centering
-    \caption{\Cyclus: Assessment of how variation of fleet share ratio
-    of PWR MOX and SFR reactors
-    impacts evaluation metrics (proliferation risk) for EG01-30 transition scenario \cite{chee_arfc/dcwrapper_2019}.}
+    \caption{\Cyclus: Assessment of the impact of variation in fleet share ratio
+    of LWR MOX and SFR reactors on
+    evaluation metrics (proliferation risk) for EG01-30 transition scenario \cite{chee_arfc/dcwrapper_2019}.}
 	\label{tab:cyclus-fs-2}
     \footnotesize
         \begin{tabularx}{\textwidth}{R|RRRRRR}	
@@ -580,9 +580,10 @@ to minimize the Pu amount in the cooling pools and reprocessing facilities.
 % correct stuff 
 \begin{table}[]
     \onehalfspacing
-    \caption{\Cyclus: Sensitivity analysis of how variation of fleet share 
-    ratio impacts evaluation metrics (environmental impact, resource
-    utilization, and goodness of transition) for OECD benchmark 
+    \caption{\Cyclus: Impact of variation in fleet share ratio
+    of LWR MOX and SFR reactors on
+    evaluation metrics (environmental impact, resource
+    utilization, and goodness of transition) for EG01-EG30 
     transition scenario.
     The numbers in the table represent the percentage difference between 
     an output variable from each scenario and the base case scenario 
@@ -611,8 +612,9 @@ to minimize the Pu amount in the cooling pools and reprocessing facilities.
     % correct stuff 
 \begin{table}[]
     \onehalfspacing
-    \caption{\Cyclus: Sensitivity analysis of how variation of fleet share 
-    ratio impacts evaluation metrics (proliferation risk) for OECD benchmark 
+    \caption{\Cyclus: Impact of variation in fleet share ratio
+    of LWR MOX and SFR reactors on
+    evaluation metrics (proliferation risk) for EG01-EG30
     transition scenario.
     The numbers in the table represent the percentage difference between 
     an output variable from each scenario and the base case scenario
@@ -678,9 +680,8 @@ selected to ensure minimal idle reactor capacity.
 \begin{table}[]
     \centering
     \onehalfspacing
-    \caption{\Cyclus: Assessment of how variation of introduction date of 
-    advanced reactor technology
-    impacts evaluation metrics (environmental impact, resource
+    \caption{\Cyclus: Assessment of impact of variation in advanced reactor introduction year
+    on evaluation metrics (environmental impact, resource
     utilization, and goodness of transition) for EG01-30 transition scenario \cite{chee_arfc/dcwrapper_2019}.}
 	\label{tab:cyclus-ty-1}
         \footnotesize
@@ -701,9 +702,8 @@ selected to ensure minimal idle reactor capacity.
 \begin{table}[]
     \centering
     \onehalfspacing
-    \caption{\Cyclus: Assessment of how variation of introduction date of 
-    advanced reactor technology
-    impacts evaluation metrics (proliferation risk) 
+    \caption{\Cyclus: Assessment of impact of variation in advanced reactor introduction year
+    on evaluation metrics  (proliferation risk) 
     for EG01-30 transition scenario \cite{chee_arfc/dcwrapper_2019}.}
 	\label{tab:cyclus-ty-2}
     \footnotesize
@@ -722,9 +722,9 @@ selected to ensure minimal idle reactor capacity.
 % correct stuff
 \begin{table}[]
     \onehalfspacing
-    \caption{\Cyclus: Sensitivity analysis of how variation of advanced reactor 
-    introduction year impacts evaluation metrics (environmental impact, resource
-    utilization, and goodness of transition) for OECD benchmark 
+    \caption{\Cyclus: Impact of variation in advanced reactor introduction year
+    on evaluation metrics (environmental impact, resource
+    utilization, and goodness of transition) for EG01-EG30 
     transition scenario.
     The numbers in the table represent the percentage difference between 
     an output variable from each scenario and the base case scenario
@@ -753,8 +753,8 @@ selected to ensure minimal idle reactor capacity.
     % correct stuff
     \begin{table}[]
         \onehalfspacing
-        \caption{\Cyclus: Sensitivity analysis of how variation of advanced reactor 
-        introduction year impacts evaluation metrics (proliferation risk) for OECD benchmark 
+        \caption{\Cyclus: Impact of variation in advanced reactor introduction year
+        on evaluation metrics (proliferation risk) for EG01-EG30 
         transition scenario.
         The numbers in the table represent the percentage difference between 
     an output variable from each scenario and the base case scenario (transition year = 80) \cite{chee_arfc/dcwrapper_2019}.}
@@ -943,7 +943,7 @@ the final value of HLW.
 Fleet share and cooling time do not influence the final 
 depleted uranium value. 
     
-    \begin{table}[htb]
+    \begin{table}[]
         \centering
         \doublespacing
         \caption{The first order Sobol Indices for a global sensitivity analysis study of the impact of 
